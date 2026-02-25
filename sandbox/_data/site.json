@@ -1,12 +1,12 @@
 {
   "name": "My Site",
-  "sub": "Powered by @ak2lab/engine",
-  "fullName": "My Site — Powered by @ak2lab/engine",
-  "description": "@ak2lab/engine Sandbox — Plugin development & testing environment",
+  "sub": "Powered by @aidev2007/engine",
+  "fullName": "My Site — Powered by @aidev2007/engine",
+  "description": "@aidev2007/engine Sandbox — Plugin development & testing environment",
   "url": "http://localhost:8080",
   "logoHref": "/",
   "logoSvg": "<svg viewBox='0 0 48 48' width='40' height='40' xmlns='http://www.w3.org/2000/svg'><rect width='48' height='48' rx='8' fill='#025DCC'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='bold' font-size='20' fill='white'>AK</text></svg>",
-  "footerDesc": "This site is powered by <strong>@ak2lab/engine</strong>.<br>Replace this text via <code>site.footerDesc</code> in your <code>_data/site.json</code>.",
+  "footerDesc": "This site is powered by <strong>@aidev2007/engine</strong>.<br>Replace this text via <code>site.footerDesc</code> in your <code>_data/site.json</code>.",
   "copyright": "My Site. All Rights Reserved.",
   "footerAboutLinks": [
     { "label": "Engine Repo", "url": "https://github.com/ak2lab/ak2-engine" },

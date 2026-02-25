@@ -1,5 +1,5 @@
 {
-  "name": "@ak2lab/engine",
+  "name": "@aidev2007/engine",
   "version": "0.1.0",
   "description": "AK² Lab — Engine & Plugin System for Eleventy-based websites",
   "author": "AK² Lab",
@@ -14,5 +14,13 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aidev2007/ak2-engine.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
+
 }

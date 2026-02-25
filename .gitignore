@@ -4,3 +4,5 @@ sandbox/_site/
 *.log
 .DS_Store
 Thumbs.db
+*.code-workspace
+.npmrc

@@ -8,7 +8,7 @@ effects:
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
 
 {{ pageHero(
-  subtitle="@ak2lab/engine",
+  subtitle="@aidev2007/engine",
   title="Plugin Sandbox",
   lead="エンジン・プラグインの動作確認環境です。各テストページでプラグインの挙動を確認してください。",
   note="このページは開発用です。本番サイトには含まれません。",
