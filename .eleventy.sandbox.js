@@ -50,7 +50,7 @@ const JS_CORE_FIRST = [
   path.join("src", "core", "core-engine.js"),
 ];
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
   // ── Nunjucks: sandbox/_includes + src/plugins + src/includes を検索パスに追加 ──
   const nunjucksEnv = new Nunjucks.Environment([
@@ -101,7 +101,7 @@ module.exports = function(eleventyConfig) {
   });
 
   // ── Transform: 連続空行を削除 ─────────────────────────────────────────────
-  eleventyConfig.addTransform("removeBlankLines", function(content, outputPath) {
+  eleventyConfig.addTransform("removeBlankLines", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
       return content.replace(/(\r?\n){2,}/g, "\n");
     }
@@ -111,12 +111,13 @@ module.exports = function(eleventyConfig) {
   return {
     templateFormats: ["njk", "html", "md"],
     htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk",
 
     dir: {
-      input:    "sandbox",
-      output:   "sandbox/_site",
+      input: "sandbox",
+      output: "sandbox/_site",
       includes: "_includes",
-      data:     "_data",
+      data: "_data",
     },
   };
 };

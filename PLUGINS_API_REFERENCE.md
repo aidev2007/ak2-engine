@@ -17,8 +17,10 @@
 7. [エフェクトプラグイン](#7-エフェクトプラグイン)
 8. [ユーティリティマクロ（components/macros.njk）](#8-ユーティリティマクロ)
 9. [AK²Engine — エフェクト登録パターン](#9-ak²engine--エフェクト登録パターン)
-10. [CSS カスタマイズ](#10-css-カスタマイズ)
-11. [Eleventy 設定サンプル（.eleventy.js）](#11-eleventy-設定サンプル)
+10. [ページの作成方法（.md形式の推奨）](#10-ページの作成方法md形式の推奨)
+11. [Sandboxでの確認とビルドコマンド](#11-sandboxでの確認とビルドコマンド)
+12. [CSS カスタマイズ](#12-css-カスタマイズ)
+13. [Eleventy 設定サンプル（.eleventy.js）](#13-eleventy-設定サンプル)
 
 ---
 
@@ -854,7 +856,86 @@ window.MyEffect = MyEffect;
 
 ---
 
-## 10. CSS カスタマイズ
+## 10. ページの作成方法（.md形式の推奨）
+
+当アーキテクチャでは、**新しいページを作成する際は `.md`（Markdown）ファイルを使用することを推奨**しています。
+`.njk` ではなく `.md` を作成するだけで、ビルド時に自動的に HTML ページとして生成されます。
+
+### なぜ .md を使うのか？
+テキストコンテンツ（見出し、本文、リストなど）を自然な Markdown で書きながら、リッチなUIが必要な箇所にだけ Nunjucks マクロ（`{{ pageHero(...) }}` など）を埋め込むことができるため、非常に直感的で可読性の高いページ制作が可能になります。
+
+### 必須設定（店舗側の .eleventy.js）
+Markdown ファイル内で Nunjucks マクロを展開させるために、Eleventy の設定に以下の1行が必要です。
+
+```javascript
+  return {
+    templateFormats: ["njk", "html", "md"],
+    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk", // ← これが必須
+    // ...
+```
+
+### ページの記述例（src/about.md）
+
+```markdown
+---
+layout: layouts/base.njk
+title: 会社概要
+---
+{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
+{% from "block-concept-standard/block-concept-standard.njk" import conceptBlock %}
+
+{{ pageHero(
+  subtitle="ABOUT US",
+  title="会社概要",
+  lead="私たちのミッションとビジョンについて。"
+) }}
+
+<section class="section">
+  <div class="container">
+
+## 私たちが目指す世界
+テクノロジーとデザインの力で、Webの新しい可能性を切り開きます。
+ここには普通のMarkdownが見出し付きで書けます。
+- リストも書けます
+- 簡単です
+
+    {{ conceptBlock(
+      image="/images/office.jpg",
+      heading="洗練されたワークスペース",
+      body="<p>マクロもそのまま呼び出せます。</p>"
+    ) }}
+
+  </div>
+</section>
+```
+
+---
+
+## 11. Sandboxでの確認とビルドコマンド
+
+エンジンやプラグインを開発・修正した際は、`@ak2lab/engine` リポジトリ（工場）に内包されている **Sandbox環境** を使って動作確認を行います。
+
+### 起動コマンド
+ターミナルで `ak2-engine` ディレクトリに移動し、以下のコマンドを実行します。
+
+```bash
+npm run start:sandbox
+```
+
+*   `http://localhost:8080/` にローカルサーバーが立ち上がります。
+*   コードを保存すると自動でリロードされます。
+
+### ビルドの仕組み
+Sandbox環境は、店舗側の本番ビルドとは完全に独立しています。
+`package.json` に設定されている通り、Sandboxの処理はすべて設定ファイル **`.eleventy.sandbox.js`** によって制御されています。
+
+*   `npm run build:sandbox` （または `start:sandbox`）を実行すると、Eleventyは `sandbox/` ディレクトリ内の `.md` や `.njk` をコンパイルし、結果を `sandbox/_site/` に出力します。
+*   店舗側のビルド（将来的に `npm run build` で実行するもの）には一切影響を与えません。
+
+---
+
+## 12. CSS カスタマイズ
 
 ### CSS カスタムプロパティ（上書き可能）
 
