@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "start:sandbox": "eleventy --config=.eleventy.sandbox.js --serve",
-    "build:sandbox": "eleventy --config=.eleventy.sandbox.js"
+    "build:sandbox": "eleventy --config=.eleventy.sandbox.js",
+    "build": "npm run build:sandbox"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
