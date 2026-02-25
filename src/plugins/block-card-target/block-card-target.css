@@ -1,0 +1,48 @@
+/* ================================================================
+   block-card-target.css
+   縦型ターゲットカード（ガラスモーフィズム）
+   ================================================================ */
+
+.target-card-vertical {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--glass-shadow);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: 100%;
+    position: relative;
+    z-index: var(--z-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.target-card-vertical:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.9);
+}
+.target-icon-wrapper {
+    width: 70px; height: 70px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: var(--color-secondary);
+}
+.target-icon-wrapper svg { width: 32px; height: 32px; }
+.target-title {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+.target-text { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }

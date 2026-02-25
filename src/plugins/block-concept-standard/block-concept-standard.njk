@@ -1,0 +1,31 @@
+{# ================================================================
+   block-concept-standard.njk
+   コンセプトブロック（画像＋テキスト 左右レイアウト）
+   ================================================================
+   使い方:
+     {% from "block-concept-standard/block-concept-standard.njk" import conceptBlock %}
+     {{ conceptBlock(image, alt, heading, body, note, pos, delay) }}
+   ================================================================ #}
+
+{# ---- コンセプトブロック ----------------------------------------
+   image   : 画像 URL
+   alt     : alt テキスト
+   heading : 見出し
+   body    : 本文 HTML（| safe で出力）
+   note    : 注記（省略可）
+   pos     : "left"（デフォルト）or "right"
+   delay   : float-animation の animation-delay
+   ------------------------------------------------------------ #}
+{% macro conceptBlock(image, alt, heading, body, note="", pos="left", delay="0s") %}
+<div class="concept-layout{% if pos == 'right' %} reverse{% endif %}">
+  <div class="concept-visual float-animation" style="animation-delay:{{ delay }}">
+    <img src="{{ image }}" alt="{{ alt }}" loading="lazy"
+         style="width:100%;height:100%;object-fit:cover">
+  </div>
+  <div class="concept-text-area">
+    <h3 class="concept-head">{{ heading }}</h3>
+    <div class="concept-body">{{ body | safe }}</div>
+    {% if note %}<p class="concept-note">{{ note }}</p>{% endif %}
+  </div>
+</div>
+{% endmacro %}

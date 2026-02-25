@@ -1,0 +1,20 @@
+{# ================================================================
+   effect-bg-sparks.njk
+   火花セクション背景エフェクト
+   ================================================================
+   使い方:
+     {% from "effect-bg-sparks/effect-bg-sparks.njk" import bgSparks %}
+     {{ bgSparks() }}
+
+   前提条件:
+     - 親セクションに position: relative を設定
+     - utils: [section-effects] で section-effects.js をロード
+   ================================================================ #}
+
+{# ---- 火花 背景エフェクト canvas ----------------------------------
+   section の position:relative の中に置くこと
+   section-effects.js が自動検出してエフェクトを描画する
+   ------------------------------------------------------------ #}
+{% macro bgSparks() %}
+<canvas class="section-bg-canvas" data-section-effect="SparksEffect" aria-hidden="true"></canvas>
+{% endmacro %}

@@ -1,0 +1,31 @@
+/* ================================================================
+   block-imagecontent-standard.css
+   画像＋テキスト 横並びブロック
+   ================================================================ */
+
+.greeting-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+    z-index: var(--z-content);
+}
+@media(min-width: 900px) {
+    .greeting-layout { flex-direction: row; align-items: flex-start; }
+}
+.greeting-visual {
+    flex: 0 0 350px;
+    position: relative;
+}
+.greeting-visual img { border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.greeting-content { flex: 1; }
+.greeting-headline {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+}

@@ -1,0 +1,38 @@
+/* ================================================================
+   block-card-stance.css
+   横型スタンスカード
+   ================================================================ */
+
+.stance-card-horizontal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+.stance-card-horizontal:hover {
+    transform: translateX(5px);
+    border-color: var(--color-secondary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.stance-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    padding-top: 5px;
+}
+.stance-icon svg { width: 32px; height: 32px; }
+.stance-content { flex-grow: 1; }
+.stance-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--color-dark);
+}
+.stance-body { font-size: 0.95rem; line-height: 1.8; color: var(--color-text); }
+@media(max-width: 600px) {
+    .stance-card-horizontal { flex-direction: column; gap: 1rem; }
+}

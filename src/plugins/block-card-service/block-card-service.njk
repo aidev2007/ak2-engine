@@ -1,0 +1,29 @@
+{# ================================================================
+   block-card-service.njk
+   サービス説明カード
+   ================================================================
+   使い方:
+     {% from "block-card-service/block-card-service.njk" import serviceCard %}
+     {{ serviceCard("サービス名", "タグ", "¥20,000〜", "説明文", "補足") }}
+   ================================================================ #}
+
+{# ---- サービスカード --------------------------------------------
+   title : サービス名
+   tag   : タグラベル
+   price : 価格文字列（省略可）
+   desc  : 説明文
+   note  : 追記（省略可）
+   ------------------------------------------------------------ #}
+{% macro serviceCard(title, tag, price, desc, note) %}
+<div class="service-card">
+  <h4 class="service-card__title">{{ title }}</h4>
+  <span class="service-card__tag">{{ tag }}</span>
+  {% if price %}<p class="service-card__price">{{ price }}</p>{% endif %}
+  <p class="service-card__desc">{{ desc }}</p>
+  {% if note %}
+    <div class="tech-note-card" style="margin-top:1.5rem">
+      <p style="font-size:0.9rem;line-height:1.8;color:#334155">{{ note }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endmacro %}

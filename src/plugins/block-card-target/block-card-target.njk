@@ -1,0 +1,23 @@
+{# ================================================================
+   block-card-target.njk
+   縦型ターゲットカード（Lucide アイコン + テキスト、ガラスモーフィズム）
+   ================================================================
+   使い方:
+     {% from "block-card-target/block-card-target.njk" import targetCard %}
+     {{ targetCard("users", "タイトル<br>改行可", "説明文") }}
+   ================================================================ #}
+
+{# ---- ターゲットカード ------------------------------------------
+   icon  : Lucide アイコン名
+   title : 見出し（改行は <br> で）
+   desc  : 説明文
+   ------------------------------------------------------------ #}
+{% macro targetCard(icon, title, desc) %}
+<div class="target-card-vertical">
+  <div class="target-icon-wrapper" aria-hidden="true">
+    <i data-lucide="{{ icon }}"></i>
+  </div>
+  <h3 class="target-title">{{ title | safe }}</h3>
+  <p class="target-text">{{ desc }}</p>
+</div>
+{% endmacro %}

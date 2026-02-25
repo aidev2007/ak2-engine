@@ -1,0 +1,26 @@
+{# ================================================================
+   block-cta-standard.njk
+   CTA セクション
+   ================================================================
+   使い方:
+     {% from "block-cta-standard/block-cta-standard.njk" import ctaSection %}
+     {{ ctaSection(title, text, linkUrl, linkText, gradient) }}
+   ================================================================ #}
+
+{# ---- CTA セクション ---------------------------------------------
+   title    : 見出し
+   text     : 本文（HTML可）
+   linkUrl  : ボタンのリンク先
+   linkText : ボタンラベル
+   gradient : 背景グラデーション（省略可）
+   シングルトン：ページに1回使用
+   ------------------------------------------------------------ #}
+{% macro ctaSection(title, text, linkUrl, linkText, gradient="linear-gradient(135deg,#eff6ff,#f0f9ff)") %}
+<section class="section section--cta" style="background:{{ gradient }}">
+  <div class="container centered-content fade-in-section">
+    <h2 class="cta-title">{{ title }}</h2>
+    <p class="cta-text">{{ text | safe }}</p>
+    <a href="{{ linkUrl }}" class="btn-base btn-primary btn-magnetic">{{ linkText }}</a>
+  </div>
+</section>
+{% endmacro %}

@@ -1,0 +1,6 @@
+[
+  { "label": "Index",   "url": "/",          "root": "/" },
+  { "label": "Effects", "url": "/effects/",  "root": "/effects" },
+  { "label": "Blocks",  "url": "/blocks/",   "root": "/blocks" },
+  { "label": "Layout",  "url": "/layout/",   "root": "/layout" }
+]

@@ -1,0 +1,39 @@
+/* ================================================================
+   block-card-service.css
+   サービス説明カード
+   ================================================================ */
+
+.service-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border-top: 5px solid var(--color-primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.service-card:hover { transform: translateY(-3px); }
+.service-card__title { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--color-dark); font-weight: 700; }
+.service-card__tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    background: var(--color-text-light);
+    padding: 0.2em 0.8em;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+}
+.service-card__price {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    line-height: 1;
+}
+.service-card__desc { flex-grow: 1; color: var(--color-text); }

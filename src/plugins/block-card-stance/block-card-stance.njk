@@ -1,0 +1,25 @@
+{# ================================================================
+   block-card-stance.njk
+   横型スタンスカード（Lucide アイコン + テキスト）
+   ================================================================
+   使い方:
+     {% from "block-card-stance/block-card-stance.njk" import stanceCard %}
+     {{ stanceCard("shield-off", "タイトル", "本文テキスト") }}
+   ================================================================ #}
+
+{# ---- Stanceカード（横型） --------------------------------------
+   icon  : Lucide アイコン名
+   title : 見出し
+   body  : 本文
+   ------------------------------------------------------------ #}
+{% macro stanceCard(icon, title, body) %}
+<div class="stance-card-horizontal">
+  <div class="stance-icon" aria-hidden="true">
+    <i data-lucide="{{ icon }}"></i>
+  </div>
+  <div class="stance-content">
+    <h3 class="stance-title">{{ title }}</h3>
+    <p class="stance-body">{{ body }}</p>
+  </div>
+</div>
+{% endmacro %}

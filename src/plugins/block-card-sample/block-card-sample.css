@@ -1,0 +1,45 @@
+/* ================================================================
+   block-card-sample.css
+   サンプルサイト紹介カード
+   ================================================================ */
+
+.sample-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease;
+    border: 1px solid #f1f5f9;
+}
+.sample-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+.sample-card__image-wrap {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+.sample-card__image {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.sample-card:hover .sample-card__image { transform: scale(1.05); }
+.sample-card__overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+.sample-card__theme {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+.sample-card__body { padding: 2rem; }
+.sample-card__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.sample-card__title { font-size: 1.3rem; font-weight: 700; color: var(--color-dark); margin-bottom: 1.2rem; }
+.sample-card__features { list-style: none; margin-bottom: 1.5rem; }
+.sample-card__features li { font-size: 0.9rem; color: var(--color-text-light); padding: 0.3rem 0; display: flex; align-items: center; }
+.sample-card__footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.sample-card__pages { font-size: 0.85rem; color: var(--color-text-light); font-family: var(--font-mono); }

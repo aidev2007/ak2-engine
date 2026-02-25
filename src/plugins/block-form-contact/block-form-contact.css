@@ -1,0 +1,42 @@
+/* ================================================================
+   block-form-contact.css
+   コンタクトフォーム
+   ================================================================ */
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: var(--z-content);
+}
+.contact-intro__lead {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 4rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: var(--z-content);
+}
+@media(max-width: 600px) { .contact-form { padding: 2rem; } }
+.form-group { margin-bottom: 1.8rem; }
+.form-label { display: block; margin-bottom: 0.8rem; font-weight: 700; font-size: 0.95rem; color: var(--color-dark); }
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+}
+.form-input:focus, .form-textarea:focus { outline: none; border-color: var(--color-primary); }
+.form-textarea { height: 180px; resize: vertical; }
+.form-actions { text-align: center; margin-top: 3rem; }

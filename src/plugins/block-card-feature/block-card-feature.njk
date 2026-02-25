@@ -1,0 +1,21 @@
+{# ================================================================
+   block-card-feature.njk
+   特長アイテム（Lucide アイコン + タイトル + 説明文）
+   ================================================================
+   使い方:
+     {% from "block-card-feature/block-card-feature.njk" import featureItem %}
+     {{ featureItem("zap", "タイトル", "説明テキスト") }}
+   ================================================================ #}
+
+{# ---- 特長アイテム ----------------------------------------------
+   icon  : Lucide アイコン名
+   title : 見出し
+   text  : 説明文
+   ------------------------------------------------------------ #}
+{% macro featureItem(icon, title, text) %}
+<div class="feature-item">
+  <div class="feature-icon"><i data-lucide="{{ icon }}"></i></div>
+  <h3 class="feature-title">{{ title }}</h3>
+  <p class="feature-text">{{ text }}</p>
+</div>
+{% endmacro %}

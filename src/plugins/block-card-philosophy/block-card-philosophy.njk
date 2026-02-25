@@ -1,0 +1,21 @@
+{# ================================================================
+   block-card-philosophy.njk
+   Philosophy カード（AK² 理念の A / K / ² / Lab を表示）
+   ================================================================
+   使い方:
+     {% from "block-card-philosophy/block-card-philosophy.njk" import philosophyCard %}
+     {{ philosophyCard("A", "Art（感性・技巧）", "説明文...") }}
+   ================================================================ #}
+
+{# ---- Philosophyカード ------------------------------------------
+   char : A / K / ² / Lab
+   term : 日本語タイトル
+   desc : 説明文
+   ------------------------------------------------------------ #}
+{% macro philosophyCard(char, term, desc) %}
+<div class="philosophy-card">
+  <span class="philosophy-char">{{ char }}</span>
+  <span class="philosophy-term">{{ term }}</span>
+  <p class="philosophy-desc">{{ desc }}</p>
+</div>
+{% endmacro %}

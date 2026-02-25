@@ -1,0 +1,22 @@
+{# ================================================================
+   block-faq-accordion.njk
+   FAQ アコーディオンアイテム
+   ================================================================
+   使い方:
+     {% from "block-faq-accordion/block-faq-accordion.njk" import faqItem %}
+     {{ faqItem("質問文", "回答文") }}
+   ================================================================ #}
+
+{# ---- FAQ アイテム ----------------------------------------------
+   q : 質問文
+   a : 回答文
+   ------------------------------------------------------------ #}
+{% macro faqItem(q, a) %}
+<details class="faq-item">
+  <summary class="faq-summary">
+    {{ q }}
+    <span class="faq-icon" aria-hidden="true">▼</span>
+  </summary>
+  <div class="faq-answer">{{ a }}</div>
+</details>
+{% endmacro %}

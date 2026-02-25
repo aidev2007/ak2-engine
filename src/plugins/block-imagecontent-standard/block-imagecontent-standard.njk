@@ -1,0 +1,28 @@
+{# ================================================================
+   block-imagecontent-standard.njk
+   画像＋テキスト 横並びブロック
+   ================================================================
+   使い方:
+     {% from "block-imagecontent-standard/block-imagecontent-standard.njk" import imageContentBlock %}
+     {{ imageContentBlock(image, alt, headline, bodyHtml, delay) }}
+   ================================================================ #}
+
+{# ---- 画像＋テキスト 横並びブロック ----------------------------
+   image     : 画像 URL
+   alt       : alt テキスト
+   headline  : 太字見出し（省略可）
+   bodyHtml  : 本文 HTML（| safe で出力）
+   delay     : float-animation の animation-delay
+   ------------------------------------------------------------ #}
+{% macro imageContentBlock(image, alt, headline="", bodyHtml="", delay="0.5s") %}
+<div class="greeting-layout">
+  <div class="greeting-visual">
+    <img src="{{ image }}" alt="{{ alt }}"
+         class="float-animation" style="animation-delay:{{ delay }}" loading="lazy">
+  </div>
+  <div class="greeting-content">
+    {% if headline %}<div class="greeting-headline">{{ headline }}</div>{% endif %}
+    {{ bodyHtml | safe }}
+  </div>
+</div>
+{% endmacro %}

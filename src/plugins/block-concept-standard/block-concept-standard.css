@@ -1,0 +1,39 @@
+/* ================================================================
+   block-concept-standard.css
+   コンセプトブロック（画像＋テキスト 左右レイアウト）
+   ================================================================ */
+
+.concept-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+.concept-layout:last-child { margin-bottom: 0; }
+@media(min-width: 900px) {
+    .concept-layout { flex-direction: row; align-items: center; }
+    .concept-layout.reverse { flex-direction: row-reverse; }
+}
+.concept-visual {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    min-height: 300px;
+}
+.concept-text-area { flex: 1; }
+.concept-head {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+}
+.concept-body { font-size: 1rem; line-height: 2; color: var(--color-text); }
+.concept-note {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+}

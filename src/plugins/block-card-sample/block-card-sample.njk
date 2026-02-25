@@ -1,0 +1,45 @@
+{# ================================================================
+   block-card-sample.njk
+   サンプルサイト紹介カード
+   ================================================================
+   使い方:
+     {% from "block-card-sample/block-card-sample.njk" import sampleCard %}
+     {{ sampleCard(s, loop.index0) }}
+   ================================================================ #}
+
+{# ---- サンプルカード --------------------------------------------
+   s     : サンプルデータオブジェクト（_data/samples.json の1要素）
+           必須キー: image, title, theme, accentColor, tags[], features[], pages
+   index : ループインデックス（fade-in delay 計算用、デフォルト0）
+   ------------------------------------------------------------ #}
+{% macro sampleCard(s, index=0) %}
+<div class="sample-card fade-in-section" data-delay="{{ index * 120 }}">
+  <div class="sample-card__image-wrap" style="--accent:{{ s.accentColor }}">
+    <img src="{{ s.image }}" alt="{{ s.title }}" loading="lazy" class="sample-card__image">
+    <div class="sample-card__overlay">
+      <span class="sample-card__theme">{{ s.theme }}</span>
+    </div>
+  </div>
+  <div class="sample-card__body">
+    <div class="sample-card__tags">
+      {% for tag in s.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    <h2 class="sample-card__title">{{ s.title }}</h2>
+    <ul class="sample-card__features">
+      {% for f in s.features %}
+      <li>
+        <i data-lucide="check" style="width:14px;height:14px;color:#00C6FF;vertical-align:middle;margin-right:6px"></i>
+        {{ f }}
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="sample-card__footer">
+      <span class="sample-card__pages">
+        <i data-lucide="file-text" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"></i>
+        {{ s.pages }}
+      </span>
+      <a href="/#contact" class="btn-base btn-outline btn-sm">このテンプレートで相談する</a>
+    </div>
+  </div>
+</div>
+{% endmacro %}

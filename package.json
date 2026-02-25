@@ -1,0 +1,18 @@
+{
+  "name": "@ak2lab/engine",
+  "version": "0.1.0",
+  "description": "AK² Lab — Engine & Plugin System for Eleventy-based websites",
+  "author": "AK² Lab",
+  "license": "ISC",
+  "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "start:sandbox": "eleventy --config=.eleventy.sandbox.js --serve",
+    "build:sandbox": "eleventy --config=.eleventy.sandbox.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

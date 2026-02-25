@@ -1,0 +1,20 @@
+{# ================================================================
+   effect-bg-snow.njk
+   雪のセクション背景エフェクト
+   ================================================================
+   使い方:
+     {% from "effect-bg-snow/effect-bg-snow.njk" import bgSnow %}
+     {{ bgSnow() }}
+
+   前提条件:
+     - 親セクションに position: relative を設定
+     - utils: [section-effects] で section-effects.js をロード
+   ================================================================ #}
+
+{# ---- 雪 背景エフェクト canvas ------------------------------------
+   section の position:relative の中に置くこと
+   section-effects.js が自動検出してエフェクトを描画する
+   ------------------------------------------------------------ #}
+{% macro bgSnow() %}
+<canvas class="section-bg-canvas" data-section-effect="SnowEffect" aria-hidden="true"></canvas>
+{% endmacro %}

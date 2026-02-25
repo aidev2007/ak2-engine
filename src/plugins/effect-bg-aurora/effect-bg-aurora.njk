@@ -1,0 +1,20 @@
+{# ================================================================
+   effect-bg-aurora.njk
+   オーロラセクション背景エフェクト
+   ================================================================
+   使い方:
+     {% from "effect-bg-aurora/effect-bg-aurora.njk" import bgAurora %}
+     {{ bgAurora() }}
+
+   前提条件:
+     - 親セクションに position: relative を設定
+     - utils: [section-effects] で section-effects.js をロード
+   ================================================================ #}
+
+{# ---- オーロラ 背景エフェクト canvas ------------------------------
+   section の position:relative の中に置くこと
+   section-effects.js が自動検出してエフェクトを描画する
+   ------------------------------------------------------------ #}
+{% macro bgAurora() %}
+<canvas class="section-bg-canvas" data-section-effect="AuroraEffect" aria-hidden="true"></canvas>
+{% endmacro %}
