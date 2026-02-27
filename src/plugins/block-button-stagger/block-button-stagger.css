@@ -1,0 +1,9 @@
+/* ================================================================
+   block-button-stagger.css
+   Stagger Typography Button
+   ================================================================ */
+
+.stagger-btn-host {
+  display: inline-flex;
+  vertical-align: middle;
+}

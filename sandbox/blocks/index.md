@@ -86,7 +86,7 @@ title: Blocks Test
 <section class="section section--faq">
   <div class="container">
     {{ sectionHeader("block-faq-accordion", "faqItem") }}
-    <div style="max-width:800px;margin:0 auto">
+    <div class="sb-faq-wrap">
       {{ faqItem("Q. プラグインはどこに配置しますか？", "A. <code>src/plugins/</code> 配下に各プラグインフォルダを配置します。フォルダ名がそのままNunjucksのimportパスになります。") }}
       {{ faqItem("Q. 新しいエフェクトを追加するには？", "A. <code>src/plugins/effect-bg-{name}/</code> フォルダを作成し、<code>{name}.js</code> にエフェクトクラスを実装します。<code>window.XEffect = XEffect</code> で公開してください。") }}
       {{ faqItem("Q. CSSはどのようにバンドルされますか？", "A. <code>src/base.css</code> を先頭に、<code>src/core/*.css</code>、<code>src/plugins/**/*.css</code> がアルファベット順に結合されます。") }}

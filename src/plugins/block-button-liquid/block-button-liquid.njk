@@ -1,0 +1,31 @@
+{# ================================================================
+   block-button-liquid.njk
+   Liquid Morphing Button
+   ================================================================
+   使い方:
+     {% from "block-button-liquid/block-button-liquid.njk" import liquidButton %}
+     {{ liquidButton("Get Started") }}
+     {{ liquidButton("送信する", color="#0d9488", fontFamily="'Noto Sans JP', sans-serif") }}
+   ================================================================
+   依存: GSAP 3.x（useGsap: true を front-matter に設定するか、
+         手動で GSAP を <head> 内に読み込んでください）
+   ================================================================ #}
+
+{# ---- Liquid Morphing Button --------------------------------
+   text       : ボタンラベル（必須）
+   color      : ボタン色 hex                    (default: '#5046e5')
+   fontColor  : テキスト色 hex                  (default: '#ffffff')
+   fontFamily : フォントファミリー              (default: "'Outfit', sans-serif")
+   float      : 浮遊アニメーション on/off       (default: true)
+   shadow     : ドロップシャドウ on/off         (default: true)
+   ------------------------------------------------------------ #}
+{% macro liquidButton(text, color="#5046e5", fontColor="#ffffff", fontFamily="'Outfit', sans-serif", float=true, shadow=true) %}
+<span class="liquid-btn-host"
+  data-liquid-btn
+  data-text="{{ text | escape }}"
+  data-color="{{ color }}"
+  data-font-color="{{ fontColor }}"
+  data-font-family="{{ fontFamily | escape }}"
+  data-float="{{ 'true' if float else 'false' }}"
+  data-shadow="{{ 'true' if shadow else 'false' }}"></span>
+{%- endmacro %}

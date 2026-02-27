@@ -9,7 +9,7 @@ effects:
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import heroLogo, heroContent, heroWave, pageHero %}
 
 {# ── Hero（キネティックスタイル） ─────────────────────────── #}
-<section class="section" style="min-height:100vh;background:var(--color-dark);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+<section class="section section--kinetic-hero">
   {{ bgShapes([
     {top: "10%", left: "-5%",  w: "600px", h: "400px", c1: "rgba(2,93,204,0.15)",  c2: "rgba(0,198,255,0.05)"},
     {top: "40%", right: "-5%", w: "500px", h: "350px", c1: "rgba(0,198,255,0.1)", c2: "rgba(2,93,204,0.05)", delay: "5s"}

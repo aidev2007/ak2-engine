@@ -60,6 +60,8 @@ module.exports = function (eleventyConfig) {
   ], {
     throwOnUndefined: false,
     autoescape: true,
+    trimBlocks: true,   // ← ★これを追加
+    lstripBlocks: true  // ← ★これを追加
   });
   eleventyConfig.setLibrary("njk", nunjucksEnv);
 
@@ -76,8 +78,11 @@ module.exports = function (eleventyConfig) {
     const pluginCss = allCssFiles
       .map(f => `/* ${path.relative("src", f).replace(/\\/g, "/")} */\n` + fs.readFileSync(f, "utf8"))
       .join("\n");
+    const sandboxCss = fs.existsSync("sandbox/sandbox.css")
+      ? "\n/* sandbox/sandbox.css */\n" + fs.readFileSync("sandbox/sandbox.css", "utf8")
+      : "";
     fs.mkdirSync("sandbox/_site/css", { recursive: true });
-    fs.writeFileSync("sandbox/_site/css/style.css", baseCss + "\n" + pluginCss);
+    fs.writeFileSync("sandbox/_site/css/style.css", baseCss + "\n" + pluginCss + sandboxCss);
     console.log(`[CSS] sandbox/_site/css/style.css (${allCssFiles.length} plugin files)`);
 
     // JS: core-engine.js 先頭 + src/core/*.js + src/plugins/**/*.js

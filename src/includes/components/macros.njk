@@ -31,7 +31,7 @@
   <span class="section-header__subtitle">{{ subtitle }}</span>
   <h2 class="section-header__title">{{ title }}</h2>
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- フェードイン ラッパー ------------------------------------
@@ -42,7 +42,7 @@
 <div class="fade-in-section"{% if delay %} data-delay="{{ delay }}"{% endif %}>
   {{ caller() }}
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- 背景ぼかし図形 -------------------------------------------
@@ -64,7 +64,7 @@
   "></div>
   {% endfor %}
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- コンテンツプレースホルダー --------------------------------
@@ -81,7 +81,7 @@
     <a href="{{ linkUrl }}" class="btn-base btn-outline">{{ linkText }}</a>
   {% endif %}
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- パーツサブページ共通ラッパー ---------------------------------
@@ -110,7 +110,7 @@
     </div>
   </div>
 </section>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- パーツ統計アイテム ----------------------------------------
@@ -122,7 +122,7 @@
   <span class="parts-stat__number">{{ number }}</span>
   <p class="parts-stat__label">{{ label }}</p>
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- パーツカテゴリーカード -------------------------------------
@@ -155,7 +155,7 @@
   <span class="parts-category-card__link">詳しく見る →</span>
 </a>
 {% endif %}
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- フォントブロック ------------------------------------------
@@ -174,7 +174,7 @@
   </div>
   {% if desc %}<div class="typo-font-desc">{{ desc }}</div>{% endif %}
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- タイプスケール行 -------------------------------------------
@@ -189,7 +189,7 @@
   <span class="ts-size">{{ size }}</span>
   <span class="ts-sample"{% if style %} style="{{ style }}"{% endif %}>{{ text }}</span>
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- カラースウォッチ -------------------------------------------
@@ -202,7 +202,7 @@
   <span class="color-swatch-hex">{{ hexLabel }}</span>
   <span class="color-swatch-name">{{ name }}</span>
 </div>
-{% endmacro %}
+{%- endmacro %}
 
 
 {# ---- モーションアイテム ----------------------------------------
@@ -223,4 +223,4 @@
     <code class="motion-code">{{ code | safe }}</code>
   </div>
 </div>
-{% endmacro %}
+{%- endmacro %}

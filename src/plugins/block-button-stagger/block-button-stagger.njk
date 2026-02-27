@@ -1,0 +1,37 @@
+{# ================================================================
+   block-button-stagger.njk
+   Stagger Typography Button
+   ================================================================
+   使い方:
+     {% from "block-button-stagger/block-button-stagger.njk" import staggerButton %}
+     {{ staggerButton("Get Started") }}
+     {{ staggerButton("はじめる", color="#0d9488", fontFamily="'Noto Sans JP', sans-serif") }}
+   ================================================================
+   依存: GSAP 3.x（useGsap: true を front-matter に設定するか、
+         手動で GSAP を <head> 内に読み込んでください）
+   ================================================================ #}
+
+{# ---- Stagger Typography Button ----------------------------
+   text       : ボタンラベル（必須）
+   color      : ボタン背景色                                    (default: '#111111')
+   textColor  : テキスト色                                      (default: '#ffffff')
+   fontFamily : フォントファミリー                              (default: "'Syne', sans-serif")
+   fontSize   : フォントサイズ px                               (default: 15)
+   staggerDir : 跳ね方向 'start'|'center'|'end'|'random'        (default: 'start')
+   bounceY    : 跳ね上がり量 px（負の値で上方向）              (default: -4)
+   float      : 浮遊アニメーション on/off                       (default: false)
+   radius     : 角丸 px、'auto' で高さから自動計算              (default: 'auto')
+   ------------------------------------------------------------ #}
+{% macro staggerButton(text, color="#111111", textColor="#ffffff", fontFamily="'Syne', sans-serif", fontSize=15, staggerDir="start", bounceY=-4, float=false, radius="auto") %}
+<span class="stagger-btn-host"
+  data-stagger-btn
+  data-text="{{ text | escape }}"
+  data-color="{{ color }}"
+  data-text-color="{{ textColor }}"
+  data-font-family="{{ fontFamily | escape }}"
+  data-font-size="{{ fontSize }}"
+  data-stagger-dir="{{ staggerDir }}"
+  data-bounce-y="{{ bounceY }}"
+  data-float="{{ 'true' if float else 'false' }}"
+  data-radius="{{ radius }}"></span>
+{%- endmacro %}

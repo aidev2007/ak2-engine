@@ -1,0 +1,9 @@
+/* ================================================================
+   block-button-stroke.css
+   Stroke Draw Button
+   ================================================================ */
+
+.stroke-btn-host {
+  display: inline-flex;
+  vertical-align: middle;
+}
