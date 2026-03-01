@@ -19,6 +19,8 @@
 9. [ユーティリティマクロ（components/macros.njk）](#9-ユーティリティマクロ)
 10. [AK²Engine — エフェクト登録パターン](#10-ak²engine--エフェクト登録パターン)
 11. [ページの作成方法（.md形式の推奨）](#11-ページの作成方法md形式の推奨)
+    - [11-1. 標準ページ（base.njk）](#11-1-標準ページbasenjk)
+    - [11-2. 記事ページ（article.njk）](#11-2-記事ページarticlenjk)
 12. [Sandboxでの確認とビルドコマンド](#12-sandboxでの確認とビルドコマンド)
 13. [CSS カスタマイズ](#13-css-カスタマイズ)
 14. [Eleventy 設定サンプル（.eleventy.js）](#14-eleventy-設定サンプル)
@@ -1071,7 +1073,9 @@ Markdown ファイル内で Nunjucks マクロを展開させるために、Elev
     // ...
 ```
 
-### ページの記述例（src/about.md）
+### 11-1. 標準ページ（base.njk）
+
+#### ページの記述例（src/about.md）
 
 ```markdown
 ---
@@ -1105,6 +1109,110 @@ title: 会社概要
   </div>
 </section>
 ```
+
+---
+
+### 11-2. 記事ページ（article.njk）
+
+テキスト中心のコンテンツ（ブログ記事・解説ページ・コンセプト文書など）には、専用の **`article.njk`** レイアウトを使用します。
+`base.njk` をチェーンして使うため、ヘッダー・フッターは自動で組み込まれます。
+
+#### ファイルの場所
+
+```
+sandbox/_includes/layouts/article.njk   ← サンドボックスでの動作確認用（参照実装）
+src/_includes/layouts/article.njk       ← 実サイトに配置する場合はここに置く
+```
+
+実サイトで使用するには、`sandbox/_includes/layouts/article.njk` を
+実サイトの `src/_includes/layouts/` にコピーしてください。
+エンジンの `.eleventy.js` が Nunjucks 検索パスに `src/_includes` を含んでいるため、
+そのまま `layout: layouts/article.njk` で参照できます。
+
+#### front-matter オプション
+
+```yaml
+---
+layout: layouts/article.njk
+title: "記事タイトル"       # ヒーローエリアの大見出し（必須）
+category: "CONCEPT"         # カテゴリーラベル（省略可、例: CONCEPT / GUIDE / NEWS）
+lead: "リード文。"          # タイトル下のサブテキスト（省略可）
+description: "meta description 用テキスト"  # SEO（省略時は site.description）
+---
+```
+
+| キー | 必須 | 説明 |
+|---|---|---|
+| `layout` | ✅ | `"layouts/article.njk"` を指定 |
+| `title` | ✅ | ページタイトル。ヒーローエリアの `<h1>` として出力される |
+| `category` | — | カテゴリーラベル（モノスペース・大文字）。両脇に短い横線が付く |
+| `lead` | — | タイトル直下のサブテキスト（中央寄せ） |
+| `description` | — | meta description（省略時は `site.description`） |
+
+#### ページ構造
+
+```
+article-page
+├── article-page__hero        ヒーローエリア（白背景・上端グラデーションライン）
+│   ├── breadcrumb            パンくずナビ（Sandbox → カテゴリー）
+│   ├── article-page__category カテゴリーラベル（中央寄せ）
+│   ├── article-page__title   <h1>（中央寄せ）
+│   └── article-page__lead   リード文（中央寄せ）
+└── article-page__body        本文エリア
+    └── .prose                Markdown から変換された記事本文
+```
+
+#### .prose クラス（記事本文タイポグラフィ）
+
+`.prose` はサンドボックスの `sandbox/sandbox.css` に定義されています。
+実サイトに移植する際はこの CSS をサイト固有の CSS ファイルにコピーしてください。
+
+| セレクター | 説明 |
+|---|---|
+| `.prose` | 最大幅960px・中央寄せ。フォント1.05rem・行間2 |
+| `.prose h2` | 下ボーダー＋60px幅グラデーションアクセント |
+| `.prose h3` | 太字・見出し階層の補助レベル |
+| `.prose ul` | `list-style: disc`（標準的な箇条書き） |
+| `.prose strong` | ダークカラーで強調 |
+
+#### 記事ページの作成例（src/concept/index.md）
+
+```markdown
+---
+layout: layouts/article.njk
+title: "Art & Kinetic: 技術哲学と提供コンセプト"
+category: "CONCEPT"
+lead: "SVGアニメーションと独自設計のAK²Engineが実現する、表現力と軽快性の完全両立。"
+---
+
+## 1. 視覚的インパクトとパフォーマンスの最適解
+
+これまでのWeb制作において...
+
+## 2. SVGアニメーションがもたらす新しいWeb体験
+
+昨今のWeb技術の進化により...
+
+- **極小サイズと完全なスケーラビリティ**
+
+  動画やビットマップ画像とは異なり...
+
+- **高いDOM（HTML）親和性**
+
+  CanvasやWebGLとは異なり...
+```
+
+> **ポイント:** `article.njk` は `.prose` 内に Markdown をそのまま流し込む設計のため、
+> Nunjucks マクロを混在させる必要はほとんどありません。
+> 純粋な Markdown だけでリッチな記事ページが完成します。
+
+#### サンドボックスでの確認
+
+| URL | 内容 |
+|---|---|
+| `/concept/` | article.njk を使った記事ページのサンプル |
+
+---
 
 ### ⚠️ .md ファイル内 HTML 記述の重要ルール
 
@@ -1441,4 +1549,4 @@ module.exports = function(eleventyConfig) {
 
 ---
 
-*このドキュメントは `@aidev2007/engine v0.1.1` に対応しています。*
+*このドキュメントは `@aidev2007/engine v0.1.2` に対応しています。*

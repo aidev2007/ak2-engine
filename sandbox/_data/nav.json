@@ -3,5 +3,6 @@
   { "label": "Effects", "url": "/effects/",  "root": "/effects" },
   { "label": "Blocks",  "url": "/blocks/",   "root": "/blocks" },
   { "label": "Layout",  "url": "/layout/",   "root": "/layout" },
-  { "label": "Buttons", "url": "/buttons/",  "root": "/buttons" }
+  { "label": "Buttons", "url": "/buttons/",  "root": "/buttons" },
+  { "label": "Concept", "url": "/concept/",  "root": "/concept" }
 ]
