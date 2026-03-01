@@ -1,0 +1,129 @@
+/* ================================================================
+   block-card-kinetic.css
+   キネティック 3D ティルトカード
+   ================================================================ */
+
+/* ── グリッドレイアウト ─────────────────────────────────────── */
+
+.ak2-kinetic-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--kc-min, 300px), 1fr));
+  gap: var(--kc-gap, 40px);
+}
+
+/* ── カード基本 ─────────────────────────────────────────────── */
+
+.ak2-kinetic-card {
+  position: relative;
+  border-radius: 16px;
+  background-color: var(--color-white);
+  border: 1px solid color-mix(in srgb, var(--color-dark) 8%, transparent);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  will-change: transform;
+}
+
+/* ダークテーマ */
+.ak2-kinetic-card--dark {
+  background-color: #14141c;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+.ak2-kinetic-card--dark .ak2-kinetic-card__title { color: #f0f0f5; }
+.ak2-kinetic-card--dark .ak2-kinetic-card__body  { color: #777788; }
+.ak2-kinetic-card--dark .ak2-kinetic-card__link  { color: var(--color-primary); }
+.ak2-kinetic-card--dark .ak2-kinetic-card__content { background-color: #14141c; }
+
+/* ── グレア（光の反射）────────────────────────────────────── */
+
+.ak2-kinetic-card__glare-wrap {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden; border-radius: 16px; pointer-events: none; z-index: 10;
+}
+
+.ak2-kinetic-card__glare {
+  position: absolute; top: 50%; left: 50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.20) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ── 画像 ────────────────────────────────────────────────── */
+
+.ak2-kinetic-card__img-wrap {
+  position: relative;
+  width: 100%; height: 200px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ak2-kinetic-card__img {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: translateZ(-20px) scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              filter 0.6s ease;
+  filter: brightness(1);
+}
+
+.ak2-kinetic-card:hover .ak2-kinetic-card__img {
+  filter: brightness(1.08);
+  transform: translateZ(-20px) scale(1.1);
+}
+
+/* ── コンテンツ ─────────────────────────────────────────── */
+
+.ak2-kinetic-card__content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  transform: translateZ(40px);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ak2-kinetic-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--color-dark);
+}
+
+.ak2-kinetic-card__body {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.ak2-kinetic-card__link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.ak2-kinetic-card__link:hover { opacity: 0.7; }
+
+/* ── タッチデバイス: 3D エフェクト無効 ──────────────────── */
+
+@media (hover: none) {
+  .ak2-kinetic-card { transition: box-shadow 0.3s ease; }
+  .ak2-kinetic-card__content { transform: none; }
+  .ak2-kinetic-card__img { transform: scale(1); }
+}

@@ -1,0 +1,32 @@
+{# ================================================================
+   block-button-wave.njk
+   SVG ウェーブ遷移ボタン
+   ================================================================
+   使い方:
+     {% from "block-button-wave/block-button-wave.njk" import waveButton %}
+     {{ waveButton("次のページへ", "/about/") }}
+     {{ waveButton("送信する", "/thanks/", color="var(--color-primary)") }}
+
+   クリックすると波形 SVG が画面を覆い、href へ遷移します。
+   href が "#" の場合は遷移せずアニメーションのみ再生します（デモ用）。
+   ================================================================ #}
+
+{# ---- SVG ウェーブ遷移ボタン ------------------------------------
+   text       : ボタンラベル（必須）
+   href       : 遷移先 URL                               (default: "#")
+   color      : ウェーブ（波）の色（hex / var()）        (default: "var(--color-primary)")
+   textColor  : ボタンテキスト色（hex / var()）           (default: "var(--color-primary)")
+   ------------------------------------------------------------ #}
+{% macro waveButton(text, href="#", color="var(--color-primary)", textColor="var(--color-primary)") %}
+<button
+  class="ak2-wave-btn"
+  data-wave-btn
+  data-href="{{ href }}"
+  data-wave-color="{{ color }}"
+  style="--wave-text-color: {{ textColor }};"
+  type="button"
+  aria-label="{{ text | escape }}">
+  <span class="ak2-wave-btn__label">{{ text }}</span>
+  <span class="ak2-wave-btn__arrow" aria-hidden="true">→</span>
+</button>
+{%- endmacro %}

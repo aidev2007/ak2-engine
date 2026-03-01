@@ -1,0 +1,53 @@
+{# ================================================================
+   block-card-kinetic.njk
+   キネティック 3D ティルトカード
+   ================================================================
+   使い方:
+     from "block-card-kinetic/block-card-kinetic.njk" import kineticCard, kineticCardGrid
+
+     call kineticCard(title="Architecture", img="/img/card.jpg")
+       カードの本文テキスト
+     endcall
+
+     call kineticCardGrid()
+       call kineticCard(title="Card 1", img="/img/1.jpg") 内容1 endcall
+       call kineticCard(title="Card 2", img="/img/2.jpg") 内容2 endcall
+     endcall
+   ================================================================ #}
+
+{# ---- キネティックカード -----------------------------------------
+   title    : カードタイトル（必須）
+   img      : 画像 URL                              (default: "")
+   imgAlt   : 画像 alt テキスト                     (default: title の値)
+   link     : クリック先 URL（省略時はリンクなし）  (default: "")
+   linkText : リンクテキスト                         (default: "詳しく見る →")
+   dark     : ダークテーマ on/off                    (default: false)
+   ------------------------------------------------------------ #}
+{% macro kineticCard(title, img="", imgAlt="", link="", linkText="詳しく見る →", dark=false) %}
+<div class="ak2-kinetic-card{% if dark %} ak2-kinetic-card--dark{% endif %}" data-kinetic-card>
+  <div class="ak2-kinetic-card__glare-wrap"><div class="ak2-kinetic-card__glare"></div></div>
+  {% if img %}
+  <div class="ak2-kinetic-card__img-wrap">
+    <img src="{{ img }}" alt="{{ imgAlt if imgAlt else title }}" class="ak2-kinetic-card__img" loading="lazy">
+  </div>
+  {% endif %}
+  <div class="ak2-kinetic-card__content">
+    <h3 class="ak2-kinetic-card__title">{{ title }}</h3>
+    <div class="ak2-kinetic-card__body">{{ caller() }}</div>
+    {% if link %}
+    <a href="{{ link }}" class="ak2-kinetic-card__link">{{ linkText }}</a>
+    {% endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+
+{# ---- カードグリッドラッパー ------------------------------------
+   minWidth : 最小カード幅（default: "300px"）
+   gap      : カード間隔   （default: "40px"）
+   ------------------------------------------------------------ #}
+{% macro kineticCardGrid(minWidth="300px", gap="40px") %}
+<div class="ak2-kinetic-card-grid" style="--kc-min: {{ minWidth }}; --kc-gap: {{ gap }};">
+  {{ caller() }}
+</div>
+{%- endmacro %}

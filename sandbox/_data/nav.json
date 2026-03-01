@@ -4,5 +4,7 @@
   { "label": "Blocks",  "url": "/blocks/",   "root": "/blocks" },
   { "label": "Layout",  "url": "/layout/",   "root": "/layout" },
   { "label": "Buttons", "url": "/buttons/",  "root": "/buttons" },
-  { "label": "Concept", "url": "/concept/",  "root": "/concept" }
+  { "label": "Concept", "url": "/concept/",  "root": "/concept" },
+  { "label": "Menubar",      "url": "/menubar/",     "root": "/menubar" },
+  { "label": "Interaction",  "url": "/interaction/", "root": "/interaction" }
 ]

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>layout-header-nav — Playground | AK² Engine</title>
+  <meta name="description" content="AK²Engine layout-header-nav プラグインの全バリアントをインタラクティブに確認できるPlayground。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- GSAP (for button plugins) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Engine CSS (nav + button styles) -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* ================================================================
+       Playground ページ固有スタイル
+       ================================================================ */
+    :root {
+      --pg-bg:       #f3f3f5;
+      --pg-surface:  #ffffff;
+      --pg-text:     #1a1a2e;
+      --pg-sub:      #64648a;
+      --pg-accent:   var(--color-primary);
+      --pg-border:   rgba(26, 26, 46, 0.09);
+      --pg-radius:   14px;
+    }
+
+    body {
+      background: var(--pg-bg);
+      color: var(--pg-text);
+      overflow-x: hidden;
+      transition: background 0.3s;
+    }
+
+    /* ── view-mode クラスによるレスポンシブ強制 ── */
+    body.force-desktop .ak2-nav-global    { display: flex !important; }
+    body.force-desktop #ak2-nav-toggle-wrap { display: none !important; }
+    body.force-mobile  .ak2-nav-global    { display: none !important; }
+    body.force-mobile  #ak2-nav-toggle-wrap { display: flex !important; }
+
+    /* ── ページコンテンツ（ヘッダー高さ分のpaddingTop） ── */
+    .pg-main { padding-top: var(--header-height); }
+
+    /* ── ヒーロー ── */
+    .pg-hero {
+      padding: 60px 40px 50px;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .pg-hero__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--pg-accent); margin-bottom: 1.2rem; display: flex;
+      align-items: center; gap: 12px;
+    }
+    .pg-hero__eyebrow::before {
+      content: ''; display: block; width: 28px; height: 1px;
+      background: var(--pg-accent); opacity: 0.5;
+    }
+    .pg-hero__title {
+      font-family: var(--font-english); font-weight: 300;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      letter-spacing: 0.04em; margin-bottom: 0.8rem; line-height: 1.3;
+    }
+    .pg-hero__title strong { font-weight: 700; color: var(--pg-accent); }
+    .pg-hero__desc {
+      font-size: 1rem; color: var(--pg-sub); line-height: 1.8; max-width: 600px;
+    }
+
+    /* ── コントロールパネル ── */
+    .pg-controls-wrap { padding: 0 40px 40px; }
+    .pg-controls {
+      max-width: 1000px; margin: 0 auto;
+      background: var(--pg-surface);
+      border: 1px solid var(--pg-border);
+      border-radius: var(--pg-radius);
+      padding: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    }
+    @media (max-width: 700px) {
+      .pg-controls { grid-template-columns: 1fr; }
+      .pg-hero, .pg-controls-wrap, .pg-body-wrap, .pg-footer { padding-left: 20px; padding-right: 20px; }
+    }
+
+    .pg-ctrl-col { display: flex; flex-direction: column; gap: 0; }
+
+    .pg-ctrl-label {
+      font-size: 0.7rem; font-family: var(--font-mono);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--pg-sub); font-weight: 700;
+      margin-top: 20px; margin-bottom: 6px;
+    }
+    .pg-ctrl-label:first-child { margin-top: 0; }
+
+    .pg-ctrl-select {
+      appearance: none; -webkit-appearance: none;
+      background: var(--pg-bg);
+      color: var(--pg-text);
+      border: 1px solid var(--pg-border);
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 0.88rem; outline: none; cursor: pointer;
+      font-family: var(--font-english);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364648a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+      padding-right: 34px;
+      transition: border-color 0.2s;
+    }
+    .pg-ctrl-select:hover { border-color: var(--pg-accent); }
+
+    /* ── 現在の設定バッジ表示 ── */
+    .pg-state {
+      background: var(--pg-bg); border-radius: 10px;
+      padding: 20px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .pg-state__title {
+      font-size: 0.7rem; font-family: var(--font-mono);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--pg-sub); font-weight: 700; margin-bottom: 4px;
+    }
+    .pg-state__row { display: flex; align-items: baseline; gap: 8px; }
+    .pg-state__key {
+      font-size: 0.72rem; font-family: var(--font-mono);
+      color: var(--pg-sub); min-width: 140px; flex-shrink: 0;
+    }
+    .pg-state__val {
+      font-size: 0.82rem; font-family: var(--font-mono);
+      color: var(--pg-accent); font-weight: 500;
+    }
+    .pg-state__desc {
+      font-size: 0.78rem; color: var(--pg-sub); font-style: italic;
+    }
+
+    /* ── バリアント解説 ── */
+    .pg-body-wrap { padding: 0 40px 40px; }
+    .pg-body { max-width: 1000px; margin: 0 auto; }
+    .pg-section-title {
+      font-family: var(--font-english); font-weight: 300;
+      font-size: 1.2rem; letter-spacing: 0.06em; color: var(--pg-sub);
+      margin: 0 0 20px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--pg-border);
+    }
+    .pg-variant-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px; margin-bottom: 40px;
+    }
+    .pg-variant-card {
+      background: var(--pg-surface); border-radius: 10px;
+      border: 1px solid var(--pg-border);
+      padding: 16px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .pg-variant-card:hover { border-color: var(--pg-accent); box-shadow: 0 4px 20px rgba(2,93,204,0.06); }
+    .pg-variant-card.is-active { border-color: var(--pg-accent); background: rgba(2,93,204,0.03); }
+    .pg-variant-card__name {
+      font-family: var(--font-mono); font-size: 0.78rem;
+      color: var(--pg-accent); margin-bottom: 6px; font-weight: 500;
+    }
+    .pg-variant-card__desc { font-size: 0.8rem; color: var(--pg-sub); line-height: 1.6; }
+
+    /* ── スクロールデモ ── */
+    .pg-scroll-demo {
+      background: var(--pg-surface); border-radius: var(--pg-radius);
+      border: 1px solid var(--pg-border); padding: 32px;
+      margin-bottom: 32px;
+    }
+    .pg-scroll-demo h3 { font-size: 1rem; margin-bottom: 12px; font-weight: 500; }
+    .pg-scroll-demo p { font-size: 0.9rem; color: var(--pg-sub); line-height: 1.9; margin-bottom: 1.2em; }
+    .pg-scroll-demo p:last-child { margin-bottom: 0; }
+
+    /* ── フッター ── */
+    .pg-footer {
+      padding: 60px 40px 80px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      border-top: 1px solid var(--pg-border);
+      text-align: center;
+    }
+    .pg-footer__note { font-size: 0.8rem; color: var(--pg-sub); }
+    #close-btn-wrap { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <!-- Liquid Toggle 用 SVG Gooey フィルター -->
+  <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="ak2-nav-gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ドロワー（ヘッダーの外側） -->
+  <div id="drawer-mount"></div>
+
+  <!-- ヘッダー -->
+  <div id="header-mount"></div>
+
+  <main class="pg-main">
+
+    <!-- ── ヒーロー ───────────────────────────────────────── -->
+    <div class="pg-hero">
+      <div class="pg-hero__eyebrow">AK² ENGINE PLUGIN</div>
+      <h1 class="pg-hero__title"><strong>layout-header-nav</strong> Playground</h1>
+      <p class="pg-hero__desc">
+        グローバルナビ（PC）・ドロワーメニュー（モバイル）・トグルボタンの各バリアントを
+        リアルタイムで切り替えて動作を確認できます。<br>
+        画面幅 769px 未満か「強制モバイル」でトグルボタンが表示されます。
+      </p>
+    </div>
+
+    <!-- ── コントロールパネル ──────────────────────────────── -->
+    <div class="pg-controls-wrap">
+      <div class="pg-controls">
+
+        <!-- 左カラム: セレクトボックス -->
+        <div class="pg-ctrl-col">
+          <div class="pg-ctrl-label">表示モード</div>
+          <select id="sel-view" class="pg-ctrl-select">
+            <option value="auto">自動（画面幅で切り替え）</option>
+            <option value="desktop">PC固定</option>
+            <option value="mobile">モバイル固定</option>
+          </select>
+
+          <div class="pg-ctrl-label">トグル位置</div>
+          <select id="sel-toggle-pos" class="pg-ctrl-select">
+            <option value="right">右側（デフォルト）</option>
+            <option value="left">左側</option>
+          </select>
+
+          <div class="pg-ctrl-label">グローバルナビ（PC）</div>
+          <select id="sel-global" class="pg-ctrl-select">
+            <option value="underline">underline — 下線が追従</option>
+            <option value="pill">pill — Pill背景が追従</option>
+            <option value="bracket">bracket — [括弧] が出現</option>
+            <option value="shift">shift — テキストがスライド</option>
+            <option value="dot">dot — ドットが点灯</option>
+          </select>
+
+          <div class="pg-ctrl-label">ドロワーメニュー（モバイル）</div>
+          <select id="sel-drawer" class="pg-ctrl-select">
+            <option value="circular">circular — 円形リビール</option>
+            <option value="slide-down">slide-down — 上からスライド</option>
+            <option value="slide-up">slide-up — 下からスライド</option>
+            <option value="glass">glass — グラスフェード</option>
+          </select>
+
+          <div class="pg-ctrl-label">トグルボタン（モバイル）</div>
+          <select id="sel-toggle" class="pg-ctrl-select">
+            <option value="geometric">geometric — モーフアニメーション</option>
+            <option value="magnetic">magnetic — 磁力エフェクト</option>
+            <option value="liquid">liquid — Gooey液体合成</option>
+            <option value="particle">particle — 粒子キネティック</option>
+          </select>
+        </div>
+
+        <!-- 右カラム: 現在の設定表示 -->
+        <div class="pg-ctrl-col">
+          <div class="pg-state" id="pg-state">
+            <div class="pg-state__title">現在の設定</div>
+            <!-- JS で更新 -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── バリアント解説カード ────────────────────────────── -->
+    <div class="pg-body-wrap">
+      <div class="pg-body">
+
+        <div class="pg-section-title">グローバルナビ バリアント</div>
+        <div class="pg-variant-grid" id="grid-global">
+          <div class="pg-variant-card is-active" data-target="sel-global" data-value="underline">
+            <div class="pg-variant-card__name">"underline"</div>
+            <div class="pg-variant-card__desc">アクティブ・ホバー項目に下線インジケーターが滑らかに追従します。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-global" data-value="pill">
+            <div class="pg-variant-card__name">"pill"</div>
+            <div class="pg-variant-card__desc">丸いPill背景がナビ項目を包んで追従します。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-global" data-value="bracket">
+            <div class="pg-variant-card__name">"bracket"</div>
+            <div class="pg-variant-card__desc">ホバーで [ 括弧 ] が外側からスライドインします。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-global" data-value="shift">
+            <div class="pg-variant-card__name">"shift"</div>
+            <div class="pg-variant-card__desc">ホバーでテキストが上へスライドし、アクセントカラーのコピーが出現。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-global" data-value="dot">
+            <div class="pg-variant-card__name">"dot"</div>
+            <div class="pg-variant-card__desc">アクティブ・ホバー項目の上部に小さなドットが出現します。</div>
+          </div>
+        </div>
+
+        <div class="pg-section-title">ドロワー バリアント</div>
+        <div class="pg-variant-grid" id="grid-drawer">
+          <div class="pg-variant-card is-active" data-target="sel-drawer" data-value="circular">
+            <div class="pg-variant-card__name">"circular"</div>
+            <div class="pg-variant-card__desc">トグルボタン起点の円形リビール。位置設定に連動して起点が変わります。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-drawer" data-value="slide-down">
+            <div class="pg-variant-card__name">"slide-down"</div>
+            <div class="pg-variant-card__desc">上から降りてくるスライドと項目のスタガーアニメーション。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-drawer" data-value="slide-up">
+            <div class="pg-variant-card__name">"slide-up"</div>
+            <div class="pg-variant-card__desc">下から上がるスライドと項目のスタガーアニメーション。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-drawer" data-value="glass">
+            <div class="pg-variant-card__name">"glass"</div>
+            <div class="pg-variant-card__desc">グラスモーフィズム＋スケールフェードで優雅に展開します。</div>
+          </div>
+        </div>
+
+        <div class="pg-section-title">トグルボタン バリアント</div>
+        <div class="pg-variant-grid" id="grid-toggle">
+          <div class="pg-variant-card is-active" data-target="sel-toggle" data-value="geometric">
+            <div class="pg-variant-card__name">"geometric"</div>
+            <div class="pg-variant-card__desc">3本線がクロスへとモーフする王道アニメーション。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-toggle" data-value="magnetic">
+            <div class="pg-variant-card__name">"magnetic"</div>
+            <div class="pg-variant-card__desc">カーソルの動きに吸い付く磁力エフェクト。三本線が弾性変形。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-toggle" data-value="liquid">
+            <div class="pg-variant-card__name">"liquid"</div>
+            <div class="pg-variant-card__desc">SVG Gooeyフィルターで線が液体のように溶け合ってクロスになる。</div>
+          </div>
+          <div class="pg-variant-card" data-target="sel-toggle" data-value="particle">
+            <div class="pg-variant-card__name">"particle"</div>
+            <div class="pg-variant-card__desc">120粒子が分散して再集合するキネティックアニメーション。</div>
+          </div>
+        </div>
+
+        <!-- スクロールデモ用コンテンツ -->
+        <div class="pg-scroll-demo">
+          <h3>スクロール動作のデモ</h3>
+          <p>
+            このページを下にスクロールすると、ヘッダーが縮小し背景のブラーが強化されます。
+            スクロール量が 10px を超えると <code>.is-scrolled</code> クラスがヘッダーに付与され、
+            CSS トランジションによって高さ・シャドウ・背景色が滑らかに変化します。
+          </p>
+          <p>
+            <code>transparentHeader: true</code> を設定すると、ページ最上部では背景が完全に透明になります。
+            ヒーロー画像やフルスクリーン動画の上にヘッダーを重ねる場合に有効です。
+            このデモでは通常モードで表示しています。
+          </p>
+          <p>
+            ドロワーメニューを開いたままスクロールしようとすると、<code>overflow: hidden</code> によって
+            ページスクロールがロックされます。スクロールバーの幅も自動的に補正されるため、
+            ドロワー展開時のレイアウトシフトは発生しません。
+          </p>
+          <p>
+            ナビゲーションのアクセシビリティにも配慮しています。トグルボタンには
+            <code>aria-label</code> と <code>aria-expanded</code> 属性が実装されており、
+            ドロワーには <code>aria-hidden</code> が状態に応じて切り替わります。
+          </p>
+          <p>
+            グローバルナビの「underline」と「pill」バリアントは、ホバー追従インジケーターを
+            実装しています。マウスオーバーで滑らかに移動し、マウスアウト時には
+            アクティブ項目の位置にリセットされます。
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── フッター（ウィンドウを閉じるボタン） ── -->
+  <footer class="pg-footer">
+    <div class="pg-footer__note">このページを閉じてメニューバーリファレンスに戻る</div>
+    <div id="close-btn-wrap"></div>
+  </footer>
+
+  <!-- Engine JS: ナビクラス + ボタン関数 -->
+  <script src="/js/site.js"></script>
+
+  <!-- ================================================================
+       Playground ロジック
+       ================================================================ -->
+  <script>
+    (function () {
+
+      /* ── デモ用ナビ項目 ─────────────────────────────────── */
+      var NAV_ITEMS = [
+        { label: 'ホーム',       url: '/' },
+        { label: 'エフェクト',   url: '/effects/' },
+        { label: 'ブロック',     url: '/blocks/' },
+        { label: 'レイアウト',   url: '/layout/' },
+        { label: 'ボタン',       url: '/buttons/' },
+        { label: 'コンセプト',   url: '/concept/' },
+        { label: 'メニューバー', url: '/menubar/' },
+      ];
+
+      /* ── バリアント説明文 ────────────────────────────────── */
+      var GLOBAL_DESC = {
+        underline:  '下線インジケーターがアクティブ項目に追従',
+        pill:       'Pill背景がアクティブ項目を包んで追従',
+        bracket:    'ホバーで [ 括弧 ] が外側から出現',
+        shift:      'ホバーでテキストが上スライド＋アクセントが出現',
+        dot:        'アクティブ・ホバー項目の上部にドット出現',
+      };
+      var DRAWER_DESC = {
+        circular:     'トグルボタン起点の円形リビール',
+        'slide-down': '上から降りるスライド＋スタガー',
+        'slide-up':   '下から上がるスライド＋スタガー',
+        glass:        'グラスモーフィズム＋スケールフェード',
+      };
+      var TOGGLE_DESC = {
+        geometric: '3本線 → クロスのモーフアニメーション',
+        magnetic:  'カーソルに吸い付く磁力エフェクト',
+        liquid:    'Gooeyフィルターによる液体合成モーフ',
+        particle:  '120粒子が再集合するキネティック演出',
+      };
+
+      /* ── ナビ HTML を組み立てる ──────────────────────────── */
+      function buildNavHTML(cfg) {
+        var globalStyle = cfg.globalStyle;
+        var drawerStyle = cfg.drawerStyle;
+        var toggleStyle = cfg.toggleStyle;
+        var togglePos   = cfg.togglePos;
+
+        /* グローバルナビ項目 */
+        var globalItems = '';
+        NAV_ITEMS.forEach(function (item) {
+          if (globalStyle === 'shift') {
+            globalItems += '<a href="' + item.url + '" data-text="' + item.label + '">'
+              + '<span>' + item.label + '</span></a>';
+          } else {
+            globalItems += '<a href="' + item.url + '">' + item.label + '</a>';
+          }
+        });
+
+        /* インジケーター */
+        var indicator = '';
+        if (globalStyle === 'underline') {
+          indicator = '<div class="ak2-nav-indicator ak2-nav-indicator--line"></div>';
+        } else if (globalStyle === 'pill') {
+          indicator = '<div class="ak2-nav-indicator ak2-nav-indicator--pill"></div>';
+        }
+
+        /* トグルボタン */
+        var toggleHTML;
+        if (toggleStyle === 'particle') {
+          toggleHTML = '<div id="ak2-nav-hybrid-wrap">'
+            + '<button class="ak2-nav-toggle" id="ak2-nav-toggle-btn" aria-label="メニュー" aria-expanded="false">'
+            + '<div class="ak2-nav-toggle-lines ak2-nav-toggle--geometric"><span></span><span></span><span></span></div>'
+            + '</button>'
+            + '<canvas id="ak2-nav-particle-canvas"></canvas>'
+            + '</div>';
+        } else if (toggleStyle === 'magnetic') {
+          toggleHTML = '<button class="ak2-nav-toggle ak2-nav-toggle--magnetic-wrapper" id="ak2-nav-toggle-btn" aria-label="メニュー" aria-expanded="false">'
+            + '<div class="ak2-nav-toggle-lines ak2-nav-toggle--magnetic"><span></span><span></span><span></span></div>'
+            + '</button>';
+        } else if (toggleStyle === 'liquid') {
+          toggleHTML = '<button class="ak2-nav-toggle" id="ak2-nav-toggle-btn" aria-label="メニュー" aria-expanded="false">'
+            + '<div class="ak2-nav-toggle-lines ak2-nav-toggle--liquid"><span></span><span></span><span></span></div>'
+            + '</button>';
+        } else {
+          toggleHTML = '<button class="ak2-nav-toggle" id="ak2-nav-toggle-btn" aria-label="メニュー" aria-expanded="false">'
+            + '<div class="ak2-nav-toggle-lines ak2-nav-toggle--geometric"><span></span><span></span><span></span></div>'
+            + '</button>';
+        }
+
+        /* ドロワー項目 */
+        var drawerItems = '';
+        NAV_ITEMS.forEach(function (item) {
+          drawerItems += '<li><a href="' + item.url + '">' + item.label + '</a></li>';
+        });
+
+        /* ヘッダークラス */
+        var headerClass = 'ak2-nav-header';
+        if (togglePos === 'left') headerClass += ' toggle-pos-left';
+
+        var drawerHTML = '<nav class="ak2-nav-drawer ak2-nav-drawer--' + drawerStyle
+          + '" id="ak2-nav-drawer" aria-hidden="true">'
+          + '<ul>' + drawerItems + '</ul></nav>';
+
+        var headerHTML = '<header class="' + headerClass + '" id="ak2-nav-header"'
+          + ' data-global="' + globalStyle + '"'
+          + ' data-drawer="' + drawerStyle + '"'
+          + ' data-toggle="' + toggleStyle + '"'
+          + ' data-toggle-pos="' + togglePos + '">'
+          + '<a href="/" class="ak2-nav-brand">'
+          + '<span class="ak2-nav-brand__text">'
+          + '<span class="ak2-nav-brand__name">AK² LAB</span>'
+          + '<span class="ak2-nav-brand__sub">PLAYGROUND</span>'
+          + '</span></a>'
+          + '<nav class="ak2-nav-global ak2-nav-global--' + globalStyle
+          + '" id="ak2-nav-global" aria-label="グローバルナビゲーション">'
+          + globalItems + indicator + '</nav>'
+          + '<div id="ak2-nav-toggle-wrap">' + toggleHTML + '</div>'
+          + '</header>';
+
+        return { drawerHTML: drawerHTML, headerHTML: headerHTML };
+      }
+
+      /* ── 状態表示を更新する ──────────────────────────────── */
+      function updateState(cfg) {
+        var el = document.getElementById('pg-state');
+        if (!el) return;
+        el.innerHTML = '<div class="pg-state__title">現在の設定</div>'
+          + '<div class="pg-state__row"><span class="pg-state__key">navGlobalStyle</span><span class="pg-state__val">"' + cfg.globalStyle + '"</span></div>'
+          + '<div class="pg-state__row"><span class="pg-state__key" style="color:var(--pg-sub);font-size:.7rem;font-style:italic;min-width:140px">' + (GLOBAL_DESC[cfg.globalStyle] || '') + '</span></div>'
+          + '<div class="pg-state__row" style="margin-top:8px"><span class="pg-state__key">navDrawerStyle</span><span class="pg-state__val">"' + cfg.drawerStyle + '"</span></div>'
+          + '<div class="pg-state__row"><span class="pg-state__key" style="color:var(--pg-sub);font-size:.7rem;font-style:italic;min-width:140px">' + (DRAWER_DESC[cfg.drawerStyle] || '') + '</span></div>'
+          + '<div class="pg-state__row" style="margin-top:8px"><span class="pg-state__key">navToggleStyle</span><span class="pg-state__val">"' + cfg.toggleStyle + '"</span></div>'
+          + '<div class="pg-state__row"><span class="pg-state__key" style="color:var(--pg-sub);font-size:.7rem;font-style:italic;min-width:140px">' + (TOGGLE_DESC[cfg.toggleStyle] || '') + '</span></div>'
+          + '<div class="pg-state__row" style="margin-top:8px"><span class="pg-state__key">navTogglePos</span><span class="pg-state__val">"' + cfg.togglePos + '"</span></div>';
+      }
+
+      /* ── バリアントカードのアクティブ状態を更新 ─────────── */
+      function updateCards(cfg) {
+        document.querySelectorAll('.pg-variant-card').forEach(function (card) {
+          var target = card.dataset.target;
+          var value  = card.dataset.value;
+          var current = cfg[target === 'sel-global' ? 'globalStyle'
+            : target === 'sel-drawer' ? 'drawerStyle'
+            : target === 'sel-toggle' ? 'toggleStyle'
+            : 'togglePos'];
+          card.classList.toggle('is-active', value === current);
+        });
+      }
+
+      /* ── パーティクルインスタンス管理 ───────────────────── */
+      var currentParticle = null;
+
+      /* ── リビルド ────────────────────────────────────────── */
+      function getConfig() {
+        return {
+          globalStyle: document.getElementById('sel-global').value,
+          drawerStyle: document.getElementById('sel-drawer').value,
+          toggleStyle: document.getElementById('sel-toggle').value,
+          togglePos:   document.getElementById('sel-toggle-pos').value,
+        };
+      }
+
+      function rebuild() {
+        var cfg = getConfig();
+
+        /* 1. コントローラーリセット */
+        AK2NavController.reset();
+
+        /* 2. 旧パーティクルを破棄 */
+        if (currentParticle) { currentParticle.destroy(); currentParticle = null; }
+
+        /* 3. body クラス管理 */
+        document.body.classList.remove('ak2-nav-toggle-pos-left');
+        if (cfg.togglePos === 'left') document.body.classList.add('ak2-nav-toggle-pos-left');
+
+        /* 4. HTML 注入 */
+        var html = buildNavHTML(cfg);
+        document.getElementById('drawer-mount').innerHTML = html.drawerHTML;
+        document.getElementById('header-mount').innerHTML = html.headerHTML;
+
+        /* 5. 要素取得 */
+        var header    = document.getElementById('ak2-nav-header');
+        var globalNav = document.getElementById('ak2-nav-global');
+        var drawerEl  = document.getElementById('ak2-nav-drawer');
+        var toggleBtn = document.getElementById('ak2-nav-toggle-btn');
+
+        /* 6. グローバルナビ インジケーター */
+        if (cfg.globalStyle === 'underline' || cfg.globalStyle === 'pill') {
+          new AK2NavGlobalIndicator(globalNav, cfg.globalStyle);
+        }
+
+        /* 7. ドロワー */
+        new AK2NavDrawer(drawerEl, header);
+
+        /* 8. トグルボタン */
+        if (cfg.toggleStyle === 'magnetic') {
+          new AK2NavToggleMagnetic(toggleBtn);
+        } else if (cfg.toggleStyle === 'particle') {
+          var hybridWrap    = document.getElementById('ak2-nav-hybrid-wrap');
+          var particleCanvas = document.getElementById('ak2-nav-particle-canvas');
+          if (hybridWrap && particleCanvas) {
+            currentParticle = new AK2NavToggleParticle(hybridWrap, particleCanvas, toggleBtn);
+          }
+        } else {
+          toggleBtn.addEventListener('click', function () { AK2NavController.toggle(); });
+          AK2NavController.subscribe(function (isOpen) {
+            toggleBtn.classList.toggle('is-active', isOpen);
+            toggleBtn.setAttribute('aria-expanded', String(isOpen));
+          });
+        }
+
+        /* 9. 状態表示・カード更新 */
+        updateState(cfg);
+        updateCards(cfg);
+      }
+
+      /* ── DOMContentLoaded 後に初期化 ────────────────────── */
+      /* ★ site.js の auto-init は「#ak2-nav-header がない」として先に通過済み */
+      document.addEventListener('DOMContentLoaded', function () {
+
+        /* 初回リビルド */
+        rebuild();
+
+        /* スクロールリスナー（1回だけ登録） */
+        window.addEventListener('scroll', function () {
+          var h = document.getElementById('ak2-nav-header');
+          if (h) h.classList.toggle('is-scrolled', window.scrollY > 10);
+        }, { passive: true });
+
+        /* セレクトボックス変更 → リビルド */
+        ['sel-global', 'sel-drawer', 'sel-toggle', 'sel-toggle-pos'].forEach(function (id) {
+          document.getElementById(id).addEventListener('change', rebuild);
+        });
+
+        /* 表示モード切り替え */
+        document.getElementById('sel-view').addEventListener('change', function (e) {
+          document.body.classList.remove('force-desktop', 'force-mobile');
+          if (e.target.value !== 'auto') {
+            document.body.classList.add('force-' + e.target.value);
+          }
+        });
+
+        /* バリアントカードクリック → セレクトも連動して変更 */
+        document.querySelectorAll('.pg-variant-card').forEach(function (card) {
+          card.addEventListener('click', function () {
+            var selId = card.dataset.target;
+            var val   = card.dataset.value;
+            var sel   = document.getElementById(selId);
+            if (sel) {
+              sel.value = val;
+              sel.dispatchEvent(new Event('change'));
+            }
+          });
+        });
+
+        /* ── 「このウィンドウを閉じる」ボタン ── */
+        if (typeof createStrokeButton !== 'undefined') {
+          var closeBtn = createStrokeButton('このウィンドウを閉じる', {
+            strokeColor: '#025DCC',
+            textColor:   '#025DCC',
+            radius:      8,
+            duration:    0.5,
+            float:       false,
+          });
+          closeBtn.style.cursor = 'pointer';
+          closeBtn.addEventListener('click', function () { window.close(); });
+          document.getElementById('close-btn-wrap').appendChild(closeBtn);
+        } else {
+          /* フォールバック: GSAP 未ロード時 */
+          var fallback = document.createElement('button');
+          fallback.textContent = 'このウィンドウを閉じる';
+          fallback.style.cssText = 'padding:12px 28px;border:1px solid #025DCC;border-radius:8px;'
+            + 'background:none;color:#025DCC;font-size:13px;cursor:pointer;letter-spacing:0.1em;';
+          fallback.addEventListener('click', function () { window.close(); });
+          document.getElementById('close-btn-wrap').appendChild(fallback);
+        }
+
+        /* Lucide アイコン初期化 */
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+
+    })();
+  </script>
+</body>
+</html>
