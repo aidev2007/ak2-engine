@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Layout Test
 transparentHeader: true
+navBg: "solid"
 effects:
   - grid-construction
 ---

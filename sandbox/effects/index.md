@@ -3,6 +3,7 @@ layout: layouts/base.njk
 title: Effects Test
 effects:
   - aurora
+navBg: "solid"
 ---
 {% from "components/macros.njk" import sectionHeader, bgShapes %}
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}

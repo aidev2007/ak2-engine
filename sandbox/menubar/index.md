@@ -7,6 +7,7 @@ navGlobalStyle: "underline"
 navDrawerStyle: "circular"
 navToggleStyle: "particle"
 navTogglePos: "right"
+navBg: "solid"
 ---
 
 ## インタラクティブ Playground

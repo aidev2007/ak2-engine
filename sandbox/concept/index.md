@@ -3,6 +3,7 @@ layout: layouts/article.njk
 title: "Art & Kinetic: 技術哲学と提供コンセプト"
 category: "CONCEPT"
 lead: "SVGアニメーションと独自設計のAK²Engineアーキテクチャが実現する、表現力と軽快性の完全両立。"
+navBg: "solid"
 ---
 
 ## 1. 視覚的インパクトとパフォーマンスの最適解

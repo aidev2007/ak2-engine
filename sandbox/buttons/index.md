@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Buttons Test
 useGsap: true
+navBg: "solid"
 ---
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400&family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
 

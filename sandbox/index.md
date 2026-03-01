@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Sandbox Index
+navBg: "solid"
 effects:
   - snow
 ---

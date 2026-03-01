@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Blocks Test
+navBg: "solid"
 ---
 {% from "components/macros.njk" import sectionHeader, bgShapes, fadeIn, contentPlaceholder %}
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
