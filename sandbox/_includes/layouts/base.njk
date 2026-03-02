@@ -28,7 +28,17 @@
 
   {% include "layout-header-nav/layout-header-nav.njk" %}
 
-  {{ content | safe }}
+  {% if sections %}
+    {% for section in sections %}
+      {% if section.type == "content" %}
+        {{ content | safe }}
+      {% else %}
+        {% include "sections/" + section.type + ".njk" ignore missing %}
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    {{ content | safe }}
+  {% endif %}
 
   {% include "layout-footer-kinetic/layout-footer-kinetic.njk" %}
 

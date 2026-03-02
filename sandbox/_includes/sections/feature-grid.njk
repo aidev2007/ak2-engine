@@ -1,0 +1,16 @@
+{% from "components/macros.njk" import sectionHeader %}
+<section class="section section--white">
+  <div class="container">
+    {{ sectionHeader(section.heading, section.subheading) }}
+    <div class="parts-category-grid">
+      {% for item in section.items %}
+      <a href="{{ item.href }}" class="parts-category-card{% if item.extraClass %} {{ item.extraClass }}{% endif %}">
+        <div class="parts-category-card__num">{{ item.num }}</div>
+        <div class="parts-category-card__title">{{ item.title }}</div>
+        <p class="parts-category-card__desc">{{ item.desc }}</p>
+        <span class="parts-category-card__link">テストページを開く →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

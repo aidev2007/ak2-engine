@@ -1,0 +1,8 @@
+{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
+{{ pageHero(
+  subtitle=section.subtitle,
+  title=section.title,
+  lead=section.lead,
+  note=section.note | default(""),
+  extraClass=section.extraClass | default("")
+) }}

@@ -1,0 +1,21 @@
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Sandbox</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>{{ section.category | default("Article") }}</span>
+      </div>
+      {% if section.category %}<div class="article-page__category">{{ section.category }}</div>{% endif %}
+      <h1 class="article-page__title">{{ section.title or title }}</h1>
+      {% if section.lead %}<p class="article-page__lead">{{ section.lead }}</p>{% endif %}
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <div class="prose">
+        {{ content | safe }}
+      </div>
+    </div>
+  </div>
+</main>

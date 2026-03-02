@@ -1,0 +1,14 @@
+{% from "components/macros.njk" import sectionHeader %}
+<section class="section section--dark">
+  <div class="container">
+    {{ sectionHeader(section.heading, section.subheading, true) }}
+    <div class="card-grid">
+      {% for item in section.items %}
+      <div class="glass-card glass-card--dark{% if item.extraClass %} {{ item.extraClass }}{% endif %}">
+        <div class="card-title{% if item.titleClass %} {{ item.titleClass }}{% endif %}">{{ item.title }}</div>
+        <p class="card-text">{{ item.text | safe }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

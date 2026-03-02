@@ -113,6 +113,8 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.setServerOptions({ port: 8080 });
+
   return {
     templateFormats: ["njk", "html", "md"],
     htmlTemplateEngine: "njk",
