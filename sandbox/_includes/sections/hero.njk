@@ -1,8 +1,14 @@
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
-{{ pageHero(
-  subtitle=section.subtitle,
-  title=section.title,
-  lead=section.lead,
-  note=section.note | default(""),
-  extraClass=section.extraClass | default("")
-) }}
+<div style="position:relative; overflow:hidden;">
+  {{ pageHero(
+    subtitle=section.subtitle,
+    title=section.title,
+    lead=section.lead,
+    note=section.note | default(""),
+    extraClass=section.extraClass | default("")
+  ) }}
+  {% for effectName in section.effects | default([]) %}
+  <canvas data-section-effect="{{ effectName }}"
+    style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+  {% endfor %}
+</div>

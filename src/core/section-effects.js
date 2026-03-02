@@ -19,6 +19,7 @@ class SectionEffectRunner {
    */
   static #run(canvas) {
     const className = canvas.dataset.sectionEffect;
+    if (!className) return;
     const EffectClass = window[className];
     if (!EffectClass) return;
 

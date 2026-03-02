@@ -2,8 +2,6 @@
 layout: layouts/base.njk
 title: Sandbox Index
 navBg: "solid"
-effects:
-  - snow
 sections:
   - type: hero
     subtitle: "@aidev2007/engine"
@@ -11,6 +9,8 @@ sections:
     lead: "エンジン・プラグインの動作確認環境です。各テストページでプラグインの挙動を確認してください。"
     note: "このページは開発用です。本番サイトには含まれません。"
     extraClass: "section--parts-hero"
+    effects:
+      - SnowEffect
 
   - type: feature-grid
     heading: "SANDBOX PAGES"
