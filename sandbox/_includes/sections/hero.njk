@@ -1,18 +1,32 @@
-{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
-<div style="position:relative; overflow:hidden;">
-  <div style="position:relative; z-index:1;">
-  {{ pageHero(
-    subtitle=section.subtitle,
-    title=section.title,
-    lead=section.lead,
-    note=section.note | default(""),
-    extraClass=section.extraClass | default("")
-  ) }}
-  </div>
+{# ── hero section with inline canvas effects ────────────────────────────
+   canvas を section の内側に配置することで mix-blend-mode:screen が
+   section の背景色（ダーク）と正しくブレンドされるようにしている。
+   pageHero マクロは section ラップ込みで出力するため、ここでは使用しない。
+   ──────────────────────────────────────────────────────────────────── #}
+<section class="section page-hero{% if section.extraClass %} {{ section.extraClass }}{% endif %}"
+  style="position:relative; overflow:hidden;">
+
+  {# エフェクト canvas（暗い section 背景の上・テキストの下） #}
   {% for effect in section.effects | default([]) %}
   {% set effectName = effect.name if effect.name else effect %}
   <canvas data-section-effect="{{ effectName }}"
     {% if effect.name %}data-section-effect-options="{{ effect | dump | escape }}"{% endif %}
     style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;mix-blend-mode:screen;"></canvas>
   {% endfor %}
-</div>
+
+  {# コンテンツ（canvas より上のレイヤー） #}
+  <div class="container" style="position:relative; z-index:1;">
+    <div class="page-hero__inner fade-in-section">
+      <span class="section-header__subtitle">{{ section.subtitle }}</span>
+      <h1 class="page-hero__title">{{ section.title }}</h1>
+      <p class="page-hero__lead">{{ section.lead | safe }}</p>
+      {% if section.note %}
+      <div class="page-hero__note">
+        <i data-lucide="info" style="width:16px;height:16px;vertical-align:middle;margin-right:6px"></i>
+        {{ section.note }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</section>
