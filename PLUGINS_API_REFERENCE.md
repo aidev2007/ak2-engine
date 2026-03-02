@@ -4,6 +4,23 @@
 > 店舗サイト（`ak2-official` 等）を構築するAI・開発者向けのリファレンスです。
 > エンジンの内部実装を読まなくても、このドキュメントだけでサイト構築が完結するよう設計されています。
 
+> **📖 詳細ドキュメント（v0.1.3 以降）**
+> このファイルは概要リファレンスです。各章の詳細は `sandbox/docs/` に分割されたオンラインマニュアルを参照してください。
+>
+> | チャプター | パス |
+> |---|---|
+> | クイックスタート | `sandbox/docs/getting-started/` |
+> | データスキーマ | `sandbox/docs/data-schema/` |
+> | ベースレイアウト | `sandbox/docs/base-layout/` |
+> | YAMLセクション | `sandbox/docs/yaml-sections/` |
+> | レイアウトプラグイン | `sandbox/docs/layout-plugins/` |
+> | ブロックプラグイン | `sandbox/docs/block-plugins/` |
+> | ボタンプラグイン | `sandbox/docs/button-plugins/` |
+> | エフェクトプラグイン | `sandbox/docs/effect-plugins/` |
+> | Eleventy 設定 | `sandbox/docs/eleventy-config/` |
+> | CSS カスタマイズ | `sandbox/docs/css-customization/` |
+> | ベストプラクティス | `sandbox/docs/best-practices/` |
+
 ---
 
 ## 目次
@@ -1771,4 +1788,5 @@ module.exports = function(eleventyConfig) {
 
 ---
 
-*このドキュメントは `@aidev2007/engine v0.1.2` に対応しています。*
+*このドキュメントは `@aidev2007/engine v0.1.3` に対応しています。*
+*詳細は `sandbox/docs/` の各章を参照してください。*
