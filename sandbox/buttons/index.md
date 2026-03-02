@@ -27,7 +27,7 @@ navBg: "solid"
     <p class="sb-lead">
       ホバーすると液体のように形が変形するボタン。<br>
       スクイッシュ → バウンス → 安定ホバーの3段階アニメーション。<br>
-      <code>color</code> / <code>fontFamily</code> / <code>float</code> / <code>shadow</code> でカスタマイズできます。
+      <code>color</code> / <code>textColor</code> / <code>fontFamily</code> / <code>float</code> / <code>shadow</code> / <code>radius</code> でカスタマイズできます。
     </p>
     <div class="sb-btn-row">
       {{ liquidButton("Get Started") }}
@@ -37,6 +37,7 @@ navBg: "solid"
       {{ liquidButton("購入する", color="#b45309", fontFamily="'M PLUS Rounded 1c', sans-serif") }}
       {{ liquidButton("OK", color="#7c3aed") }}
       {{ liquidButton("キャンセル", color="#374151", fontFamily="'Noto Sans JP', sans-serif", shadow=false) }}
+      {{ liquidButton("Rounded", color="#0891b2", radius=8) }}
     </div>
     <h3 class="sb-param-title">パラメーター一覧</h3>
     <div class="sb-table-wrap">
@@ -52,10 +53,11 @@ navBg: "solid"
         <tbody>
           <tr><td>text</td><td>string</td><td>—</td><td>ボタンラベル（必須）</td></tr>
           <tr><td>color</td><td>string</td><td>'#5046e5'</td><td>ボタン色 hex</td></tr>
-          <tr><td>fontColor</td><td>string</td><td>'#ffffff'</td><td>テキスト色 hex</td></tr>
+          <tr><td>textColor</td><td>string</td><td>'#ffffff'</td><td>テキスト色 hex</td></tr>
           <tr><td>fontFamily</td><td>string</td><td>"'Outfit', sans-serif"</td><td>フォントファミリー</td></tr>
           <tr><td>float</td><td>boolean</td><td>true</td><td>浮遊アニメーション</td></tr>
           <tr><td>shadow</td><td>boolean</td><td>true</td><td>ドロップシャドウ</td></tr>
+          <tr><td>radius</td><td>number|'auto'</td><td>'auto'</td><td>角丸 px（'auto' で高さから自動計算）</td></tr>
         </tbody>
       </table>
     </div>
@@ -74,10 +76,10 @@ navBg: "solid"
     <div class="sb-btn-row sb-btn-row--md">
       {{ staggerButton("Get Started", float=true) }}
       {{ staggerButton("Bounce", color="#4f46e5", staggerDir="center") }}
-      {{ staggerButton("Random!", color="#be185d", staggerDir="random", fontSize=16) }}
+      {{ staggerButton("Random!", color="#be185d", staggerDir="random") }}
       {{ staggerButton("はじめる", color="#0d9488", fontFamily="'Noto Sans JP', sans-serif", staggerDir="end", float=true) }}
-      {{ staggerButton("タップ", color="#b45309", fontFamily="'Noto Sans JP', sans-serif", staggerDir="center", fontSize=17) }}
-      {{ staggerButton("Download", color="#18181b", staggerDir="end", fontSize=14) }}
+      {{ staggerButton("タップ", color="#b45309", fontFamily="'Noto Sans JP', sans-serif", staggerDir="center") }}
+      {{ staggerButton("Download", color="#18181b", staggerDir="end", shadow=true) }}
     </div>
     <h3 class="sb-param-title">パラメーター一覧</h3>
     <div class="sb-table-wrap">
@@ -95,10 +97,10 @@ navBg: "solid"
           <tr><td>color</td><td>string</td><td>'#111111'</td><td>ボタン背景色</td></tr>
           <tr><td>textColor</td><td>string</td><td>'#ffffff'</td><td>テキスト色</td></tr>
           <tr><td>fontFamily</td><td>string</td><td>"'Syne', sans-serif"</td><td>フォント</td></tr>
-          <tr><td>fontSize</td><td>number</td><td>15</td><td>フォントサイズ px</td></tr>
           <tr><td>staggerDir</td><td>string</td><td>'start'</td><td>'start' | 'center' | 'end' | 'random'</td></tr>
           <tr><td>bounceY</td><td>number</td><td>-4</td><td>跳ね上がり量 px（負の値で上方向）</td></tr>
           <tr><td>float</td><td>boolean</td><td>false</td><td>浮遊アニメーション</td></tr>
+          <tr><td>shadow</td><td>boolean</td><td>false</td><td>ドロップシャドウ</td></tr>
           <tr><td>radius</td><td>number|'auto'</td><td>'auto'</td><td>角丸 px（'auto' で高さから自動計算）</td></tr>
         </tbody>
       </table>
@@ -113,14 +115,14 @@ navBg: "solid"
     <p class="sb-lead">
       ホバーするとSVGのstrokeが上辺中央から両方向に描画されるミニマルなボタン。<br>
       テキストも微妙に浮き上がります。マウスアウトで逆方向に消えます。<br>
-      <code>strokeColor</code> と <code>textColor</code> を同色にするとカラーリングが統一されます。
+      <code>color</code> と <code>textColor</code> を同色にするとカラーリングが統一されます。
     </p>
     <div class="sb-btn-stage">
       {{ strokeButton("Get Started", float=true) }}
-      {{ strokeButton("Learn More", strokeColor="#0d9488", textColor="#0d9488") }}
-      {{ strokeButton("Contact", strokeColor="#6366f1", textColor="#6366f1", radius=24) }}
+      {{ strokeButton("Learn More", color="#0d9488", textColor="#0d9488") }}
+      {{ strokeButton("Contact", color="#6366f1", textColor="#6366f1", radius=24) }}
       {{ strokeButton("はじめる", fontFamily="'Noto Sans JP', sans-serif", strokeWidth=1, float=true) }}
-      {{ strokeButton("詳しく見る", fontFamily="'Noto Sans JP', sans-serif", strokeColor="#be185d", textColor="#be185d", radius=24, duration=0.7) }}
+      {{ strokeButton("詳しく見る", fontFamily="'Noto Sans JP', sans-serif", color="#be185d", textColor="#be185d", radius=24, duration=0.7) }}
       {{ strokeButton("Download", radius=0, strokeWidth=1.5, duration=0.45) }}
     </div>
     <h3 class="sb-param-title">パラメーター一覧</h3>
@@ -136,14 +138,14 @@ navBg: "solid"
         </thead>
         <tbody>
           <tr><td>text</td><td>string</td><td>—</td><td>ボタンラベル（必須）</td></tr>
-          <tr><td>strokeColor</td><td>string</td><td>'#111111'</td><td>ホバー時ストローク色</td></tr>
-          <tr><td>borderColor</td><td>string</td><td>strokeColor の 18% 透明度</td><td>平常時の枠線色</td></tr>
+          <tr><td>color</td><td>string</td><td>'#111111'</td><td>ホバー時ストローク色 hex</td></tr>
           <tr><td>textColor</td><td>string</td><td>'#111111'</td><td>テキスト色</td></tr>
           <tr><td>fontFamily</td><td>string</td><td>"'DM Sans', sans-serif"</td><td>フォント</td></tr>
-          <tr><td>strokeWidth</td><td>number</td><td>1.2</td><td>線の太さ px</td></tr>
-          <tr><td>radius</td><td>number</td><td>3</td><td>角丸 px（0 でシャープ、24以上で楕円）</td></tr>
-          <tr><td>duration</td><td>number</td><td>0.55</td><td>ストローク描画時間（秒）</td></tr>
           <tr><td>float</td><td>boolean</td><td>false</td><td>浮遊アニメーション</td></tr>
+          <tr><td>shadow</td><td>boolean</td><td>false</td><td>ドロップシャドウ</td></tr>
+          <tr><td>radius</td><td>number</td><td>3</td><td>角丸 px（0 でシャープ、24以上で楕円）</td></tr>
+          <tr><td>strokeWidth</td><td>number</td><td>1.2</td><td>線の太さ px</td></tr>
+          <tr><td>duration</td><td>number</td><td>0.55</td><td>ストローク描画時間（秒）</td></tr>
         </tbody>
       </table>
     </div>
@@ -173,7 +175,7 @@ useGsap: true
 
 &#123;&#123; liquidButton("Get Started", color="#5046e5") &#125;&#125;
 &#123;&#123; staggerButton("Learn More", color="#0d9488", staggerDir="center") &#125;&#125;
-&#123;&#123; strokeButton("Contact", strokeColor="#6366f1", textColor="#6366f1", radius=24) &#125;&#125;</code></pre>
+&#123;&#123; strokeButton("Contact", color="#6366f1", textColor="#6366f1", radius=24) &#125;&#125;</code></pre>
     </div>
   </div>
 </section>

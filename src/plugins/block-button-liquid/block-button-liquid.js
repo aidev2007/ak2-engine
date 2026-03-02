@@ -19,20 +19,22 @@
  *
  * @param {string}  text
  * @param {object}  [options]
- * @param {string}  [options.color]       ボタン色 hex                   (default: '#5046e5')
- * @param {string}  [options.fontColor]   テキスト色 hex                 (default: '#ffffff')
- * @param {string}  [options.fontFamily]  フォントファミリー             (default: "'Outfit', sans-serif")
- * @param {boolean} [options.float]       浮遊アニメーション             (default: true)
- * @param {boolean} [options.shadow]      ドロップシャドウ               (default: true)
+ * @param {string}          [options.color]       ボタン色 hex                      (default: '#5046e5')
+ * @param {string}          [options.textColor]   テキスト色 hex                    (default: '#ffffff')
+ * @param {string}          [options.fontFamily]  フォントファミリー                (default: "'Outfit', sans-serif")
+ * @param {boolean}         [options.float]       浮遊アニメーション                (default: true)
+ * @param {boolean}         [options.shadow]      ドロップシャドウ                  (default: true)
+ * @param {number|'auto'}   [options.radius]      角丸 px（'auto' で高さから自動計算）(default: 'auto')
  * @returns {HTMLButtonElement}
  */
 function createLiquidButton(text, options) {
   options = options || {};
   var color      = options.color      || '#5046e5';
-  var fontColor  = options.fontColor  || '#ffffff';
+  var textColor  = options.textColor  || '#ffffff';
   var fontFamily = options.fontFamily || "'Outfit', sans-serif";
   var float_     = options.float  !== undefined ? options.float  : true;
   var shadow     = options.shadow !== undefined ? options.shadow : true;
+  var radius     = (options.radius !== undefined && options.radius !== 'auto') ? options.radius : null;
 
   /* ── カラー派生 ── */
   function hexToHsl(h) {
@@ -91,7 +93,7 @@ function createLiquidButton(text, options) {
 
   var W = Math.ceil(textW + 72);
   var H = 52;
-  var r = H / 2;
+  var r = (radius !== null) ? radius : H / 2;
   var k = 0.5523;
 
   function makePath(xR, xL) {
@@ -189,7 +191,7 @@ function createLiquidButton(text, options) {
   label.className = 'btn-text';
   label.textContent = text;
   label.style.fontFamily = fontFamily;
-  label.style.color = fontColor;
+  label.style.color = textColor;
 
   btn.appendChild(svg);
   btn.appendChild(label);
@@ -285,10 +287,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var text = host.dataset.text || '';
     var opts = {};
     if (host.dataset.color)      opts.color      = host.dataset.color;
-    if (host.dataset.fontColor)  opts.fontColor  = host.dataset.fontColor;
+    if (host.dataset.textColor)  opts.textColor  = host.dataset.textColor;
     if (host.dataset.fontFamily) opts.fontFamily = host.dataset.fontFamily;
     if (host.dataset.float  !== undefined) opts.float  = host.dataset.float  !== 'false';
     if (host.dataset.shadow !== undefined) opts.shadow = host.dataset.shadow !== 'false';
+    if (host.dataset.radius && host.dataset.radius !== 'auto') opts.radius = parseFloat(host.dataset.radius);
     var btn = createLiquidButton(text, opts);
     host.replaceWith(btn);
   });

@@ -19,14 +19,14 @@
  *
  * @param {string}  text
  * @param {object}  [options]
- * @param {string}  [options.color]       ボタン背景色                               (default: '#111111')
- * @param {string}  [options.textColor]   テキスト色                                 (default: '#ffffff')
- * @param {string}  [options.fontFamily]  フォント                                   (default: "'Syne', sans-serif")
- * @param {number}  [options.fontSize]    フォントサイズ px                          (default: 15)
- * @param {string}  [options.staggerDir]  跳ね方向 'start'|'center'|'end'|'random'   (default: 'start')
- * @param {number}  [options.bounceY]     跳ね上がり量 px（負で上方向）              (default: -4)
- * @param {boolean} [options.float]       浮遊アニメーション                         (default: false)
- * @param {number}  [options.radius]      角丸 px（null で高さから自動計算）         (default: null)
+ * @param {string}          [options.color]       ボタン背景色                               (default: '#111111')
+ * @param {string}          [options.textColor]   テキスト色                                 (default: '#ffffff')
+ * @param {string}          [options.fontFamily]  フォント                                   (default: "'Syne', sans-serif")
+ * @param {string}          [options.staggerDir]  跳ね方向 'start'|'center'|'end'|'random'   (default: 'start')
+ * @param {number}          [options.bounceY]     跳ね上がり量 px（負で上方向）              (default: -4)
+ * @param {boolean}         [options.float]       浮遊アニメーション                         (default: false)
+ * @param {boolean}         [options.shadow]      ドロップシャドウ                           (default: false)
+ * @param {number|'auto'}   [options.radius]      角丸 px（'auto' で高さから自動計算）       (default: 'auto')
  * @returns {HTMLElement}
  */
 function createStaggerButton(text, options) {
@@ -34,11 +34,12 @@ function createStaggerButton(text, options) {
   var color      = options.color      || '#111111';
   var textColor  = options.textColor  || '#ffffff';
   var fontFamily = options.fontFamily || "'Syne', sans-serif";
-  var fontSize   = options.fontSize   !== undefined ? options.fontSize   : 15;
+  var fontSize   = 15;
   var staggerDir = options.staggerDir || 'start';
   var bounceY    = options.bounceY    !== undefined ? options.bounceY    : -4;
   var float_     = options.float      !== undefined ? options.float      : false;
-  var radius     = options.radius     !== undefined ? options.radius     : null;
+  var shadow     = options.shadow     !== undefined ? options.shadow     : false;
+  var radius     = (options.radius !== undefined && options.radius !== 'auto') ? options.radius : null;
 
   /* ── カラー派生（上端を明るく） ── */
   function hexToHsl(hex) {
@@ -180,6 +181,11 @@ function createStaggerButton(text, options) {
     );
   }
 
+  /* ── ドロップシャドウ ── */
+  if (shadow) {
+    wrap.style.boxShadow = '0 4px 18px rgba(0,0,0,0.22), 0 2px 5px rgba(0,0,0,0.14)';
+  }
+
   /* ── 浮遊アニメーション ── */
   if (float_) {
     gsap.to(wrap, {
@@ -277,13 +283,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (host.dataset.color)      opts.color      = host.dataset.color;
     if (host.dataset.textColor)  opts.textColor  = host.dataset.textColor;
     if (host.dataset.fontFamily) opts.fontFamily = host.dataset.fontFamily;
-    if (host.dataset.fontSize)   opts.fontSize   = parseFloat(host.dataset.fontSize);
     if (host.dataset.staggerDir) opts.staggerDir = host.dataset.staggerDir;
     if (host.dataset.bounceY)    opts.bounceY    = parseFloat(host.dataset.bounceY);
-    if (host.dataset.float !== undefined) opts.float = host.dataset.float !== 'false';
-    if (host.dataset.radius && host.dataset.radius !== 'auto') {
-      opts.radius = parseFloat(host.dataset.radius);
-    }
+    if (host.dataset.float  !== undefined) opts.float  = host.dataset.float  !== 'false';
+    if (host.dataset.shadow !== undefined) opts.shadow = host.dataset.shadow !== 'false';
+    if (host.dataset.radius && host.dataset.radius !== 'auto') opts.radius = parseFloat(host.dataset.radius);
     var btn = createStaggerButton(text, opts);
     host.replaceWith(btn);
   });

@@ -5,7 +5,7 @@
    使い方:
      {% from "block-button-stroke/block-button-stroke.njk" import strokeButton %}
      {{ strokeButton("Learn More") }}
-     {{ strokeButton("Contact", strokeColor="#6366f1", textColor="#6366f1", radius=24) }}
+     {{ strokeButton("Contact", color="#6366f1", textColor="#6366f1", radius=24) }}
    ================================================================
    依存: GSAP 3.x（useGsap: true を front-matter に設定するか、
          手動で GSAP を <head> 内に読み込んでください）
@@ -13,25 +13,25 @@
 
 {# ---- Stroke Draw Button -----------------------------------
    text        : ボタンラベル（必須）
-   strokeColor : ホバー時ストローク色                         (default: '#111111')
-   borderColor : 初期枠線色（省略時は strokeColor の低透明度） (default: '')
+   color       : ホバー時ストローク色                         (default: '#111111')
    textColor   : テキスト色                                   (default: '#111111')
    fontFamily  : フォントファミリー                           (default: "'DM Sans', sans-serif")
-   strokeWidth : 線の太さ px                                  (default: 1.2)
-   radius      : 角丸 px                                      (default: 3)
-   duration    : ストローク描画時間 秒                        (default: 0.55)
    float       : 浮遊アニメーション on/off                    (default: false)
+   shadow      : ドロップシャドウ on/off                      (default: false)
+   radius      : 角丸 px、'auto' で高さから自動計算           (default: 3)
+   strokeWidth : 線の太さ px                                  (default: 1.2)
+   duration    : ストローク描画時間 秒                        (default: 0.55)
    ------------------------------------------------------------ #}
-{% macro strokeButton(text, strokeColor="#111111", borderColor="", textColor="#111111", fontFamily="'DM Sans', sans-serif", strokeWidth=1.2, radius=3, duration=0.55, float=false) %}
+{% macro strokeButton(text, color="#111111", textColor="#111111", fontFamily="'DM Sans', sans-serif", float=false, shadow=false, radius=3, strokeWidth=1.2, duration=0.55) %}
 <span class="stroke-btn-host"
   data-stroke-btn
   data-text="{{ text | escape }}"
-  data-stroke-color="{{ strokeColor }}"
-  data-border-color="{{ borderColor }}"
+  data-color="{{ color }}"
   data-text-color="{{ textColor }}"
   data-font-family="{{ fontFamily | escape }}"
-  data-stroke-width="{{ strokeWidth }}"
+  data-float="{{ 'true' if float else 'false' }}"
+  data-shadow="{{ 'true' if shadow else 'false' }}"
   data-radius="{{ radius }}"
-  data-duration="{{ duration }}"
-  data-float="{{ 'true' if float else 'false' }}"></span>
+  data-stroke-width="{{ strokeWidth }}"
+  data-duration="{{ duration }}"></span>
 {%- endmacro %}

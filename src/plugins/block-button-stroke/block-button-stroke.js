@@ -10,7 +10,7 @@
  *   {{ strokeButton("Learn More") }}
  *
  * JS から直接呼び出す場合:
- *   const btn = createStrokeButton("Learn More", { strokeColor: "#0d9488", textColor: "#0d9488" });
+ *   const btn = createStrokeButton("Learn More", { color: "#0d9488", textColor: "#0d9488" });
  *   document.querySelector('.my-container').appendChild(btn);
  */
 
@@ -19,36 +19,33 @@
  *
  * @param {string}  text
  * @param {object}  [options]
- * @param {string}  [options.strokeColor]   ホバー時ストローク色    (default: '#111111')
- * @param {string}  [options.borderColor]   初期枠線色              (default: strokeColor の低透明度)
- * @param {string}  [options.textColor]     テキスト色              (default: '#111111')
- * @param {string}  [options.fontFamily]    フォント                (default: "'DM Sans', sans-serif")
- * @param {number}  [options.strokeWidth]   線の太さ px             (default: 1.2)
- * @param {number}  [options.radius]        角丸 px                 (default: 3)
- * @param {number}  [options.duration]      描画時間 秒             (default: 0.55)
- * @param {boolean} [options.float]         浮遊アニメーション      (default: false)
+ * @param {string}          [options.color]       ホバー時ストローク色              (default: '#111111')
+ * @param {string}          [options.textColor]   テキスト色                        (default: '#111111')
+ * @param {string}          [options.fontFamily]  フォント                          (default: "'DM Sans', sans-serif")
+ * @param {boolean}         [options.float]       浮遊アニメーション                (default: false)
+ * @param {boolean}         [options.shadow]      ドロップシャドウ                  (default: false)
+ * @param {number}          [options.radius]      角丸 px                           (default: 3)
+ * @param {number}          [options.strokeWidth] 線の太さ px                       (default: 1.2)
+ * @param {number}          [options.duration]    描画時間 秒                       (default: 0.55)
  * @returns {HTMLElement}
  */
 function createStrokeButton(text, options) {
   options = options || {};
-  var strokeColor = options.strokeColor || '#111111';
-  var borderColor = options.borderColor || null;
+  var color       = options.color       || '#111111';
   var textColor   = options.textColor   || '#111111';
   var fontFamily  = options.fontFamily  || "'DM Sans', sans-serif";
-  var strokeWidth = options.strokeWidth !== undefined ? options.strokeWidth : 1.2;
-  var radius      = options.radius      !== undefined ? options.radius      : 3;
-  var duration    = options.duration    !== undefined ? options.duration    : 0.55;
   var float_      = options.float       !== undefined ? options.float       : false;
+  var shadow      = options.shadow      !== undefined ? options.shadow      : false;
+  var radius      = options.radius      !== undefined ? options.radius      : 3;
+  var strokeWidth = options.strokeWidth !== undefined ? options.strokeWidth : 1.2;
+  var duration    = options.duration    !== undefined ? options.duration    : 0.55;
 
-  /* ── borderColor 未指定なら strokeColor を低透明度で使う ── */
-  var resolvedBorderColor = borderColor;
-  if (!resolvedBorderColor) {
-    var h = strokeColor.replace('#', '');
-    var rr = parseInt(h.slice(0, 2), 16);
-    var gg = parseInt(h.slice(2, 4), 16);
-    var bb = parseInt(h.slice(4, 6), 16);
-    resolvedBorderColor = 'rgba(' + rr + ',' + gg + ',' + bb + ',0.18)';
-  }
+  /* ── borderColor は color を低透明度で自動生成 ── */
+  var h = color.replace('#', '');
+  var rr = parseInt(h.slice(0, 2), 16);
+  var gg = parseInt(h.slice(2, 4), 16);
+  var bb = parseInt(h.slice(4, 6), 16);
+  var resolvedBorderColor = 'rgba(' + rr + ',' + gg + ',' + bb + ',0.18)';
 
   /* ── テキスト幅計測 ── */
   var probe = document.createElement('span');
@@ -117,7 +114,7 @@ function createStrokeButton(text, options) {
 
   strokePath.setAttribute('d', d);
   strokePath.setAttribute('fill', 'none');
-  strokePath.setAttribute('stroke', strokeColor);
+  strokePath.setAttribute('stroke', color);
   strokePath.setAttribute('stroke-width', strokeWidth);
   strokePath.setAttribute('stroke-linecap', 'round');
   strokePath.setAttribute('stroke-linejoin', 'round');
@@ -137,6 +134,11 @@ function createStrokeButton(text, options) {
 
   wrap.appendChild(svg);
   wrap.appendChild(labelEl);
+
+  /* ── ドロップシャドウ ── */
+  if (shadow) {
+    wrap.style.boxShadow = '0 2px 12px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08)';
+  }
 
   /* ── 浮遊アニメーション ── */
   if (float_) {
@@ -209,14 +211,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-stroke-btn]').forEach(function (host) {
     var text = host.dataset.text || '';
     var opts = {};
-    if (host.dataset.strokeColor) opts.strokeColor = host.dataset.strokeColor;
-    if (host.dataset.borderColor) opts.borderColor = host.dataset.borderColor;
+    if (host.dataset.color)       opts.color       = host.dataset.color;
     if (host.dataset.textColor)   opts.textColor   = host.dataset.textColor;
     if (host.dataset.fontFamily)  opts.fontFamily  = host.dataset.fontFamily;
-    if (host.dataset.strokeWidth) opts.strokeWidth = parseFloat(host.dataset.strokeWidth);
+    if (host.dataset.float  !== undefined) opts.float  = host.dataset.float  !== 'false';
+    if (host.dataset.shadow !== undefined) opts.shadow = host.dataset.shadow !== 'false';
     if (host.dataset.radius)      opts.radius      = parseFloat(host.dataset.radius);
+    if (host.dataset.strokeWidth) opts.strokeWidth = parseFloat(host.dataset.strokeWidth);
     if (host.dataset.duration)    opts.duration    = parseFloat(host.dataset.duration);
-    if (host.dataset.float !== undefined) opts.float = host.dataset.float !== 'false';
     var btn = createStrokeButton(text, opts);
     host.replaceWith(btn);
   });

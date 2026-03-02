@@ -16,22 +16,22 @@
    color      : ボタン背景色                                    (default: '#111111')
    textColor  : テキスト色                                      (default: '#ffffff')
    fontFamily : フォントファミリー                              (default: "'Syne', sans-serif")
-   fontSize   : フォントサイズ px                               (default: 15)
    staggerDir : 跳ね方向 'start'|'center'|'end'|'random'        (default: 'start')
    bounceY    : 跳ね上がり量 px（負の値で上方向）              (default: -4)
    float      : 浮遊アニメーション on/off                       (default: false)
+   shadow     : ドロップシャドウ on/off                         (default: false)
    radius     : 角丸 px、'auto' で高さから自動計算              (default: 'auto')
    ------------------------------------------------------------ #}
-{% macro staggerButton(text, color="#111111", textColor="#ffffff", fontFamily="'Syne', sans-serif", fontSize=15, staggerDir="start", bounceY=-4, float=false, radius="auto") %}
+{% macro staggerButton(text, color="#111111", textColor="#ffffff", fontFamily="'Syne', sans-serif", staggerDir="start", bounceY=-4, float=false, shadow=false, radius="auto") %}
 <span class="stagger-btn-host"
   data-stagger-btn
   data-text="{{ text | escape }}"
   data-color="{{ color }}"
   data-text-color="{{ textColor }}"
   data-font-family="{{ fontFamily | escape }}"
-  data-font-size="{{ fontSize }}"
   data-stagger-dir="{{ staggerDir }}"
   data-bounce-y="{{ bounceY }}"
   data-float="{{ 'true' if float else 'false' }}"
+  data-shadow="{{ 'true' if shadow else 'false' }}"
   data-radius="{{ radius }}"></span>
 {%- endmacro %}
