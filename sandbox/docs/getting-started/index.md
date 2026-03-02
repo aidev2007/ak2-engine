@@ -21,7 +21,7 @@ sections:
 ```json
 {
   "dependencies": {
-    "@aidev2007/engine": "^0.1.3"
+    "@ak2lab/engine": "^0.1.3"
   }
 }
 ```
@@ -33,7 +33,7 @@ sections:
 ```json
 {
   "dependencies": {
-    "@aidev2007/engine": "file:../ak2-engine"
+    "@ak2lab/engine": "file:../ak2-engine"
   }
 }
 ```

@@ -75,7 +75,7 @@ sections:
 
 ## effectClasses.json
 
-エフェクトキー（フロントマターの `effects: [key]`）から JSクラス名へのマッピングです。`@aidev2007/engine/sandbox/_data/effectClasses.json` をそのままコピーして使用してください。
+エフェクトキー（フロントマターの `effects: [key]`）から JSクラス名へのマッピングです。`@ak2lab/engine/sandbox/_data/effectClasses.json` をそのままコピーして使用してください。
 
 {% raw %}
 ```json

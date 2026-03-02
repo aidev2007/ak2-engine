@@ -28,7 +28,7 @@ effects:
       {headline: "Engine Layer", en: "Build without borders.", desc: "エンジンとコンテンツを分離した、次世代のWeb制作基盤。"},
       {headline: "Plugin First", en: "Compose. Deploy. Repeat.", desc: "プラグインを組み合わせるだけで、あらゆるサイトを構築できます。"}
     ],
-    brandName="@aidev2007/engine"
+    brandName="@ak2lab/engine"
   ) }}
 
   {{ heroWave(

@@ -4,7 +4,7 @@ title: "AK²Engine ドキュメント"
 navBg: "solid"
 sections:
   - type: hero
-    subtitle: "@aidev2007/engine"
+    subtitle: "@ak2lab/engine"
     title: "AK²Engine Docs"
     lead: "Eleventy ベースの静的コンポーネントエンジン。このドキュメントでサイト構築を完結させます。"
     note: "v0.1.3 対応ドキュメントです。"

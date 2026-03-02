@@ -4,7 +4,7 @@ title: Sandbox Index
 navBg: "solid"
 sections:
   - type: hero
-    subtitle: "@aidev2007/engine"
+    subtitle: "@ak2lab/engine"
     title: "Plugin Sandbox"
     lead: "エンジン・プラグインの動作確認環境です。各テストページでプラグインの挙動を確認してください。"
     note: "このページは開発用です。本番サイトには含まれません。"
