@@ -1,5 +1,6 @@
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
 <div style="position:relative; overflow:hidden;">
+  <div style="position:relative; z-index:1;">
   {{ pageHero(
     subtitle=section.subtitle,
     title=section.title,
@@ -7,8 +8,11 @@
     note=section.note | default(""),
     extraClass=section.extraClass | default("")
   ) }}
-  {% for effectName in section.effects | default([]) %}
+  </div>
+  {% for effect in section.effects | default([]) %}
+  {% set effectName = effect.name if effect.name else effect %}
   <canvas data-section-effect="{{ effectName }}"
+    {% if effect.name %}data-section-effect-options="{{ effect | dump | escape }}"{% endif %}
     style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;mix-blend-mode:screen;"></canvas>
   {% endfor %}
 </div>

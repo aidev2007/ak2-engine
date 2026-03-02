@@ -31,6 +31,14 @@
  */
 class SnowEffect {
 
+  /** @type {object} コンストラクタオプション（CSS変数より優先） */
+  #options = {};
+
+  /** @param {{ count?: number, alpha?: number, hue?: number, lightness?: number }} options */
+  constructor(options = {}) {
+    this.#options = options;
+  }
+
   /** @type {number} */
   #w = 0;
 
@@ -91,6 +99,12 @@ class SnowEffect {
     if (!isNaN(a))  this.#alphaScale = a;
     if (!isNaN(hue)) this.#hue       = hue;
     if (!isNaN(lit)) this.#lightness = lit;
+
+    // コンストラクタオプションは CSS 変数より優先（セクション個別指定に使用）
+    if (this.#options.count     !== undefined) this.#count      = this.#options.count;
+    if (this.#options.alpha     !== undefined) this.#alphaScale = this.#options.alpha;
+    if (this.#options.hue       !== undefined) this.#hue        = this.#options.hue;
+    if (this.#options.lightness !== undefined) this.#lightness  = this.#options.lightness;
 
     this.#flakes = Array.from({ length: this.#count }, () => this.#createFlake(true));
   }

@@ -27,8 +27,20 @@ class SectionEffectRunner {
     canvas.width  = canvas.offsetWidth  || canvas.parentElement.offsetWidth;
     canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
 
-    const ctx    = canvas.getContext('2d');
-    const effect = new EffectClass();
+    const ctx = canvas.getContext('2d');
+
+    // data-section-effect-options="{ name, ...params }" をパースしてコンストラクタに渡す
+    let effectOptions = {};
+    const optionsRaw = canvas.dataset.sectionEffectOptions;
+    if (optionsRaw) {
+      try {
+        const parsed = JSON.parse(optionsRaw);
+        delete parsed.name; // name キーはクラス名なので除外
+        effectOptions = parsed;
+      } catch (_) {}
+    }
+
+    const effect = new EffectClass(effectOptions);
     effect.init(canvas, ctx);
 
     // effect 生成後に定義 → TDZ なし

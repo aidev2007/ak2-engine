@@ -10,8 +10,17 @@ sections:
     note: "このページは開発用です。本番サイトには含まれません。"
     extraClass: "section--parts-hero"
     effects:
-      - SnowEffect
-      - FireflyEffect
+      - name: SnowEffect
+        count: 15
+        alpha: 1.5
+      - name: FireflyEffect
+        interactive: false
+      - SparksEffect
+      - WaveRippleEffect
+      - ShimmerEffect
+      - CherryBlossomEffect
+      - GridEffect
+      - EmberEffect
 
   - type: feature-grid
     heading: "SANDBOX PAGES"
