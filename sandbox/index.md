@@ -11,6 +11,7 @@ sections:
     extraClass: "section--parts-hero"
     effects:
       - SnowEffect
+      - FireflyEffect
 
   - type: feature-grid
     heading: "SANDBOX PAGES"
