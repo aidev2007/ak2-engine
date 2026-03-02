@@ -5,11 +5,11 @@
   "description": "@ak2lab/engine Sandbox — Plugin development & testing environment",
   "url": "http://localhost:8080",
   "logoHref": "/",
-  "logoSvg": "<svg viewBox='0 0 48 48' width='40' height='40' xmlns='http://www.w3.org/2000/svg'><rect width='48' height='48' rx='8' fill='#025DCC'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='bold' font-size='20' fill='white'>AK</text></svg>",
+  "logoSvg": "<svg viewBox='0 0 1024 1024' class='brand__logo-svg' xmlns='http://www.w3.org/2000/svg'><g transform='scale(0.1, 0.1)'><path fill='#025DCC' d='M2159 2752c-2 332-4 1667-4 2968l0 2365 212 3c211 2 212 2 226-20 8-13 89-151 179-308 176-304 436-753 588-1015 51-88 156-269 233-403l141-242 640 0 641 1 0-193 0-193-526-3-527-2 233-403c308-535 646-1118 814-1407 76-129 173-297 217-372 43-76 82-138 87-138 4 0 7 880 7 1955l0 1955 193-2 192-3 5-661 5-661 66-71c37-40 71-72 75-72 5 0 22 17 39 38 16 20 102 122 190 226 88 104 212 251 275 326 102 121 521 620 700 831 36 43 134 159 218 258l153 181-2138 0-2138 0-113 193c-61 107-112 197-112 200 0 4 1159 7 2575 7l2575 0 0-1980 0-1980-192 2-193 3-5 1626-5 1627-140-167c-77-91-223-265-325-386-102-121-258-305-345-409-88-104-212-250-275-326-63-75-196-232-295-349-99-117-181-217-183-221-2-5 58-77 134-162 131-146 513-576 639-718 33-37 149-167 258-288 108-121 197-223 197-226 0-4-116-6-258-6l-259 1-89 102c-179 205-977 1103-1005 1132l-29 30 0-1423 0-1422 325 0 325 0 0-200 0-200-2099 0-2099 0-3 602zm2997-25c-57 98-208 360-336 583-128 223-290 504-360 625-155 269-433 751-565 980-98 170-409 711-878 1525-311 540-458 794-463 799-2 2-4-1052-4-2342l0-2347 1354 0 1354 0-102 177z'></path><path fill='#025DCC' d='M6660 2450l0 300 193-2 192-3 3-98 3-97 319 0 320 0 0 113 0 113-57 16c-64 17-720 212-875 259l-98 30 0 374 0 375 710 0 710 0 0-195 0-195-515 0-515 0 0-35c0-34 1-34 73-55 39-12 191-57 337-100 146-43 345-102 443-131l177-53 0-458 0-458-710 0-710 1 0 299z'></path></g></svg>",
   "footerDesc": "This site is powered by <strong>@ak2lab/engine</strong>.<br>Replace this text via <code>site.footerDesc</code> in your <code>_data/site.json</code>.",
   "copyright": "My Site. All Rights Reserved.",
   "footerAboutLinks": [
-    { "label": "Engine Repo", "url": "https://github.com/ak2lab/ak2-engine" },
+    { "label": "Engine Repo", "url": "https://github.com/aidev2007/ak2-engine" },
     { "label": "Sandbox Index", "url": "/" }
   ]
 }
