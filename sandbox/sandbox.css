@@ -359,3 +359,56 @@
 .prose ul > li > p:last-child {
   margin-bottom: 0;
 }
+
+/* ── TOC（記事内自動目次） ───────────────────────────────────── */
+
+.article-page__toc {
+  max-width: 960px;
+  margin: 0 auto 3.5rem;
+}
+
+.toc {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 1.2rem 1.8rem 1.4rem;
+}
+
+.toc__title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin: 0 0 0.9rem;
+}
+
+.toc__list {
+  margin: 0;
+  padding-left: 1.6em;
+  list-style: decimal;
+}
+
+.toc__item {
+  margin: 0.35em 0;
+  line-height: 1.7;
+}
+
+.toc__item--sub {
+  margin-left: 1.4em;
+  list-style-type: disc;
+}
+
+.toc__link {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.toc__link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}

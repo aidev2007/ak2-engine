@@ -10,6 +10,7 @@
 const Nunjucks = require("nunjucks");
 const fs = require("fs");
 const path = require("path");
+const markdownItAnchor = require("markdown-it-anchor");
 
 /** src/ 配下の CSS を再帰収集 */
 function getAllCssFiles(dir) {
@@ -64,6 +65,36 @@ module.exports = function (eleventyConfig) {
     lstripBlocks: true  // ← ★これを追加
   });
   eleventyConfig.setLibrary("njk", nunjucksEnv);
+
+  // ── Markdown: 見出しにアンカーID を付与 ─────────────────────────────────────
+  eleventyConfig.amendLibrary("md", mdLib => {
+    mdLib.use(markdownItAnchor, {
+      permalink: false,
+      slugify: s => s.trim().replace(/\s+/g, "-").replace(/[^\w\u3000-\u9fff\u30a0-\u30ff\u3040-\u309f-]/g, "").toLowerCase()
+    });
+  });
+
+  // ── Filter: TOC 生成（article.njk から使用）─────────────────────────────────
+  eleventyConfig.addFilter("toc", function (content) {
+    if (!content) return "";
+    const re = /<h([23])[^>]*\sid="([^"]*)"[^>]*>([\s\S]*?)<\/h\1>/g;
+    const items = [];
+    let m;
+    while ((m = re.exec(content)) !== null) {
+      const level = parseInt(m[1]);
+      const id = m[2];
+      const text = m[3].replace(/<[^>]+>/g, "").trim();
+      items.push({ level, id, text });
+    }
+    if (items.length < 2) return "";
+    let html = '<nav class="toc" aria-label="目次"><p class="toc__title">目次</p><ol class="toc__list">';
+    for (const item of items) {
+      const cls = item.level === 3 ? ' class="toc__item toc__item--sub"' : ' class="toc__item"';
+      html += `<li${cls}><a href="#${item.id}" class="toc__link">${item.text}</a></li>`;
+    }
+    html += "</ol></nav>";
+    return html;
+  });
 
   // ── CSS/JS バンドル ──────────────────────────────────────────────────────────
   eleventyConfig.on("eleventy.before", async () => {

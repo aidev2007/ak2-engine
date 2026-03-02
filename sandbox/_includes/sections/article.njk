@@ -13,6 +13,10 @@
   </div>
   <div class="article-page__body">
     <div class="container">
+      {% set tocHtml = content | toc %}
+      {% if tocHtml %}
+      <div class="article-page__toc">{{ tocHtml | safe }}</div>
+      {% endif %}
       <div class="prose">
         {{ content | safe }}
       </div>
