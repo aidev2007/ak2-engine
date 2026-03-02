@@ -6,26 +6,90 @@ sections:
   - type: article
     category: "AK²ENGINE DOCS"
     title: "エフェクトプラグイン"
-    lead: "背景エフェクト31種の使い方。ページ全体・セクション個別・カードプレビューの3つの利用パターンがあります。"
+    lead: "AK²Engine が提供するエフェクトプラグイン一覧。背景・カーソル・モーション・テキストの4グループに分類されます。"
 ---
 
 [← 目次に戻る](/docs/)
 
 ---
 
-## 利用パターン概要
+## エフェクトの分類
 
-| パターン | 仕組み | 用途 |
+AK²Engine のエフェクトプラグインは以下の4グループに分類されます。
+
+| グループ | 概要 | 種類数 |
 |---|---|---|
-| **ページ全体** | `effects: [key]` frontmatter → `AK2.register()` | 固定レイヤーで全ページに重なる |
-| **セクション個別** | `sections[].effects[]` YAML配列 | 特定セクション内だけに表示 |
-| **カードプレビュー** | `data-preview="ClassName"` HTML属性 | ホバー時にプレビュー再生 |
+| **背景エフェクト** | セクションに Canvas アニメーション背景を追加 | 27種 |
+| **カーソルエフェクト** | マウスカーソルをカスタム表示 | 1種 |
+| **モーションエフェクト** | スクロール連動のアニメーション | 2種 |
+| **テキストエフェクト** | 文字アニメーション | 1種 |
 
 ---
 
-## 1. ページ全体背景エフェクト
+## 背景エフェクト
 
-`effects:` にエフェクトキーを配列で指定します。複数同時指定可能。
+### 背景エフェクトとは
+
+背景エフェクトは、**セクション**（`sections[]` の各ブロック）に対して Canvas ベースのアニメーション背景を付与するプラグインです。
+
+> セクション外（ページルートレベル）に配置すれば**ページ全体背景**としても使用できます。ただし基本的な用途はセクション単位の使用を想定しています。
+
+---
+
+### セクションへの適用
+
+`sections[].effects[]` YAML 配列でエフェクトを指定します。エフェクト名はクラス名（例: `SnowEffect`）で指定してください。
+
+#### 文字列記法（オプションなし）
+
+{% raw %}
+```yaml
+sections:
+  - type: hero
+    title: "タイトル"
+    effects:
+      - SnowEffect
+      - FireflyEffect
+```
+{% endraw %}
+
+#### オブジェクト記法（オプション指定あり）
+
+{% raw %}
+```yaml
+sections:
+  - type: hero
+    title: "タイトル"
+    effects:
+      - name: SnowEffect
+        count: 20
+        alpha: 1.5
+        hue: 210
+        lightness: 70
+      - name: FireflyEffect
+        interactive: false
+```
+{% endraw %}
+
+#### 両記法の混在
+
+{% raw %}
+```yaml
+effects:
+  - SnowEffect
+  - name: FireflyEffect
+    interactive: false
+  - SparksEffect
+```
+{% endraw %}
+
+複数エフェクトを重ねる場合、`mix-blend-mode: screen` ですべてのエフェクトが合成表示されます。
+
+---
+
+### ページ全体への適用
+
+front-matter の `effects:` にキーを配列で指定します。`base.njk` が自動的に `AK2.register(new ClassName())` を呼び出します。
 
 {% raw %}
 ```yaml
@@ -39,49 +103,15 @@ effects:
 ```
 {% endraw %}
 
-`base.njk` が自動的に `AK2.register(new ClassName())` を呼び出します。
+---
 
-### エフェクトキー一覧
+### CSS カスタム変数によるパラメーター調整
 
-| キー | クラス名 | 見た目・雰囲気 |
-|---|---|---|
-| `aurora` | `AuroraEffect` | 青〜紫〜緑の光が揺らめくオーロラ。幻想的・神秘的な演出 |
-| `cherry-blossom` | `CherryBlossomEffect` | ピンクの花びらが舞い落ちる。春・和風サイト |
-| `cloud` | `CloudEffect` | 白い雲が緩やかに流れる。空・清潔感・爽やかさ |
-| `ember` | `EmberEffect` | 炎の火の粉が上方向に漂う。情熱・夏祭り |
-| `firefly` | `FireflyEffect` | 光の点（ホタル）が光跡を描く。夏・幻想的 |
-| `grid-construction` | `GridConstruction` | ページ開幕時にグリッド線が展開するローディング演出★ |
-| `leaf` | `LeafEffect` | 緑の葉が揺れながら漂う。ナチュラル・エコ系 |
-| `leaf-fall` | `LeafFallEffect` | 葉が落下する秋のシーン |
-| `lightning` | `LightningEffect` | 稲妻が走る。エネルギッシュ・テック・ロック系 |
-| `lines` | `GridEffect` | 細い線が動くグリッドパターン。テクニカル・ミニマル |
-| `maple-leaves` | `MapleLeafEffect` | もみじの葉が舞う。紅葉・日本の秋 |
-| `momiji` | `MomijiEffect` | もみじ（赤みが強いバリエーション）|
-| `particles` | `ParticleEffect` | Three.js による3Dパーティクル群（`useThreeJS: true` 必須） |
-| `projector-flicker` | `ProjectorFlickerEffect` | 古い映写機のフリッカー。レトロ・アナログ感 |
-| `rain` | `RainEffect` | 縦に落ちる雨のライン。梅雨・夜の雨 |
-| `ripple` | `RippleEffect` | 水面に波紋が広がる。水・清涼感・温泉 |
-| `sakura` | `SakuraEffect` | 桜の花びらが舞う（フルバリエーション）。春 |
-| `shimmer` | `ShimmerEffect` | キラキラした光の粒。高級感・ジュエリー |
-| `snow` | `SnowEffect` | 白い雪がゆっくり降る。冬・クリスマス |
-| `sparks` | `SparksEffect` | 火花・スパークがはじける。工場・ものづくり |
-| `stars` | `StarFieldEffect` | 星空。夜・宇宙・ロマンティック |
-| `star-speed` | `StarSpeedEffect` | 星が高速で流れるワープ演出。SF・スピード感 |
-| `status-up` | `StatusUpEffect` | ゲームのステータスアップ表示。ゲーミング・デジタル |
-| `steam` | `SteamEffect` | 湯気が立ち上る。温泉・カフェ・温かみ |
-| `vintage-film` | `VintageFilmEffect` | フィルムグレイン・スクラッチノイズ。レトロ・映画的 |
-| `wave-ripple` | `WaveRippleEffect` | ウェーブと波紋の水面表現。海・プール |
-| `waves` | `WaveEffect` | なめらかな波形。海・音楽・リズム感 |
-
-> ★ `grid-construction` は完了時に `ak2:grid-ready` カスタムイベントを発行します。`useLogoAnimation: true` はこのイベントをリッスンしてSVGストロークアニメーションを開始します。
-
-### CSS カスタム変数によるグローバル調整
-
-エフェクトは CSS カスタムプロパティで調整できます。
+各エフェクトは CSS カスタムプロパティで調整できます。変数名は `--{エフェクト識別子}-{パラメーター名}` が基本パターンです。
 
 {% raw %}
 ```css
-body {
+:root {
   --snow-count: 200;
   --snow-alpha: 0.9;
   --aurora-alpha: 0.3;
@@ -90,95 +120,51 @@ body {
 ```
 {% endraw %}
 
-各エフェクトの変数名は `--{効果名}-count`, `--{効果名}-alpha` が基本パターンです。
-
 ---
 
-## 2. セクション個別エフェクト
+### 背景エフェクト一覧
 
-YAMLセクションの `hero` タイプで使用できます。そのセクション内にのみ表示されます。
+各エフェクト名をクリックすると詳細ページを確認できます。
 
-### 文字列記法（パラメータなし）
-
-{% raw %}
-```yaml
-sections:
-  - type: hero
-    title: "タイトル"
-    effects:
-      - SnowEffect
-      - FireflyEffect
-```
-{% endraw %}
-
-### オブジェクト記法（パラメータ指定）
-
-{% raw %}
-```yaml
-sections:
-  - type: hero
-    title: "タイトル"
-    effects:
-      - name: SnowEffect
-        count: 20       # 粒子数（デフォルト60）
-        alpha: 1.5      # 明るさ係数（デフォルト1.0）
-        hue: 210        # 色相（デフォルト: 白/青白）
-        lightness: 70   # 明度（デフォルト70）
-      - name: FireflyEffect
-        interactive: false   # マウス反応なし
-```
-{% endraw %}
-
-### 両記法の混在
-
-{% raw %}
-```yaml
-effects:
-  - SnowEffect           # 文字列（オプションなし）
-  - name: FireflyEffect  # オブジェクト（オプションあり）
-    interactive: false
-  - SparksEffect         # 文字列（オプションなし）
-```
-{% endraw %}
-
-### 重ねがけの注意点
-
-複数エフェクトを重ねる場合、`mix-blend-mode: screen` により記述順に関わらず全エフェクトが表示されます。FireflyEffect はトレイル維持のためキャンバスに暗背景を描画しますが、screen合成により下のエフェクトが透けて見えます。
-
-### SnowEffect パラメータ一覧
-
-| パラメータ | デフォルト | 説明 |
+| エフェクト名 | キー | 説明 |
 |---|---|---|
-| `count` | `60` | 粒子数（推奨: 20〜100） |
-| `alpha` | `1.0` | 明るさ係数（推奨: 0.5〜1.5） |
-| `hue` | 未設定 | 色相 0〜360（未設定で白/青白） |
-| `lightness` | `70` | 明度 0〜100（`hue` 設定時のみ有効） |
+| [`AuroraEffect`](/docs/effect-plugins/aurora/) | `aurora` | 青〜紫〜緑の光が揺らめくオーロラ。幻想的・神秘的な演出 |
+| [`CherryBlossomEffect`](/docs/effect-plugins/cherry-blossom/) | `cherry-blossom` | ピンクの花びらが舞い落ちる。春・和風サイト |
+| [`CloudEffect`](/docs/effect-plugins/cloud/) | `cloud` | 白い雲が緩やかに流れる。空・清潔感・爽やかさ |
+| [`EmberEffect`](/docs/effect-plugins/ember/) | `ember` | 炎の火の粉が上方向に漂う。情熱・夏祭り |
+| [`FireflyEffect`](/docs/effect-plugins/firefly/) | `firefly` | 光の点（ホタル）が光跡を描く。夏・幻想的 |
+| [`GridConstruction`](/docs/effect-plugins/grid-construction/) | `grid-construction` | ページ開幕時にグリッド線が展開するローディング演出★ |
+| [`LeafEffect`](/docs/effect-plugins/leaf/) | `leaf` | 緑の葉が揺れながら漂う。ナチュラル・エコ系 |
+| [`LeafFallEffect`](/docs/effect-plugins/leaf-fall/) | `leaf-fall` | 葉が落下する秋のシーン |
+| [`LightningEffect`](/docs/effect-plugins/lightning/) | `lightning` | 稲妻が走る。エネルギッシュ・テック・ロック系 |
+| [`GridEffect`](/docs/effect-plugins/lines/) | `lines` | 細い線が動くグリッドパターン。テクニカル・ミニマル |
+| [`MapleLeafEffect`](/docs/effect-plugins/maple-leaves/) | `maple-leaves` | もみじの葉が舞う。紅葉・日本の秋 |
+| [`MomijiEffect`](/docs/effect-plugins/momiji/) | `momiji` | もみじ（赤みが強いバリエーション） |
+| [`ParticleEffect`](/docs/effect-plugins/particles/) | `particles` | Three.js による3Dパーティクル群（`useThreeJS: true` 必須） |
+| [`ProjectorFlickerEffect`](/docs/effect-plugins/projector-flicker/) | `projector-flicker` | 古い映写機のフリッカー。レトロ・アナログ感 |
+| [`RainEffect`](/docs/effect-plugins/rain/) | `rain` | 縦に落ちる雨のライン。梅雨・夜の雨 |
+| [`RippleEffect`](/docs/effect-plugins/ripple/) | `ripple` | クリックで水面に波紋が広がる。水・清涼感 |
+| [`SakuraEffect`](/docs/effect-plugins/sakura/) | `sakura` | 桜の花びらが舞う（フルバリエーション）。春 |
+| [`ShimmerEffect`](/docs/effect-plugins/shimmer/) | `shimmer` | キラキラした光の粒。高級感・ジュエリー |
+| [`SnowEffect`](/docs/effect-plugins/snow/) | `snow` | 白い雪がゆっくり降る。冬・クリスマス |
+| [`SparksEffect`](/docs/effect-plugins/sparks/) | `sparks` | 火花・スパークがはじける。工場・ものづくり |
+| [`StarFieldEffect`](/docs/effect-plugins/stars/) | `stars` | 星空。夜・宇宙・ロマンティック |
+| [`StarSpeedEffect`](/docs/effect-plugins/star-speed/) | `star-speed` | 星が高速で流れるワープ演出。SF・スピード感 |
+| [`StatusUpEffect`](/docs/effect-plugins/status-up/) | `status-up` | ゲームのステータスアップ表示。ゲーミング・デジタル |
+| [`SteamEffect`](/docs/effect-plugins/steam/) | `steam` | 湯気が立ち上る。温泉・カフェ・温かみ |
+| [`VintageFilmEffect`](/docs/effect-plugins/vintage-film/) | `vintage-film` | フィルムグレイン・スクラッチノイズ。レトロ・映画的 |
+| [`WaveRippleEffect`](/docs/effect-plugins/wave-ripple/) | `wave-ripple` | ウェーブと波紋の水面表現。海・プール |
+| [`WaveEffect`](/docs/effect-plugins/waves/) | `waves` | なめらかな波形。海・音楽・リズム感 |
 
-### FireflyEffect パラメータ一覧
-
-| パラメータ | デフォルト | 説明 |
-|---|---|---|
-| `interactive` | `true` | マウスへの反応 |
+> ★ `GridConstruction` は完了時に `ak2:grid-ready` カスタムイベントを発行します。`useLogoAnimation: true` はこのイベントをリッスンして SVG ストロークアニメーションを開始します。
 
 ---
 
-## 3. カードプレビュー
+## カーソルエフェクト
 
-`data-preview` 属性を付与したキャンバスで、ホバー時にエフェクトをプレビュー再生します。
+### cursorMagnetic
 
-{% raw %}
-```html
-<canvas data-preview="SnowEffect" style="width:100%;height:200px;border-radius:12px"></canvas>
-```
-{% endraw %}
-
-`data-preview` 属性値は JS クラス名（`effectClasses.json` の値側）を指定します。
-
----
-
-## 4. カーソルエフェクト — `cursorMagnetic`
-
-`data-cursor-area` 内でカスタムカーソルに切り替わります。`data-magnetic` 要素はカーソルに吸い付きます。
+`data-cursor-area` 内でマウスカーソルをカスタム表示に切り替えます。`data-magnetic` を付与した要素はカーソルに吸い付くように動きます。
 
 {% raw %}
 ```nunjucks
@@ -199,13 +185,85 @@ effects:
 
 > 1ページあたり1回のみ呼び出してください。
 
-**Sandbox デモ:** `/interaction/`
+---
+
+## モーションエフェクト
+
+### MagneticEffect（磁力エフェクト）
+
+`.btn-magnetic` クラスを持つ要素をマウスカーソルに引き寄せます。
+
+| パラメーター | デフォルト | 説明 |
+|---|---|---|
+| `strength` | `0.3` | 引力の強さ（0〜1） |
+
+{% raw %}
+```javascript
+new MagneticEffect()                    // デフォルト（strength: 0.3）
+new MagneticEffect({ strength: 0.5 })  // 引力を強める
+```
+{% endraw %}
 
 ---
 
-## 5. カスタムエフェクトの作成
+### CounterAnimation（数値カウントアップ）
 
-AK²Engine インターフェースを実装したクラスを作成し、`window` に登録します。
+`.counter-number` クラスの要素がビューポートに入ると、数値が 0 から目標値までカウントアップします。
+
+| HTML 属性 | デフォルト | 説明 |
+|---|---|---|
+| `data-target` | — | 目標値（必須） |
+| `data-duration` | `2000` | アニメーション時間（ms） |
+| `data-suffix` | `''` | 数値の後ろに付加する文字列 |
+
+{% raw %}
+```html
+<span class="counter-number" data-target="1000" data-duration="2000" data-suffix="+"></span>
+```
+{% endraw %}
+
+---
+
+### effect-motion-fadein（フェードイン）
+
+`.fade-in-section` クラスの要素がビューポートに入るとフェードインします。パラメーター設定は不要で、ページ読み込み時に自動起動します。
+
+| HTML 属性 | デフォルト | 説明 |
+|---|---|---|
+| `data-delay` | `0` | 遅延時間（ms） |
+
+{% raw %}
+```html
+<div class="fade-in-section" data-delay="200">...</div>
+```
+{% endraw %}
+
+---
+
+## テキストエフェクト
+
+### TypeWriter（タイピングアニメーション）
+
+文字列を1文字ずつタイピング → 削除 → 繰り返しで表示するタイプライターエフェクトです。
+
+| パラメーター | デフォルト | 説明 |
+|---|---|---|
+| `speed` | `80` | タイピング速度（ms/文字） |
+| `deleteSpeed` | `40` | 削除速度（ms/文字） |
+| `waitTime` | `2200` | 表示待機時間（ms） |
+| `placeholder` | — | テキスト幅確保用の要素（任意） |
+
+{% raw %}
+```javascript
+new TypeWriter({ speed: 60, deleteSpeed: 30, waitTime: 1800 })
+```
+{% endraw %}
+
+---
+
+## カスタムエフェクトの作成
+
+AK²Engine インターフェースを実装したクラスを作成し、`window` に登録することでカスタムエフェクトを追加できます。
 
 {% raw %}
 ```javascript
@@ -217,22 +275,22 @@ class MyEffect {
   init(canvas, ctx) {
     this.canvas = canvas;
     this.ctx = ctx;
-    // CSS変数から設定を読み取る
+    // CSS変数またはYAMLオプションから設定を読み取る
     const style = getComputedStyle(document.documentElement);
     this.count = this.options.count
       ?? parseInt(style.getPropertyValue('--my-count') || '100');
   }
 
-  update(dt) { /* パーティクル更新 */ }
-  draw(ctx) { /* 描画 */ }
-  onResize(w, h) { /* キャンバスサイズ変更対応 */ }
+  update(dt) { /* パーティクル更新（dt: 前フレームからの経過秒数） */ }
+  draw(ctx)  { /* 描画処理 */ }
+  onResize(w, h) { /* キャンバスサイズ変更時の処理 */ }
 }
 
 window.MyEffect = MyEffect;
 ```
 {% endraw %}
 
-セクション個別エフェクトでパラメータを受け取るには、`constructor(options = {})` を実装してください。
+セクション個別エフェクトでYAMLパラメーターを受け取るには、`constructor(options = {})` を実装してください。
 
 ---
 

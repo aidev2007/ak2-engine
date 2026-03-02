@@ -360,6 +360,12 @@
   margin-bottom: 0;
 }
 
+/* ── アンカージャンプ時のヘッダーオフセット ──────────────────── */
+
+[id] {
+  scroll-margin-top: calc(var(--header-height) + 8px);
+}
+
 /* ── TOC（記事内自動目次） ───────────────────────────────────── */
 
 .article-page__toc {

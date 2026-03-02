@@ -95,8 +95,8 @@ navBg: "solid"
         <tbody>
           <tr><td>text</td><td>string</td><td>—</td><td>ボタンラベル（必須）</td></tr>
           <tr><td>color</td><td>string</td><td>'#111111'</td><td>ボタン背景色</td></tr>
-          <tr><td>textColor</td><td>string</td><td>'#ffffff'</td><td>テキスト色</td></tr>
-          <tr><td>fontFamily</td><td>string</td><td>"'Syne', sans-serif"</td><td>フォント</td></tr>
+          <tr><td>textColor</td><td>string</td><td>'#ffffff'</td><td>テキスト色 hex</td></tr>
+          <tr><td>fontFamily</td><td>string</td><td>"'Syne', sans-serif"</td><td>フォントファミリー</td></tr>
           <tr><td>staggerDir</td><td>string</td><td>'start'</td><td>'start' | 'center' | 'end' | 'random'</td></tr>
           <tr><td>bounceY</td><td>number</td><td>-4</td><td>跳ね上がり量 px（負の値で上方向）</td></tr>
           <tr><td>float</td><td>boolean</td><td>false</td><td>浮遊アニメーション</td></tr>
@@ -139,11 +139,11 @@ navBg: "solid"
         <tbody>
           <tr><td>text</td><td>string</td><td>—</td><td>ボタンラベル（必須）</td></tr>
           <tr><td>color</td><td>string</td><td>'#111111'</td><td>ホバー時ストローク色 hex</td></tr>
-          <tr><td>textColor</td><td>string</td><td>'#111111'</td><td>テキスト色</td></tr>
-          <tr><td>fontFamily</td><td>string</td><td>"'DM Sans', sans-serif"</td><td>フォント</td></tr>
+          <tr><td>textColor</td><td>string</td><td>'#111111'</td><td>テキスト色 hex</td></tr>
+          <tr><td>fontFamily</td><td>string</td><td>"'DM Sans', sans-serif"</td><td>フォントファミリー</td></tr>
           <tr><td>float</td><td>boolean</td><td>false</td><td>浮遊アニメーション</td></tr>
           <tr><td>shadow</td><td>boolean</td><td>false</td><td>ドロップシャドウ</td></tr>
-          <tr><td>radius</td><td>number</td><td>3</td><td>角丸 px（0 でシャープ、24以上で楕円）</td></tr>
+          <tr><td>radius</td><td>number</td><td>3</td><td>角丸 px</td></tr>
           <tr><td>strokeWidth</td><td>number</td><td>1.2</td><td>線の太さ px</td></tr>
           <tr><td>duration</td><td>number</td><td>0.55</td><td>ストローク描画時間（秒）</td></tr>
         </tbody>
