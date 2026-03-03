@@ -31,6 +31,9 @@ class AK2Engine {
   /** @type {number|null} */
   #animationId = null;
 
+  /** @type {boolean} */
+  #isPaused = false;
+
   constructor() {
     document.addEventListener('DOMContentLoaded', () => this.#boot());
   }
@@ -56,6 +59,9 @@ class AK2Engine {
 
   /** @returns {CanvasRenderingContext2D|null} */
   get ctx() { return this.#ctx; }
+
+  /** ループ休止状態を切り替える（true = 休止、false = 再開） */
+  setPaused(v) { this.#isPaused = v; }
 
   // ── 内部処理 ──────────────────────────────────────
 
@@ -103,6 +109,8 @@ class AK2Engine {
   #startLoop() {
     let lastTime = 0;
     const loop = (timestamp) => {
+      this.#animationId = requestAnimationFrame(loop); // 先に再スケジュール
+      if (this.#isPaused) return;                      // 休止中は計算・描画をスキップ
       const dt = timestamp - lastTime;
       lastTime = timestamp;
       this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
@@ -110,7 +118,6 @@ class AK2Engine {
         e.update?.(dt);
         e.draw?.(this.#ctx);
       });
-      this.#animationId = requestAnimationFrame(loop);
     };
     this.#animationId = requestAnimationFrame(loop);
   }
@@ -128,7 +135,7 @@ class AK2Engine {
 const AK2 = new AK2Engine();
 
 // ── Canvas スクロール可視制御 ─────────────────────────────────────
-// Hero セクションがビューポートから外れたら Canvas を非表示にする
+// Hero セクションがビューポートから外れたら Canvas を非表示 + ループ休止にする
 (function initCanvasVisibility() {
   document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero-section');
@@ -141,6 +148,7 @@ const AK2 = new AK2Engine();
       if (!c) return;
       c.style.transition = 'opacity 0.6s ease';
       c.style.opacity = entry.isIntersecting ? '1' : '0';
+      AK2.setPaused(!entry.isIntersecting);
     }, { threshold: 0 });
     obs.observe(hero);
   });

@@ -53,6 +53,7 @@ class SectionEffectRunner {
     window.addEventListener('resize', setSize, { passive: true });
 
     let lastTime = 0;
+    let rafId = null;
 
     const loop = (ts) => {
       const dt = lastTime ? ts - lastTime : 0;
@@ -60,10 +61,20 @@ class SectionEffectRunner {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       effect.update(dt);
       effect.draw(ctx);
-      requestAnimationFrame(loop);
+      rafId = requestAnimationFrame(loop);
     };
 
-    requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
+
+    // セクションが見えない間はループを止める（省エネ化）
+    const visObs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (!rafId) rafId = requestAnimationFrame(loop);
+      } else {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      }
+    }, { threshold: 0 });
+    visObs.observe(canvas.parentElement);
   }
 
   static init() {
