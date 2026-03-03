@@ -18,9 +18,10 @@
 
 .ak2-nav-header {
   position: sticky; top: 0;
-  max-width: var(--container-width); height: var(--header-height);
+  width: 100%; height: var(--header-height);
   display: flex; align-items: center; justify-content: space-between;
-  margin: auto; gap: 20px;
+  padding: 0 max(24px, calc((100% - var(--container-width)) / 2));
+  gap: 20px;
   z-index: var(--z-header);
   background: color-mix(in srgb, var(--nav-bg) 80%, transparent);
   backdrop-filter: blur(10px);
