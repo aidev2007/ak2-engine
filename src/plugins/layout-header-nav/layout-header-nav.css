@@ -17,6 +17,7 @@
 /* ── Header ──────────────────────────────────────────────────── */
 
 .ak2-nav-header {
+  position: sticky; top: 0;
   max-width: var(--container-width); height: var(--header-height);
   display: flex; align-items: center; justify-content: space-between;
   margin: auto; gap: 20px;

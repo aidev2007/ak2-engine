@@ -121,6 +121,41 @@ sections:
 
 > **ヒント:** セクションが1つだけの場合（`type: content` のみ）は `sections:` の記述自体が不要です。`sections:` がない場合、`base.njk` は従来通り `{% raw %}{{ content | safe }}{% endraw %}` で本文をそのまま展開します。
 
+### パターン4：HTMLタグ混在型
+
+**HTMLを一行も書かずにページを構成できますが、HTMLタグを使いたければ使えます。**
+
+YAML パラメーターの値（`lead:` 等）にも、Markdown 本文にも、HTMLタグを直接書けます。
+
+{% raw %}
+```yaml
+---
+layout: layouts/base.njk
+title: "お問い合わせ"
+sections:
+  - type: hero
+    subtitle: "CONTACT"
+    title: "お問い合わせ"
+    lead: "お気軽に <a href='mailto:info@example.com'>メール</a> でご連絡ください。"
+    # ↑ lead: の値にHTMLタグを直接書ける
+---
+
+## 本文もHTML混在OK
+
+通常の Markdown と HTML を自由に混ぜられます。
+
+<div class="my-callout">
+  <strong>重要事項</strong>をカスタム HTML でハイライト表示。
+</div>
+
+---
+
+上のブロックの前後は普通の Markdown で書けます。
+```
+{% endraw %}
+
+> **Nunjucks 構文を使う場合**: `.md` ファイル内でテンプレート構文（変数展開やブロックタグ）を使うときは、`raw`/`endraw` ブロックでラップしてください。このドキュメント自体がその方法で書かれています。
+
 ---
 
 ## セクション個別エフェクト
