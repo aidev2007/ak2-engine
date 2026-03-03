@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "WaveEffect"
 navBg: "solid"
@@ -57,7 +57,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - waves
+  - WaveEffect
 ---
 ```
 {% endraw %}

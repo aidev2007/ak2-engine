@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "EmberEffect"
 navBg: "solid"
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - EmberEffect
+      - EmberEffectEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - ember
+  - EmberEffect
 ---
 ```
 {% endraw %}

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "ParticleEffect"
 navBg: "solid"
@@ -39,7 +39,7 @@ Three.js を使用した3Dパーティクルグリッドエフェクトです。
 layout: layouts/base.njk
 useThreeJS: true
 effects:
-  - particles
+  - ParticleEffect
 ---
 ```
 {% endraw %}

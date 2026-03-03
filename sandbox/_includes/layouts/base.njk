@@ -47,7 +47,7 @@
   {% if effects %}
   <script>
     {% for effect in effects %}
-    AK2.register(new {{ effectClasses[effect] }}());
+    AK2.register(new {{ effect }}());
     {% endfor %}
   </script>
   {% endif %}

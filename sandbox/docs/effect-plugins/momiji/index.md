@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "MomijiEffect"
 navBg: "solid"
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - MomijiEffect
+      - MomijiEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - momiji
+  - MomijiEffect
 ---
 ```
 {% endraw %}

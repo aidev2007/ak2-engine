@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "StarSpeedEffect"
 navBg: "solid"
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - star-speed
+  - StarSpeedEffect
 ---
 ```
 {% endraw %}

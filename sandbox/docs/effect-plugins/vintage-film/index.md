@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "VintageFilmEffect"
 navBg: "solid"
@@ -48,7 +48,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - vintage-film
+  - VintageFilmEffect
 ---
 ```
 {% endraw %}

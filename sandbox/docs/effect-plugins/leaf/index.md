@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "LeafEffect"
 navBg: "solid"
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - LeafEffect
+      - LeafEffectEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - leaf
+  - LeafEffect
 ---
 ```
 {% endraw %}

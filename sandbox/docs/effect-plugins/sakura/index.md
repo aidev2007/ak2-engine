@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "SakuraEffect"
 navBg: "solid"
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "Spring"
     effects:
-      - SakuraEffect
+      - SakuraEffectEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - sakura
+  - SakuraEffect
 ---
 ```
 {% endraw %}

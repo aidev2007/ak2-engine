@@ -4,7 +4,7 @@ title: Layout Test
 transparentHeader: true
 navBg: "solid"
 effects:
-  - grid-construction
+  - GridConstruction
 ---
 {% from "components/macros.njk" import sectionHeader, bgShapes %}
 {% from "layout-hero-kinetic/layout-hero-kinetic.njk" import heroLogo, heroContent, heroWave, pageHero %}

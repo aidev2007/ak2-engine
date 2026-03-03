@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "LightningEffect"
 navBg: "solid"
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - LightningEffect
+      - LightningEffectEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - lightning
+  - LightningEffect
 ---
 ```
 {% endraw %}

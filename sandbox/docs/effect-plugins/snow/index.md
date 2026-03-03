@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "SnowEffect"
 navBg: "solid"
@@ -51,7 +51,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SnowEffect
+      - SnowEffectEffect
 ```
 {% endraw %}
 
@@ -78,7 +78,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - snow
+  - SnowEffect
 ---
 ```
 {% endraw %}

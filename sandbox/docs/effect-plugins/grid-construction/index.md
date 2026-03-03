@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "GridConstruction"
 navBg: "solid"
@@ -64,7 +64,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - grid-construction
+  - GridConstruction
 ---
 ```
 {% endraw %}

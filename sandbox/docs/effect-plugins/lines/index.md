@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "GridEffect"
 navBg: "solid"
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - lines
+  - GridEffect
 ---
 ```
 {% endraw %}

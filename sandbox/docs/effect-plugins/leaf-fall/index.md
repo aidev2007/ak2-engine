@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "LeafFallEffect"
 navBg: "solid"
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - leaf-fall
+  - LeafFallEffect
 ---
 ```
 {% endraw %}

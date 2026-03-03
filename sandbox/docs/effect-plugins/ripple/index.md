@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "RippleEffect"
 navBg: "solid"
@@ -45,7 +45,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - RippleEffect
+      - RippleEffectEffect
 ```
 {% endraw %}
 
@@ -56,7 +56,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - ripple
+  - RippleEffect
 ---
 ```
 {% endraw %}

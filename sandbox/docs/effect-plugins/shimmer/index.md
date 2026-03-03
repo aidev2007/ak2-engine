@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "ShimmerEffect"
 navBg: "solid"
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - ShimmerEffect
+      - ShimmerEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - shimmer
+  - ShimmerEffect
 ---
 ```
 {% endraw %}

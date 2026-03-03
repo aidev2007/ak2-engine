@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "FireflyEffect"
 navBg: "solid"
@@ -51,7 +51,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - FireflyEffect
+      - FireflyEffectEffect
 ```
 {% endraw %}
 
@@ -75,7 +75,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - firefly
+  - FireflyEffect
 ---
 ```
 {% endraw %}

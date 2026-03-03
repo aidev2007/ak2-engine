@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "StarFieldEffect"
 navBg: "solid"
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - stars
+  - StarFieldEffect
 ---
 ```
 {% endraw %}

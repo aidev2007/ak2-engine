@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "ProjectorFlickerEffect"
 navBg: "solid"
@@ -48,7 +48,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - projector-flicker
+  - ProjectorFlickerEffect
 ---
 ```
 {% endraw %}

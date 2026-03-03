@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: Effects Test
 effects:
-  - aurora
+  - AuroraEffect
 navBg: "solid"
 ---
 {% from "components/macros.njk" import sectionHeader, bgShapes %}

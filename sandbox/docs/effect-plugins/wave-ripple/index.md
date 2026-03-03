@@ -1,4 +1,4 @@
----
+﻿---
 layout: layouts/base.njk
 title: "WaveRippleEffect"
 navBg: "solid"
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - wave-ripple
+  - WaveRippleEffect
 ---
 ```
 {% endraw %}
