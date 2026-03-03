@@ -218,9 +218,10 @@ class AK2NavDrawer {
 
       if (isOpen) {
         const sbw = window.innerWidth - document.documentElement.clientWidth;
+        const basePR = parseFloat(getComputedStyle(this.#header).paddingRight) || 0;
         document.body.style.overflow     = 'hidden';
         document.body.style.paddingRight = `${sbw}px`;
-        if (this.#header) this.#header.style.paddingRight = `calc(40px + ${sbw}px)`;
+        if (this.#header) this.#header.style.paddingRight = `${basePR + sbw}px`;
       } else {
         document.body.style.overflow     = '';
         document.body.style.paddingRight = '';

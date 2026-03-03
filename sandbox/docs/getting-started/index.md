@@ -15,31 +15,13 @@ sections:
 
 ## 1. インストール
 
-### 将来：npm パッケージとして
-
 {% raw %}
-```json
-{
-  "dependencies": {
-    "@ak2lab/engine": "^0.1.3"
-  }
-}
+```bash
+npm install @ak2lab/engine
 ```
 {% endraw %}
 
-### 現在：ローカルパスを使用
-
-{% raw %}
-```json
-{
-  "dependencies": {
-    "@ak2lab/engine": "file:../ak2-engine"
-  }
-}
-```
-{% endraw %}
-
-または `create-ak2-site` スキャフォールドを使用してください（推奨）。
+新規プロジェクトは `create-ak2-site` スキャフォールドの使用を推奨します（ディレクトリ構成・設定ファイルを自動生成）。
 
 ---
 
@@ -49,16 +31,14 @@ sections:
 
 ```
 my-site/
-├── src/
-│   ├── _data/
-│   │   ├── site.json          # サイトメタデータ（必須）
-│   │   ├── nav.json           # ナビゲーション（必須）
-│   │   └── effectClasses.json # エフェクトキー→クラス名マッピング（必須）
-│   ├── _includes/
-│   │   └── layouts/
-│   │       └── base.njk       # ベースレイアウト（サイト固有）
-│   ├── index.md               # トップページ
-│   └── site.css               # サイト固有CSS
+├── _data/
+│   ├── site.json     # サイトメタデータ（必須）
+│   └── nav.json      # ナビゲーション（必須）
+├── _includes/
+│   └── layouts/
+│       └── base.njk  # ベースレイアウト（サイト固有）
+├── index.md          # トップページ
+├── site.css          # サイト固有CSS
 ├── .eleventy.js
 └── package.json
 ```

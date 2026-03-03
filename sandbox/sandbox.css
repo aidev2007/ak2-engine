@@ -360,6 +360,39 @@
   margin-bottom: 0;
 }
 
+/* ── Prose テーブル ─────────────────────────────────────────── */
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.5em 0;
+}
+.prose th,
+.prose td {
+  padding: 0.55em 1em;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+.prose th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: var(--color-dark);
+  border-bottom: 2px solid #cbd5e1;
+}
+.prose tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+}
+
 /* ── アンカージャンプ時のヘッダーオフセット ──────────────────── */
 
 [id] {

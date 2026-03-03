@@ -44,11 +44,4 @@
   color: transparent;
 }
 
-/* スマホ: マウスイベントがないためタイトルを表示にフォールバック */
-@media (hover: none) {
-  .ak2-hero-particle__title {
-    opacity: 1 !important;
-    color: var(--color-primary);
-  }
-  .ak2-hero-particle__canvas { display: none; }
-}
+/* スマホでもキャンバスを表示（共鳴アニメーションで常時動作） */

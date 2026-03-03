@@ -53,6 +53,9 @@
     this.rafId     = null;
     this._color    = '#fff';
 
+    /* タッチ専用デバイス判定（hover: none = スマホ/タブレット） */
+    this._isMobile = window.matchMedia('(hover: none)').matches;
+
     /* 同じ .ak2-hero-particle セクション内のタイトル要素を探す */
     var section   = canvas.closest('.ak2-hero-particle');
     this.titleEl  = section ? section.querySelector('.ak2-hero-particle__title') : null;
@@ -68,7 +71,7 @@
     });
 
     this._resize();
-    this._render();
+    this.rafId = requestAnimationFrame(function (ts) { self._render(ts); });
   }
 
   TextParticleEngine.prototype._resize = function () {
@@ -133,25 +136,42 @@
     }
   };
 
-  TextParticleEngine.prototype._render = function () {
+  TextParticleEngine.prototype._render = function (timestamp) {
     var self = this;
+    var t = (timestamp || 0) / 1000; /* 経過秒数 */
+
+    /* 共鳴パラメーター（テキスト全体を左→右に伝わる波） */
+    var waveK = 0.006;  /* ベースX座標による位相シフト量 (rad/px) */
+    var freqX = 1.0;    /* X方向振動周波数 Hz */
+    var freqY = 1.3;    /* Y方向振動周波数 Hz（少しずらして楕円軌道）*/
+    var ampX  = 2.5;    /* X方向振幅 px */
+    var ampY  = 2.0;    /* Y方向振幅 px */
+
     this.ctx.clearRect(0, 0, this.w, this.h);
     this.ctx.fillStyle = this._color;
     this.ctx.beginPath();
 
     this.particles.forEach(function (p) {
-      /* マウスとの距離による反発力 */
-      var dx   = Mouse.x - p.x;
-      var dy   = Mouse.y - p.y;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100 && dist > 0) {
-        var force = (100 - dist) / 100;
-        p.vx -= (dx / dist) * force * 5;
-        p.vy -= (dy / dist) * force * 5;
+      /* 共鳴: ベース位置を中心とした正弦波振動（隣接パーティクルは近い位相） */
+      var phase = p.baseX * waveK;
+      var restX = p.baseX + Math.sin(t * freqX * Math.PI * 2 + phase) * ampX;
+      var restY = p.baseY + Math.cos(t * freqY * Math.PI * 2 + phase + 1.1) * ampY;
+
+      /* デスクトップのみ: マウスによる反発力 */
+      if (!self._isMobile) {
+        var dx   = Mouse.x - p.x;
+        var dy   = Mouse.y - p.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100 && dist > 0) {
+          var force = (100 - dist) / 100;
+          p.vx -= (dx / dist) * force * 5;
+          p.vy -= (dy / dist) * force * 5;
+        }
       }
-      /* ベース座標へのスプリング */
-      p.vx += (p.baseX - p.x) * 0.05;
-      p.vy += (p.baseY - p.y) * 0.05;
+
+      /* 共鳴位置へのスプリング */
+      p.vx += (restX - p.x) * 0.05;
+      p.vy += (restY - p.y) * 0.05;
       /* 摩擦 */
       p.vx *= 0.85;
       p.vy *= 0.85;
@@ -159,20 +179,15 @@
       p.x += p.vx;
       p.y += p.vy;
 
-      /* 四角形描画（円より軽量） */
       self.ctx.rect(p.x, p.y, p.size, p.size);
     });
 
     this.ctx.fill();
-    this.rafId = requestAnimationFrame(function () { self._render(); });
+    this.rafId = requestAnimationFrame(function (ts) { self._render(ts); });
   };
 
   /* ── 自動初期化 ─────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
-    /* タッチ専用デバイス（hover: none）は Canvas を非表示にして CSS フォールバック */
-    var noHover = window.matchMedia('(hover: none)').matches;
-    if (noHover) return;
-
     document.querySelectorAll('[data-particle-canvas]').forEach(function (canvas) {
       new TextParticleEngine(canvas);
     });
