@@ -3,6 +3,13 @@ layout: layouts/base.njk
 title: Interaction Test
 navBg: "solid"
 sections:
+  - type: hero-particle
+    text: "INTERACTION"
+    subtitle: "AK² Engine Plugin"
+    fontSize: "12vw"
+    height: "100vh"
+    bg: "#0b0b0f"
+    id: "main"
   - type: content
 ---
 {% from "components/macros.njk" import sectionHeader %}
@@ -12,14 +19,6 @@ sections:
 {% from "block-button-wave/block-button-wave.njk" import waveButton %}
 
 {{ cursorMagnetic() }}
-
-{{ heroParticle(
-  text="INTERACTION",
-  subtitle="AK² Engine Plugin",
-  fontSize="12vw",
-  height="100vh",
-  bg="#0b0b0f"
-) }}
 
 <section class="section section--white">
   <div class="container">
@@ -65,7 +64,8 @@ sections:
   fontSize="18vw",
   fontWeight="900",
   height="60vh",
-  bg="#07070a"
+  bg="#07070a",
+  id="design"
 ) }}
 
 <section class="section section--white">

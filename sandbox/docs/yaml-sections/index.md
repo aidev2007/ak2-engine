@@ -23,13 +23,36 @@ v0.1.3 から導入された **YAMLセクション駆動アーキテクチャ** 
 
 ## セクションタイプ一覧
 
+### レイアウト系
+
 | `type` 値 | 説明 | 主な用途 |
 |---|---|---|
 | [`hero`](/docs/sections/hero/) | ヒーローセクション（キネティックスタイル）。subtitle・title・lead・エフェクト合成対応 | ページのファーストビュー |
+| [`hero-particle`](/docs/sections/hero-particle/) | テキストをパーティクル化してマウスインタラクション付きで表示 | インタラクティブなファーストビュー |
 | [`article`](/docs/sections/article/) | 記事レイアウト（パンくず・カテゴリ・タイトル・本文・TOC） | ドキュメント・コンセプトページ |
 | [`content`](/docs/sections/content/) | Markdown 本文の差し込み位置。ハイブリッドページで使用 | セクション間に本文を配置 |
+
+### カード・グリッド系
+
+| `type` 値 | 説明 | 主な用途 |
+|---|---|---|
 | [`feature-grid`](/docs/sections/feature-grid/) | リンク付きカテゴリーカードグリッド（白背景） | ページ一覧・機能紹介 |
 | [`stat-grid`](/docs/sections/stat-grid/) | ガラスカードグリッド（ダーク背景） | 統計・スペック・機能説明 |
+| [`card-feature`](/docs/sections/card-feature/) | Lucide アイコン付きフィーチャーカードグリッド（白背景） | 機能・特徴の列挙 |
+| [`card-philosophy`](/docs/sections/card-philosophy/) | 大きな文字・用語・説明文の哲学カードグリッド（ダーク背景） | 理念・ブランドコンセプト |
+| [`card-stance`](/docs/sections/card-stance/) | アイコン＋横並びスタンスカードリスト | 制作方針・ポリシー |
+| [`card-target`](/docs/sections/card-target/) | アイコン（絵文字 or Lucide）付きターゲットカードグリッド | 対象ユーザー・利用シーン |
+| [`card-service`](/docs/sections/card-service/) | タイトル・タグ・価格・説明・補足付きサービスカードグリッド | 料金プラン・サービスメニュー |
+| [`card-kinetic`](/docs/sections/card-kinetic/) | 3D ティルト・グレア・パララックス付きキネティックカードグリッド | ポートフォリオ・作品紹介 |
+
+### コンテンツ・コンポーネント系
+
+| `type` 値 | 説明 | 主な用途 |
+|---|---|---|
+| [`concept`](/docs/sections/concept/) | 画像＋テキスト横並び。フロートアニメーション付き | 特徴・事例の詳細紹介 |
+| [`cta`](/docs/sections/cta/) | タイトル・テキスト・ボタンの中央揃え CTA | ページ末尾への誘導 |
+| [`faq`](/docs/sections/faq/) | `<details>` アコーディオン形式の Q&A リスト | よくある質問 |
+| [`contact`](/docs/sections/contact/) | お名前・メール・本文・送信ボタン付きコンタクトフォーム | お問い合わせ窓口 |
 
 各セクションタイプのパラメーター詳細・使用例は個別ページを参照してください。
 
