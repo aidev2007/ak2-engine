@@ -3,22 +3,21 @@ layout: layouts/base.njk
 title: Buttons Test
 useGsap: true
 navBg: "solid"
+sections:
+  - type: hero
+    subtitle: "04 / Buttons"
+    title: "Button Plugins"
+    lead: "3種の GSAP インタラクティブボタンの動作確認ページです。<br>ボタンにホバーして各種アニメーションを確認してください。"
+    note: "このページは useGsap: true が有効です。GSAP 3.12.5 が CDN から読み込まれます。"
+    extraClass: "section--parts-hero"
+  - type: content
 ---
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400&family=M+PLUS+Rounded+1c:wght@700&display=swap" rel="stylesheet">
 
 {% from "components/macros.njk" import sectionHeader %}
-{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
 {% from "block-button-liquid/block-button-liquid.njk" import liquidButton %}
 {% from "block-button-stagger/block-button-stagger.njk" import staggerButton %}
 {% from "block-button-stroke/block-button-stroke.njk" import strokeButton %}
-
-{{ pageHero(
-  subtitle="04 / Buttons",
-  title="Button Plugins",
-  lead="3種の GSAP インタラクティブボタンの動作確認ページです。<br>ボタンにホバーして各種アニメーションを確認してください。",
-  note="このページは useGsap: true が有効です。GSAP 3.12.5 が CDN から読み込まれます。",
-  extraClass="section--parts-hero"
-) }}
 
 {# ── Liquid Morphing Button ──────────────────────────────── #}
 <section class="section section--white">

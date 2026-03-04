@@ -4,21 +4,16 @@ title: Effects Test
 effects:
   - AuroraEffect
 navBg: "solid"
+sections:
+  - type: hero
+    subtitle: "01 / Effects"
+    title: "Background Effects"
+    lead: "27種のキャンバスエフェクトをテストします。AK²Engine に登録されたエフェクトはページ全体の背景として動作します。"
+    note: "現在このページは effects: [AuroraEffect] が有効です。front-matter を変更して別のエフェクトをテストしてください。"
+    extraClass: "section--parts-hero"
+  - type: content
 ---
-{% from "components/macros.njk" import sectionHeader, bgShapes %}
-{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
-{% from "effect-bg-aurora/effect-bg-aurora.njk" import bgAurora %}
-{% from "effect-bg-snow/effect-bg-snow.njk" import bgSnow %}
-{% from "effect-bg-sakura/effect-bg-sakura.njk" import bgSakura %}
-{% from "effect-bg-sparks/effect-bg-sparks.njk" import bgSparks %}
-
-{{ pageHero(
-  subtitle="01 / Effects",
-  title="Background Effects",
-  lead="27種のキャンバスエフェクトをテストします。AK²Engine に登録されたエフェクトはページ全体の背景として動作します。",
-  note="現在このページは effects: [aurora] が有効です。front-matter を変更して別のエフェクトをテストしてください。",
-  extraClass="section--parts-hero"
-) }}
+{% from "components/macros.njk" import sectionHeader %}
 
 <section class="section section--white">
   <div class="container">

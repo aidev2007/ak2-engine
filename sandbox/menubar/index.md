@@ -1,13 +1,16 @@
 ---
-layout: layouts/article.njk
+layout: layouts/base.njk
 title: "layout-header-nav"
-category: "PLUGIN"
-lead: "グローバルナビゲーション・ドロワー・トグルボタンの全バリアントを備えたヘッダープラグイン。すべてのパラメータはフロントマターから指定可能。"
 navGlobalStyle: "underline"
 navDrawerStyle: "circular"
 navToggleStyle: "particle"
 navTogglePos: "right"
 navBg: "solid"
+sections:
+  - type: article
+    category: "PLUGIN"
+    title: "layout-header-nav"
+    lead: "グローバルナビゲーション・ドロワー・トグルボタンの全バリアントを備えたヘッダープラグイン。すべてのパラメータはフロントマターから指定可能。"
 ---
 
 ## インタラクティブ Playground

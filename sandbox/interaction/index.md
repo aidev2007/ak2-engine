@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 title: Interaction Test
 navBg: "solid"
+sections:
+  - type: content
 ---
 {% from "components/macros.njk" import sectionHeader %}
 {% from "effect-cursor-magnetic/effect-cursor-magnetic.njk" import cursorMagnetic %}

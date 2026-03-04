@@ -25,11 +25,13 @@ v0.1.3 から導入された **YAMLセクション駆動アーキテクチャ** 
 
 | `type` 値 | 説明 | 主な用途 |
 |---|---|---|
-| `hero` | ヒーローセクション（キネティックスタイル） | ページのファーストビュー |
-| `article` | 記事レイアウト（ヒーロー＋本文） | コンセプトページ・解説記事 |
-| `content` | Markdown本文の埋め込み位置 | ハイブリッドページのボディ部分 |
-| `feature-grid` | カテゴリーカードグリッド | ページ一覧・機能紹介 |
-| `stat-grid` | ガラスカードグリッド | 統計・スペック表示 |
+| [`hero`](/docs/sections/hero/) | ヒーローセクション（キネティックスタイル）。subtitle・title・lead・エフェクト合成対応 | ページのファーストビュー |
+| [`article`](/docs/sections/article/) | 記事レイアウト（パンくず・カテゴリ・タイトル・本文・TOC） | ドキュメント・コンセプトページ |
+| [`content`](/docs/sections/content/) | Markdown 本文の差し込み位置。ハイブリッドページで使用 | セクション間に本文を配置 |
+| [`feature-grid`](/docs/sections/feature-grid/) | リンク付きカテゴリーカードグリッド（白背景） | ページ一覧・機能紹介 |
+| [`stat-grid`](/docs/sections/stat-grid/) | ガラスカードグリッド（ダーク背景） | 統計・スペック・機能説明 |
+
+各セクションタイプのパラメーター詳細・使用例は個別ページを参照してください。
 
 ---
 
@@ -196,52 +198,6 @@ sections:
 複数エフェクトを重ねる場合、`mix-blend-mode: screen` により記述順に関わらず両方が正しく表示されます。SnowEffect → FireflyEffect でも FireflyEffect → SnowEffect でも同じ結果になります。
 
 ---
-
-## hero セクションのパラメータ
-
-| パラメータ | 必須 | 説明 |
-|---|---|---|
-| `type` | ✅ | `"hero"` 固定 |
-| `subtitle` | ✅ | 英語小見出し（Roboto Mono・シアン色） |
-| `title` | ✅ | 大見出し |
-| `lead` | ✅ | リード文（HTML可） |
-| `note` | — | infoアイコン付きメモ |
-| `extraClass` | — | `<section>` への追加クラス |
-| `effects` | — | 背景エフェクト配列（文字列またはオブジェクト形式） |
-
----
-
-## article セクションのパラメータ
-
-| パラメータ | 必須 | 説明 |
-|---|---|---|
-| `type` | ✅ | `"article"` 固定 |
-| `category` | — | カテゴリーラベル（モノスペース・大文字） |
-| `title` | — | 記事タイトル（省略時はページ `title` を使用） |
-| `lead` | — | タイトル下サブテキスト |
-
----
-
-## feature-grid セクションのパラメータ
-
-| パラメータ | 必須 | 説明 |
-|---|---|---|
-| `type` | ✅ | `"feature-grid"` 固定 |
-| `heading` | — | セクション英語ラベル |
-| `subheading` | — | セクション日本語見出し |
-| `linkText` | — | カードのリンクテキスト（デフォルト: `"テストページを開く →"`） |
-| `items` | ✅ | カード配列。各要素: `{num, title, desc, href, extraClass}` |
-
----
-
-## stat-grid セクションのパラメータ
-
-| パラメータ | 必須 | 説明 |
-|---|---|---|
-| `type` | ✅ | `"stat-grid"` 固定 |
-| `heading` | — | セクション英語ラベル |
-| `subheading` | — | セクション日本語見出し |
-| `items` | ✅ | カード配列。各要素: `{title, desc}` |
 
 ---
 

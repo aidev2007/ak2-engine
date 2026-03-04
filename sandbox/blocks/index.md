@@ -2,9 +2,15 @@
 layout: layouts/base.njk
 title: Blocks Test
 navBg: "solid"
+sections:
+  - type: hero
+    subtitle: "02 / Blocks"
+    title: "Block Plugins"
+    lead: "11種のブロックコンポーネントの動作確認ページです。各マクロの呼び出しパターンを確認できます。"
+    extraClass: "section--parts-hero"
+  - type: content
 ---
 {% from "components/macros.njk" import sectionHeader, bgShapes, fadeIn, contentPlaceholder %}
-{% from "layout-hero-kinetic/layout-hero-kinetic.njk" import pageHero %}
 {% from "block-card-feature/block-card-feature.njk" import featureItem %}
 {% from "block-card-philosophy/block-card-philosophy.njk" import philosophyCard %}
 {% from "block-card-stance/block-card-stance.njk" import stanceCard %}
@@ -14,13 +20,6 @@ navBg: "solid"
 {% from "block-cta-standard/block-cta-standard.njk" import ctaSection %}
 {% from "block-faq-accordion/block-faq-accordion.njk" import faqItem %}
 {% from "block-form-contact/block-form-contact.njk" import contactForm %}
-
-{{ pageHero(
-  subtitle="02 / Blocks",
-  title="Block Plugins",
-  lead="11種のブロックコンポーネントの動作確認ページです。各マクロの呼び出しパターンを確認できます。",
-  extraClass="section--parts-hero"
-) }}
 
 {# ── Feature Cards ───────────────────────────────────────── #}
 <section class="section section--white">

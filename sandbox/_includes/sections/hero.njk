@@ -1,7 +1,33 @@
-{# ── hero section with inline canvas effects ────────────────────────────
+{# ── hero section ───────────────────────────────────────────────────────
+   ページのファーストビュー（ヒーロー）セクション。
    canvas を section の内側に配置することで mix-blend-mode:screen が
    section の背景色（ダーク）と正しくブレンドされるようにしている。
-   pageHero マクロは section ラップ込みで出力するため、ここでは使用しない。
+
+   主な用途: ページ最上部のファーストビュー。背景エフェクトとの合成が前提。
+
+   出力 HTML 構造:
+     <section class="section page-hero [extraClass]" style="position:relative;overflow:hidden;">
+       <canvas data-section-effect="EffectName" style="...mix-blend-mode:screen;"></canvas>
+       <!-- effects[] の数だけ canvas が生成される -->
+       <div class="container" style="position:relative;z-index:1;">
+         <div class="page-hero__inner fade-in-section">
+           <span class="section-header__subtitle">{{ subtitle }}</span>
+           <h1 class="page-hero__title">{{ title }}</h1>
+           <p class="page-hero__lead">{{ lead }}</p>
+           <div class="page-hero__note"><!-- note があるときのみ出力 --></div>
+         </div>
+       </div>
+     </section>
+
+   セクションパラメータ:
+     section.subtitle   : 英語小見出し（Roboto Mono・シアン色）
+     section.title      : 大見出し（必須）
+     section.lead       : リード文（HTML タグ使用可）
+     section.note       : info アイコン付きメモ（省略可）
+     section.extraClass : <section> への追加 CSS クラス（省略可）
+     section.effects[]  : 背景エフェクト配列
+       文字列形式   : "SnowEffect"
+       オブジェクト形式: {name: "SnowEffect", count: 20, alpha: 1.2}
    ──────────────────────────────────────────────────────────────────── #}
 <section class="section page-hero{% if section.extraClass %} {{ section.extraClass }}{% endif %}"
   style="position:relative; overflow:hidden;">

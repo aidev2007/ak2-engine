@@ -1,3 +1,34 @@
+{# ── article section ─────────────────────────────────────────────────────
+   ドキュメント・コンセプトページ用セクション。
+   パンくずリスト・カテゴリラベル・タイトル・リード文のヒーローエリアと、
+   Markdown 本文エリア（TOC 自動生成付き）をセットで出力する。
+
+   主な用途: docs ページ・コンセプト解説・プラグイン説明記事
+             1ページに1つだけ使用する（本文を全部ラップするため）。
+
+   出力 HTML 構造:
+     <main class="article-page">
+       <div class="article-page__hero">
+         <div class="container">
+           <div class="breadcrumb">Sandbox › {{ category }}</div>
+           <div class="article-page__category">{{ category }}</div>
+           <h1 class="article-page__title">{{ title }}</h1>
+           <p class="article-page__lead">{{ lead }}</p>
+         </div>
+       </div>
+       <div class="article-page__body">
+         <div class="container">
+           <div class="article-page__toc"><!-- H2以上から自動生成（toc フィルター） --></div>
+           <div class="prose">{{ content }}</div>
+         </div>
+       </div>
+     </main>
+
+   セクションパラメータ:
+     section.category : カテゴリーラベル（モノスペース・大文字。省略可）
+     section.title    : 記事タイトル（省略時はページ front-matter の title を使用）
+     section.lead     : タイトル下のリード文（省略可）
+   ──────────────────────────────────────────────────────────────────── #}
 <main class="article-page">
   <div class="article-page__hero">
     <div class="container">
