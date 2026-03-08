@@ -142,7 +142,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.on("eleventy.after", async ({ runMode }) => {
     if (runMode === "serve" || runMode === "watch") return;
     try {
-      execSync("npx pagefind --site sandbox/_site", { stdio: "inherit" });
+      execSync("npx pagefind --site sandbox/_site --silent", { stdio: "inherit" });
     } catch (e) {
       console.error("[Pagefind] Index generation failed:", e.message);
     }

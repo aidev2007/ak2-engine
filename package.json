@@ -11,8 +11,7 @@
   "scripts": {
     "start:sandbox": "eleventy --config=.eleventy.sandbox.js --serve",
     "build:sandbox": "eleventy --config=.eleventy.sandbox.js",
-    "index:sandbox": "pagefind --site sandbox/_site",
-    "build": "npm run build:sandbox && npm run index:sandbox"
+    "build": "npm run build:sandbox"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

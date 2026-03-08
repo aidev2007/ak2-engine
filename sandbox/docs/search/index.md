@@ -38,7 +38,8 @@ const { execSync } = require("child_process");
 // eleventy.after でビルド完了後にインデックスを生成
 eleventyConfig.on("eleventy.after", async ({ runMode }) => {
   if (runMode === "serve" || runMode === "watch") return;
-  execSync("npx pagefind --site _site", { stdio: "inherit" });
+  // 💬 日本語ステミングの不要なワーニングが表示されるのを防ぐため、--silent オプションを付与
+  execSync("npx pagefind --site _site --silent", { stdio: "inherit" });
 });
 ```
 {% endraw %}

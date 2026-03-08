@@ -6,6 +6,4 @@ sandbox/_site/
 Thumbs.db
 *.code-workspace
 .npmrc
-debug_output.txt
 .claude/*
-filelist.txt
