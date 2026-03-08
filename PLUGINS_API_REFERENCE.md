@@ -20,6 +20,7 @@
 > | Eleventy 設定 | `sandbox/docs/eleventy-config/` |
 > | CSS カスタマイズ | `sandbox/docs/css-customization/` |
 > | ベストプラクティス | `sandbox/docs/best-practices/` |
+> | 全文検索（Pagefind） | `sandbox/docs/search/` |
 
 ---
 

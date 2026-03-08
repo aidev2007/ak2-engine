@@ -65,6 +65,10 @@ sections:
         title: "ベストプラクティス"
         desc: "インラインスタイル禁止・BEM設計・.md/.njk使い分け"
         href: "/docs/best-practices/"
+      - num: "12 / 機能"
+        title: "全文検索（Pagefind）"
+        desc: "block-search-modal による日本語対応の全文検索機能"
+        href: "/docs/search/"
 ---
 
 このページはAK²Engineの公式ドキュメントです。

@@ -38,7 +38,7 @@
   </defs>
 </svg>
 
-<nav class="ak2-nav-drawer ak2-nav-drawer--{{ _navDrawer }}" id="ak2-nav-drawer" aria-hidden="true">
+<nav class="ak2-nav-drawer ak2-nav-drawer--{{ _navDrawer }}" id="ak2-nav-drawer" aria-hidden="true" data-pagefind-ignore>
   <ul>
     {% for item in nav %}
     {% set isActive = (item.root == "/" and page.url == "/") or (item.root != "/" and page.url.startsWith(item.root)) %}
@@ -49,6 +49,7 @@
 
 <header class="ak2-nav-header{% if transparentHeader %} is-transparent{% endif %}{% if _navTogPos == "left" %} toggle-pos-left{% endif %}{% if _navBg == "solid" %} nav-bg-solid{% endif %}"
         id="ak2-nav-header"
+        data-pagefind-ignore
         data-global="{{ _navGlobal }}"
         data-drawer="{{ _navDrawer }}"
         data-toggle="{{ _navToggle }}"
@@ -78,6 +79,9 @@
     <div class="ak2-nav-indicator ak2-nav-indicator--pill"></div>
     {% endif %}
   </nav>
+
+  {% from "block-search-modal/block-search-modal.njk" import searchTrigger %}
+  {{ searchTrigger() }}
 
   <div id="ak2-nav-toggle-wrap">
     {% if _navToggle == "particle" %}

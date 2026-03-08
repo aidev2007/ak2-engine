@@ -10,6 +10,7 @@
 const Nunjucks = require("nunjucks");
 const fs = require("fs");
 const path = require("path");
+const { execSync } = require("child_process");
 const markdownItAnchor = require("markdown-it-anchor");
 
 /** src/ 配下の CSS を再帰収集 */
@@ -87,7 +88,7 @@ module.exports = function (eleventyConfig) {
       items.push({ level, id, text });
     }
     if (items.length < 2) return "";
-    let html = '<nav class="toc" aria-label="目次"><p class="toc__title">目次</p><ol class="toc__list">';
+    let html = '<nav class="toc" aria-label="目次" data-pagefind-ignore><p class="toc__title">目次</p><ol class="toc__list">';
     for (const item of items) {
       const cls = item.level === 3 ? ' class="toc__item toc__item--sub"' : ' class="toc__item"';
       html += `<li${cls}><a href="#${item.id}" class="toc__link">${item.text}</a></li>`;
@@ -137,6 +138,16 @@ module.exports = function (eleventyConfig) {
   });
 
   // ── Transform: 連続空行を削除 ─────────────────────────────────────────────
+  // ── Pagefind インデックス自動生成（build モード時のみ） ──────────────────────
+  eleventyConfig.on("eleventy.after", async ({ runMode }) => {
+    if (runMode === "serve" || runMode === "watch") return;
+    try {
+      execSync("npx pagefind --site sandbox/_site", { stdio: "inherit" });
+    } catch (e) {
+      console.error("[Pagefind] Index generation failed:", e.message);
+    }
+  });
+
   eleventyConfig.addTransform("removeBlankLines", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
       return content.replace(/(\r?\n){2,}/g, "\n");
