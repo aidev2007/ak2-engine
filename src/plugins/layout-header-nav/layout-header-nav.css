@@ -53,16 +53,18 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* ── Header: item order (brand / global / toggle) ────────────── */
+/* ── Header: item order (brand / global / toggle / search) ────────────── */
 
-.ak2-nav-header .ak2-nav-brand    { order: 1; flex-grow: 1; }
-.ak2-nav-header #ak2-nav-global   { order: 2; }
-.ak2-nav-header #ak2-nav-toggle-wrap { order: 3; }
+.ak2-nav-header .ak2-nav-brand       { order: 1; flex-grow: 1; }
+.ak2-nav-header #ak2-nav-global      { order: 2; }
+.ak2-nav-header [data-search-trigger]{ order: 3; margin-left: 10px; }
+.ak2-nav-header #ak2-nav-toggle-wrap { order: 4; }
 
-/* Toggle-left variant: toggle | brand | global */
-.ak2-nav-header.toggle-pos-left .ak2-nav-brand       { order: 2; }
+/* Toggle-left variant: toggle | search | brand | global */
+.ak2-nav-header.toggle-pos-left .ak2-nav-brand       { order: 3; }
 .ak2-nav-header.toggle-pos-left #ak2-nav-toggle-wrap { order: 1; }
-.ak2-nav-header.toggle-pos-left #ak2-nav-global      { order: 3; margin-left: auto; }
+.ak2-nav-header.toggle-pos-left [data-search-trigger]{ order: 2; margin-right: 15px; }
+.ak2-nav-header.toggle-pos-left #ak2-nav-global      { order: 4; margin-left: auto; }
 
 /* ── Brand ───────────────────────────────────────────────────── */
 
