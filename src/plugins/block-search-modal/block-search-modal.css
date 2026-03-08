@@ -69,6 +69,6 @@
 }
 
 /* サムネイル画像がない場合の左の不自然な空き（padding）を消す */
-[data-search-modal] .pagefind-ui__result-inner {
-  padding-inline-start: 0 !important;
+[data-search-modal] .pagefind-ui__result-thumb {
+  display: none;
 }
