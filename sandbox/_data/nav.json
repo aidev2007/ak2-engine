@@ -3,6 +3,5 @@
   { "label": "Concept", "url": "/concept/",  "root": "/concept" },
   { "label": "Docs",    "url": "/docs/",     "root": "/docs" },
   { "label": "Interaction",    "url": "/interaction/",     "root": "/interaction" },
-  { "label": "Blog",           "url": "/blog/",            "root": "/blog" },
-  { "label": "Widgets",        "url": "/blog-widgets/",    "root": "/blog-widgets" }
+  { "label": "Blog",           "url": "/blog/",            "root": "/blog" }
 ]

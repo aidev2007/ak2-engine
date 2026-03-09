@@ -19,6 +19,9 @@
         {% for widget in section.widgets %}
         <section class="widget-demo">
           <h2 class="widget-demo__title">{{ widget.title }}</h2>
+          {% if widget.text %}
+            <p class="widget-demo__text">{{ widget.text | safe }}</p>
+          {% endif %}
           {% include "widgets/" + widget.type + ".njk" ignore missing %}
         </section>
         {% endfor %}

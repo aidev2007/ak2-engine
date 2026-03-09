@@ -49,6 +49,10 @@ sections:
         title: "Blog Widgets"
         href: "/blog-widgets/"
         desc: "ブログウィジェットデモ"
+      - num: "06 / Search Widgets"
+        title: "Search Widgets"
+        href: "/search-widgets/"
+        desc: "検索バーウィジェットデモ"
 
   - type: stat-grid
     heading: "ENGINE STATS"
