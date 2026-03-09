@@ -282,7 +282,7 @@
   color: var(--color-text-light);
   line-height: 2;
   margin: 0 auto;
-  max-width: 720px;
+  max-width: var(--color-lead-width);
   text-align: center;
 }
 
