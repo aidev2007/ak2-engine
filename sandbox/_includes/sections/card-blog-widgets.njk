@@ -1,21 +1,21 @@
----
-layout: layouts/base.njk
-title: "ブログウィジェット デモ"
-navBg: "solid"
----
+{# ── card-blog-widgets section ────────────────────────────────────────────────
+   ブログウィジェットのデモを表示する専用セクション
+   使用マクロ: block-blog-archive, block-blog-categories, block-blog-tagcloud, block-blog-calendar
+   ────────────────────────────────────────────────────────────────────────── #}
 {% from "block-blog-archive/block-blog-archive.njk" import blogArchive %}
 {% from "block-blog-categories/block-blog-categories.njk" import blogCategories %}
 {% from "block-blog-tagcloud/block-blog-tagcloud.njk" import blogTagcloud %}
 {% from "block-blog-calendar/block-blog-calendar.njk" import blogCalendar %}
+
 <main class="article-page">
   <div class="article-page__hero">
     <div class="container">
       <div class="breadcrumb">
         <a href="/">ホーム</a>
         <span class="breadcrumb__sep">›</span>
-        <span>ブログウィジェット デモ</span>
+        <span>{{ title }}</span>
       </div>
-      <h1 class="article-page__title">ブログウィジェット デモ</h1>
+      <h1 class="article-page__title">{{ title }}</h1>
     </div>
   </div>
   <div class="article-page__body">
