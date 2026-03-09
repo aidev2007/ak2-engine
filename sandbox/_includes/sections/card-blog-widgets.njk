@@ -11,6 +11,9 @@
         <span>{{ title }}</span>
       </div>
       <h1 class="article-page__title">{{ title }}</h1>
+      {% if lead %}
+        <p class="article-page__lead">{{ lead }}</p>
+      {% endif %}
     </div>
   </div>
   <div class="article-page__body">

@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "ブログウィジェット デモ"
+lead: "サイト内のサイドバーやコンテンツ境界に設置できる、ブログ特化の汎用ウィジェット部品群です。"
 navBg: "solid"
 sections:
   - type: card-blog-widgets

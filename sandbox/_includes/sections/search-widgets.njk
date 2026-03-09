@@ -9,9 +9,12 @@
       <div class="breadcrumb">
         <a href="/">ホーム</a>
         <span class="breadcrumb__sep">›</span>
-        <span>検索ウィジェット デモ</span>
+        <span>{{ title }}</span>
       </div>
-      <h1 class="article-page__title">検索ウィジェット (block-search-bar)</h1>
+      <h1 class="article-page__title">{{ title }}</h1>
+      {% if lead %}
+        <p class="article-page__lead">{{ lead }}</p>
+      {% endif %}
     </div>
   </div>
   <div class="article-page__body">
