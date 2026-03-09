@@ -45,6 +45,10 @@ sections:
         href: "/buttons/"
         desc: "3種の GSAP インタラクティブボタン（Liquid / Stagger / Stroke）の動作確認。useGsap: true が必要です。"
         extraClass: "parts-category-card--buttons"
+      - num: "05 / Blog Widgets"
+        title: "Blog Widgets"
+        href: "/blog-widgets/"
+        desc: "ブログウィジェットデモ"
 
   - type: stat-grid
     heading: "ENGINE STATS"
