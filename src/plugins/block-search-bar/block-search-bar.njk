@@ -1,0 +1,8 @@
+{# block-search-bar.njk
+   インライン型・全文検索バー（Pagefind）
+   ================================================================
+   searchBar(id)   : ページ内に直接埋め込むための検索バー。
+   ================================================================ #}
+{% macro searchBar(id="search-bar") %}
+<div id="{{ id }}" class="block-search-bar" data-search-bar></div>
+{%- endmacro %}
