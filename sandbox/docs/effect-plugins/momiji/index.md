@@ -4,7 +4,7 @@ title: "MomijiEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "MomijiEffect"
     lead: "赤みが強いもみじの葉が舞うエフェクト。MapleLeafEffectより深い赤橙色で、秋らしさを強調します。"
 ---

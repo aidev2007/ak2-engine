@@ -4,7 +4,7 @@ title: "SnowEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "SnowEffect"
     lead: "白い雪がゆっくり降り積もるエフェクト。冬・クリスマス・北欧系サイトに。"
 ---

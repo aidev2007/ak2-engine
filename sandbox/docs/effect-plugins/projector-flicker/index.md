@@ -4,7 +4,7 @@ title: "ProjectorFlickerEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "ProjectorFlickerEffect"
     lead: "古い映写機のフリッカーを模したエフェクト。レトロ・アナログ・ノスタルジックな演出に。"
 ---

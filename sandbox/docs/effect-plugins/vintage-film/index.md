@@ -4,7 +4,7 @@ title: "VintageFilmEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "VintageFilmEffect"
     lead: "フィルムグレイン・スクラッチノイズを重ねるエフェクト。レトロ・映画的・ノスタルジックな演出に。"
 ---

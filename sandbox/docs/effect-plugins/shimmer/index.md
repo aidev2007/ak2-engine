@@ -4,7 +4,7 @@ title: "ShimmerEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "ShimmerEffect"
     lead: "キラキラした光の粒が点滅・移動するエフェクト。高級感・ジュエリー・ウェディング系に。"
 ---

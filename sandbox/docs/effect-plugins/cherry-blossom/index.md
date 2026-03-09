@@ -4,7 +4,7 @@ title: "CherryBlossomEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "CherryBlossomEffect"
     lead: "ピンクの花びらがひらひらと舞い落ちる桜エフェクト。春・和風のページにぴったりです。"
 ---

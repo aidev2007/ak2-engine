@@ -4,7 +4,7 @@ title: "hero セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "hero セクション"
     lead: "ページのファーストビューとなるヒーローエリア。キネティックなスタイルと背景エフェクト合成に対応。"
 ---

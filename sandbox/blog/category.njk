@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+navBg: "solid"
+pagination:
+  data: collections.blogCategorySlugs
+  size: 1
+  alias: categorySlug
+permalink: "/blog/category/{{ categorySlug }}/"
+---
+{% set categoryName = categorySlug | catName %}
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>{{ categoryName }}</span>
+      </div>
+      <h1 class="article-page__title">{{ categoryName }}</h1>
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <ul class="blog-list">
+        {% for post in collections.blogAll %}
+          {% set cats = post.data.postCategory %}
+          {% if cats %}
+            {% set catList = cats if cats is iterable and cats is not string else [cats] %}
+            {% for c in catList %}
+              {% if c | catSlug == categorySlug %}
+              <li class="blog-list__item">
+                <a href="{{ post.url }}" class="blog-list__link">
+                  <span class="blog-list__title">{{ post.data.title }}</span>
+                  {% if post.data.date %}
+                  <time class="blog-list__date" datetime="{{ post.data.date | dateIso }}">{{ post.data.date | dateFormat }}</time>
+                  {% endif %}
+                </a>
+              </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <p class="blog-list__back"><a href="/blog/">← 新着記事一覧</a></p>
+    </div>
+  </div>
+</main>

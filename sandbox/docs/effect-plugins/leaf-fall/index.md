@@ -4,7 +4,7 @@ title: "LeafFallEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "LeafFallEffect"
     lead: "葉が落下する秋のシーンを演出するエフェクト。色相で様々な葉の色を表現できます。"
 ---

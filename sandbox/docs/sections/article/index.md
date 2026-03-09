@@ -4,7 +4,7 @@ title: "article セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "article セクション"
     lead: "ドキュメント・コンセプトページ向けレイアウト。パンくず・カテゴリ・タイトル・本文・TOCをセットで出力。"
 ---
@@ -48,7 +48,7 @@ H2 以上の見出しから TOC が自動生成されます（`toc` フィルタ
 | パラメータ | 必須 | 型 | 説明 |
 |---|---|---|---|
 | `type` | ✅ | string | `"article"` 固定 |
-| `category` | — | string | カテゴリーラベル（モノスペース・大文字表示） |
+| `doc_group` | — | string | カテゴリーラベル（モノスペース・大文字表示） |
 | `title` | — | string | 記事タイトル（省略時はページ front-matter の `title` を使用） |
 | `lead` | — | string | タイトル下のリード文 |
 
@@ -66,7 +66,7 @@ title: "SnowEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS"
+    doc_group: "EFFECT PLUGINS"
     title: "SnowEffect"
     lead: "白い雪が降り積もるエフェクト。冬・クリスマス系サイトに。"
 ---
@@ -92,7 +92,7 @@ layout: layouts/base.njk
 title: "コンセプト"
 sections:
   - type: article
-    category: "CONCEPT"
+    doc_group: "CONCEPT"
     title: "AK²Engine について"
     lead: "プラグイン駆動の静的サイト生成エンジン。"
 ---

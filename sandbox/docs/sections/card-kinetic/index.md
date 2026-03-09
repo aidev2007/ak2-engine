@@ -4,7 +4,7 @@ title: "card-kinetic セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-kinetic セクション"
     lead: "ホバーで 3D ティルト・グレア・パララックスが動作するキネティックカードグリッド。"
 ---

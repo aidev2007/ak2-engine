@@ -4,7 +4,7 @@ title: "GridEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "GridEffect（lines）"
     lead: "細い格子線が動くグリッドパターンエフェクト。テクニカル・ミニマル・エンジニアリング系のデザインに。"
 ---

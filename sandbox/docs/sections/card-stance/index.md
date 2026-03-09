@@ -4,7 +4,7 @@ title: "card-stance セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-stance セクション"
     lead: "アイコン・タイトル・説明文を横並びにしたスタンスカードのリスト。制作方針・ポリシー紹介に。"
 ---

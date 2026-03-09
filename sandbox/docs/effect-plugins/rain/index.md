@@ -4,7 +4,7 @@ title: "RainEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "RainEffect"
     lead: "縦に落ちる雨粒のラインを描くエフェクト。梅雨・夜の雨・水系サイトに。"
 ---

@@ -4,7 +4,7 @@ title: "card-service セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-service セクション"
     lead: "タイトル・タグ・価格・説明・補足情報を含むサービス紹介カードのグリッド。料金プラン表示に。"
 ---

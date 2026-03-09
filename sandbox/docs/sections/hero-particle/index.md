@@ -4,7 +4,7 @@ title: "hero-particle セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "hero-particle セクション"
     lead: "テキストをパーティクル化してマウスインタラクション付きで表示するヒーローセクション。"
 ---

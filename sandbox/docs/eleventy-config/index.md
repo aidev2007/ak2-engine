@@ -4,7 +4,7 @@ title: "Eleventy 設定"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "Eleventy 設定"
     lead: "店舗サイトの .eleventy.js サンプルと各設定項目の解説です。"
 ---

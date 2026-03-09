@@ -4,7 +4,7 @@ title: "EmberEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "EmberEffect"
     lead: "炎の火の粉（エンバー）が上方向に漂うエフェクト。情熱・夏祭り・工業系の演出に。"
 ---

@@ -4,7 +4,7 @@ title: "クイックスタート"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "クイックスタート"
     lead: "プロジェクト構成・Eleventyセットアップ・初期設定のガイドです。"
 ---

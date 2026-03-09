@@ -4,7 +4,7 @@ title: "CSSカスタマイズ"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "CSSカスタマイズ"
     lead: "CSS変数・セクションクラス・サイト固有スタイルの追加方法です。"
 ---

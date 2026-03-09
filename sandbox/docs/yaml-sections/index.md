@@ -4,7 +4,7 @@ title: "YAMLセクション アーキテクチャ"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "YAMLセクション アーキテクチャ"
     lead: "sections: 配列をフロントマターに記述するだけで、HTMLを一行も書かずにページを構成できる新設計。"
 ---
@@ -100,7 +100,7 @@ title: "コンセプト"
 navBg: "solid"
 sections:
   - type: article
-    category: "CONCEPT"
+    doc_group: "CONCEPT"
     title: "私たちのコンセプト"
     lead: "リード文テキスト。"
 ---

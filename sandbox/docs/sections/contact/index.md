@@ -4,7 +4,7 @@ title: "contact セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "contact セクション"
     lead: "お名前・メール・本文・送信ボタンを含む標準お問い合わせフォームセクション。"
 ---

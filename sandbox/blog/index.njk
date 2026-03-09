@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: "新着記事"
+navBg: "solid"
+pagination:
+  data: collections.blog
+  size: 10
+  alias: posts
+permalink: "{% if pagination.pageNumber == 0 %}/blog/{% else %}/blog/page-{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>新着記事</span>
+      </div>
+      <h1 class="article-page__title">新着記事</h1>
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <ul class="blog-list">
+        {% for post in posts %}
+        <li class="blog-list__item">
+          <a href="{{ post.url }}" class="blog-list__link">
+            <span class="blog-list__title">{{ post.data.title }}</span>
+            {% if post.data.date %}
+            <time class="blog-list__date" datetime="{{ post.data.date | dateIso }}">{{ post.data.date | dateFormat }}</time>
+            {% endif %}
+            {% if post.data.postCategory %}
+            <span class="blog-list__category">{{ post.data.postCategory if post.data.postCategory is string else post.data.postCategory | last }}</span>
+            {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if pagination.pages | length > 1 %}
+      <nav class="blog-pagination" aria-label="ページネーション">
+        {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="blog-pagination__link">← 前へ</a>
+        {% endif %}
+        <span class="blog-pagination__current">{{ pagination.pageNumber + 1 }} / {{ pagination.pages | length }}</span>
+        {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="blog-pagination__link">次へ →</a>
+        {% endif %}
+      </nav>
+      {% endif %}
+    </div>
+  </div>
+</main>

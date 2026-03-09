@@ -10,8 +10,8 @@
      <main class="article-page">
        <div class="article-page__hero">
          <div class="container">
-           <div class="breadcrumb">Sandbox › {{ category }}</div>
-           <div class="article-page__category">{{ category }}</div>
+           <div class="breadcrumb">Sandbox › {{ doc_group }}</div>
+           <div class="article-page__category">{{ doc_group }}</div>
            <h1 class="article-page__title">{{ title }}</h1>
            <p class="article-page__lead">{{ lead }}</p>
          </div>
@@ -25,7 +25,7 @@
      </main>
 
    セクションパラメータ:
-     section.category : カテゴリーラベル（モノスペース・大文字。省略可）
+     section.doc_group : カテゴリーラベル（モノスペース・大文字。省略可）
      section.title    : 記事タイトル（省略時はページ front-matter の title を使用）
      section.lead     : タイトル下のリード文（省略可）
    ──────────────────────────────────────────────────────────────────── #}
@@ -35,9 +35,9 @@
       <div class="breadcrumb">
         <a href="/">Sandbox</a>
         <span class="breadcrumb__sep">›</span>
-        <span>{{ section.category | default("Article") }}</span>
+        <span>{{ section.doc_group | default("Article") }}</span>
       </div>
-      {% if section.category %}<div class="article-page__category">{{ section.category }}</div>{% endif %}
+      {% if section.doc_group %}<div class="article-page__category">{{ section.doc_group }}</div>{% endif %}
       <h1 class="article-page__title">{{ section.title or title }}</h1>
       {% if section.lead %}<p class="article-page__lead">{{ section.lead }}</p>{% endif %}
     </div>

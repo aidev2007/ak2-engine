@@ -4,7 +4,7 @@ title: "SparksEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "SparksEffect"
     lead: "火花・スパークが定期的にはじけるエフェクト。工場・ものづくり・エネルギー系サイトに。"
 ---

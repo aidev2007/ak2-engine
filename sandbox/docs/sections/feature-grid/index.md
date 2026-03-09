@@ -4,7 +4,7 @@ title: "feature-grid セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "feature-grid セクション"
     lead: "リンク付きカテゴリーカードのグリッド。ページ一覧・機能紹介に使用する白背景セクション。"
 ---

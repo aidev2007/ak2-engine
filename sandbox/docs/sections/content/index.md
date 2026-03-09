@@ -4,7 +4,7 @@ title: "content セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "content セクション"
     lead: "Markdown 本文の差し込み位置を指定するプレースホルダー。ハイブリッドページで使用。"
 ---

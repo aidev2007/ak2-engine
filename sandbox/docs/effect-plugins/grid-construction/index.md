@@ -4,7 +4,7 @@ title: "GridConstruction"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "GridConstruction"
     lead: "ページ読み込み時にグリッド線が構築される演出エフェクト。ローディング完了をビジュアルで伝えます。"
 ---

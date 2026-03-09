@@ -4,7 +4,7 @@ title: "card-feature セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-feature セクション"
     lead: "Lucide アイコン付きフィーチャーカードのグリッドを出力するセクション。機能紹介・特徴列挙に。"
 ---

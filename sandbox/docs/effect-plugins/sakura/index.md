@@ -4,7 +4,7 @@ title: "SakuraEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "SakuraEffect"
     lead: "桜の花びらがひらひらと舞うフルバリエーションエフェクト。春の演出に最適です。"
 ---

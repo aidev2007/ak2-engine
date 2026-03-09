@@ -4,7 +4,7 @@ title: "データスキーマ"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "データスキーマ"
     lead: "_data/ ディレクトリに配置する設定ファイルの仕様です。"
 ---

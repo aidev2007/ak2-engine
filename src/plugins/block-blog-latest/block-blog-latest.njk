@@ -1,0 +1,25 @@
+{# ── block-blog-latest ─────────────────────────────────────
+   最新ブログ記事のリストを表示するマクロ。
+   使い方:
+     {% from "block-blog-latest/block-blog-latest.njk" import blogLatest %}
+     {{ blogLatest(collections.blog, 5) }}
+   ──────────────────────────────────────────────────────── #}
+{% macro blogLatest(posts, count) %}
+{% set items = posts | head(count) %}
+{% if items | length > 0 %}
+<div class="blog-latest">
+  <ul class="blog-latest__list">
+    {% for post in items %}
+    <li class="blog-latest__item">
+      <a href="{{ post.url }}" class="blog-latest__link">
+        <span class="blog-latest__title">{{ post.data.title }}</span>
+        {% if post.data.date %}
+        <time class="blog-latest__date" datetime="{{ post.data.date | dateIso }}">{{ post.data.date | dateFormat }}</time>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{%- endmacro %}

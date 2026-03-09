@@ -8,7 +8,7 @@ navTogglePos: "right"
 navBg: "solid"
 sections:
   - type: article
-    category: "PLUGIN"
+    doc_group: "PLUGIN"
     title: "layout-header-nav"
     lead: "グローバルナビゲーション・ドロワー・トグルボタンの全バリアントを備えたヘッダープラグイン。すべてのパラメータはフロントマターから指定可能。"
 ---

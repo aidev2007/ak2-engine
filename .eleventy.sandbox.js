@@ -97,6 +97,106 @@ module.exports = function (eleventyConfig) {
     return html;
   });
 
+  // ── Blog: コレクション ──────────────────────────────────────────────────────
+  const categoriesData = JSON.parse(fs.readFileSync("sandbox/_data/categories.json", "utf8"));
+  const postTagNamesData = JSON.parse(fs.readFileSync("sandbox/_data/postTagNames.json", "utf8"));
+
+  function getBlogPosts(collectionApi) {
+    return collectionApi.getAll().filter(item =>
+      item.inputPath.startsWith("./sandbox/blog/") && item.inputPath.endsWith(".md")
+    );
+  }
+
+  eleventyConfig.addCollection("blogAll", function (collectionApi) {
+    return getBlogPosts(collectionApi);
+  });
+
+  eleventyConfig.addCollection("blog", function (collectionApi) {
+    return getBlogPosts(collectionApi)
+      .filter(item => item.data.date)
+      .sort((a, b) => b.date - a.date);
+  });
+
+  eleventyConfig.addCollection("blogCategorySlugs", function (collectionApi) {
+    const slugs = new Set();
+    for (const item of getBlogPosts(collectionApi)) {
+      const cats = item.data.postCategory;
+      if (!cats) continue;
+      const list = Array.isArray(cats) ? cats : [cats];
+      for (const c of list) {
+        const slug = categoriesData[c];
+        if (slug) slugs.add(slug);
+      }
+    }
+    return [...slugs].sort();
+  });
+
+  eleventyConfig.addCollection("blogTagSlugs", function (collectionApi) {
+    const slugs = new Set();
+    for (const item of getBlogPosts(collectionApi)) {
+      const tags = item.data.postTags;
+      if (!tags) continue;
+      for (const t of tags) {
+        if (postTagNamesData[t]) slugs.add(t);
+      }
+    }
+    return [...slugs].sort();
+  });
+
+  eleventyConfig.addCollection("blogArchiveMonths", function (collectionApi) {
+    const months = new Set();
+    for (const item of getBlogPosts(collectionApi)) {
+      if (!item.data.date) continue;
+      const d = item.data.date;
+      const ym = `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}`;
+      months.add(ym);
+    }
+    return [...months].sort().reverse();
+  });
+
+  // ── Blog: フィルター ──────────────────────────────────────────────────────
+  eleventyConfig.addFilter("dateFormat", function (date) {
+    if (!date) return "";
+    const d = new Date(date);
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
+  });
+
+  eleventyConfig.addFilter("dateIso", function (date) {
+    if (!date) return "";
+    const d = new Date(date);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  });
+
+  eleventyConfig.addFilter("dateYearMonth", function (date) {
+    if (!date) return "";
+    const d = new Date(date);
+    return `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}`;
+  });
+
+  eleventyConfig.addFilter("isArray", function (value) {
+    return Array.isArray(value);
+  });
+
+  eleventyConfig.addFilter("head", function (array, n) {
+    if (!Array.isArray(array)) return [];
+    return array.slice(0, n);
+  });
+
+  eleventyConfig.addFilter("catSlug", function (name) {
+    return categoriesData[name] || name;
+  });
+
+  eleventyConfig.addFilter("catName", function (slug) {
+    for (const [name, s] of Object.entries(categoriesData)) {
+      if (s === slug) return name;
+    }
+    return slug;
+  });
+
+  eleventyConfig.addFilter("tagName", function (slug) {
+    return postTagNamesData[slug] || slug;
+  });
+
   // ── CSS/JS バンドル ──────────────────────────────────────────────────────────
   eleventyConfig.on("eleventy.before", async () => {
 

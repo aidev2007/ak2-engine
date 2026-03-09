@@ -4,7 +4,7 @@ title: "ParticleEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "ParticleEffect"
     lead: "Three.js を用いた3Dパーティクル群エフェクト。useThreeJS: true の設定が必要です。"
 ---

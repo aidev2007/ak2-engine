@@ -4,7 +4,7 @@ title: "レイアウトプラグイン"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "レイアウトプラグイン"
     lead: "ヘッダー・フッター・ヒーローセクションのプラグイン群です。"
 ---

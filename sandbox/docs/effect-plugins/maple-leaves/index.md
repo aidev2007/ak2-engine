@@ -4,7 +4,7 @@ title: "MapleLeafEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "MapleLeafEffect"
     lead: "もみじの葉が風に舞うエフェクト。紅葉・日本の秋を表現します。"
 ---

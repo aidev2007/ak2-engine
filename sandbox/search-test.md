@@ -4,7 +4,7 @@ title: "検索テスト"
 navBg: "solid"
 sections:
   - type: article
-    category: "テスト"
+    doc_group: "テスト"
     title: "Pagefind 検索テスト"
     lead: "Pagefind Default UI の動作検証ページ"
   - type: content

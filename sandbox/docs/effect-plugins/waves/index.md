@@ -4,7 +4,7 @@ title: "WaveEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "WaveEffect"
     lead: "なめらかな波形が複数レイヤーで揺れるエフェクト。海・音楽・リズム感のある演出に。"
 ---

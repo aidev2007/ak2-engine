@@ -4,7 +4,7 @@ title: "WaveRippleEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "WaveRippleEffect"
     lead: "波形と波紋を組み合わせた水面表現エフェクト。海・プール・アクアティック系サイトに。"
 ---

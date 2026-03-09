@@ -4,7 +4,7 @@ title: "全文検索（Pagefind）"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "全文検索（Pagefind）"
     lead: "block-search-modal プラグインによるサイト内全文検索の導入方法です。"
 ---

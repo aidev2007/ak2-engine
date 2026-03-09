@@ -4,7 +4,7 @@ title: "card-philosophy セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-philosophy セクション"
     lead: "大きな文字・用語・説明文を縦積みにした哲学カードのグリッド。ダーク背景の理念紹介に。"
 ---

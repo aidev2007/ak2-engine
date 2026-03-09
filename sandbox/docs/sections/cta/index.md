@@ -4,7 +4,7 @@ title: "cta セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "cta セクション"
     lead: "タイトル・説明文・リンクボタンを中央揃えで表示するCTAセクション。グラデーション背景対応。"
 ---

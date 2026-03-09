@@ -4,7 +4,7 @@ title: "concept セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "concept セクション"
     lead: "画像とテキストを横並びにしたコンセプトブロック。フロートアニメーション付き。詳細紹介に。"
 ---

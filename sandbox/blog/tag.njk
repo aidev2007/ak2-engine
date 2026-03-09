@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+navBg: "solid"
+pagination:
+  data: collections.blogTagSlugs
+  size: 1
+  alias: tagSlug
+permalink: "/blog/tag/{{ tagSlug }}/"
+---
+{% set displayName = tagSlug | tagName %}
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>{{ displayName }}タグ</span>
+      </div>
+      <h1 class="article-page__title">{{ displayName }}</h1>
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <ul class="blog-list">
+        {% for post in collections.blogAll %}
+          {% if post.data.postTags and tagSlug in post.data.postTags %}
+          <li class="blog-list__item">
+            <a href="{{ post.url }}" class="blog-list__link">
+              <span class="blog-list__title">{{ post.data.title }}</span>
+              {% if post.data.date %}
+              <time class="blog-list__date" datetime="{{ post.data.date | dateIso }}">{{ post.data.date | dateFormat }}</time>
+              {% endif %}
+            </a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <p class="blog-list__back"><a href="/blog/">← 新着記事一覧</a></p>
+    </div>
+  </div>
+</main>

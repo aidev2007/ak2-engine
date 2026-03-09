@@ -4,7 +4,7 @@ title: "Art & Kinetic: 技術哲学と提供コンセプト"
 navBg: "solid"
 sections:
   - type: article
-    category: "CONCEPT"
+    doc_group: "CONCEPT"
     title: "Art & Kinetic: 技術哲学と提供コンセプト"
     lead: "SVGアニメーションと独自設計のAK²Engineアーキテクチャが実現する、表現力と軽快性の完全両立。"
 ---

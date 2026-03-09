@@ -4,7 +4,7 @@ title: "ベストプラクティス"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "ベストプラクティス"
     lead: "AK²Engineを使ったサイト制作で守るべきルールとガイドラインです。"
 ---

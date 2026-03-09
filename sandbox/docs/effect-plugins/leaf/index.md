@@ -4,7 +4,7 @@ title: "LeafEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "LeafEffect"
     lead: "緑の葉が揺れながらゆっくり漂うエフェクト。ナチュラル・エコ・農業系サイトに。"
 ---

@@ -4,7 +4,7 @@ title: "RippleEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "RippleEffect"
     lead: "クリックした場所から水面に波紋が広がるインタラクティブエフェクト。水・清涼感・温泉系サイトに。"
 ---

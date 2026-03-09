@@ -4,7 +4,7 @@ title: "StatusUpEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "StatusUpEffect"
     lead: "ゲームのステータスアップ演出のようなバーが上昇するエフェクト。ゲーミング・デジタル・RPG系に。"
 ---

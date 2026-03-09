@@ -4,7 +4,7 @@ title: "StarSpeedEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "StarSpeedEffect"
     lead: "星が中心から外側に高速で流れるワープ演出エフェクト。SF・スピード感・テクノロジー系に。"
 ---

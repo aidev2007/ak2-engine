@@ -4,7 +4,7 @@ title: "SteamEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "SteamEffect"
     lead: "湯気が立ち上るエフェクト。温泉・カフェ・ラーメン・温かみのある演出に。"
 ---

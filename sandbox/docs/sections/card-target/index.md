@@ -4,7 +4,7 @@ title: "card-target セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "card-target セクション"
     lead: "アイコン（絵文字 or Lucide）・タイトル・説明文の縦積みカードグリッド。ターゲットユーザー紹介に。"
 ---

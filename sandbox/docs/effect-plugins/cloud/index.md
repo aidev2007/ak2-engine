@@ -4,7 +4,7 @@ title: "CloudEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "CloudEffect"
     lead: "白い雲が緩やかに左右に流れるエフェクト。空・清潔感・爽やかさを表現します。"
 ---

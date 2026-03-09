@@ -1,0 +1,39 @@
+/* ── block-blog-latest ─────────────────────────────────── */
+.blog-latest__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-latest__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.blog-latest__item:last-child {
+  border-bottom: none;
+}
+
+.blog-latest__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.blog-latest__link:hover {
+  opacity: 0.6;
+}
+
+.blog-latest__title {
+  font-weight: 500;
+}
+
+.blog-latest__date {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  white-space: nowrap;
+}

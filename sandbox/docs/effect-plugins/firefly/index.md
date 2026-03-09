@@ -4,7 +4,7 @@ title: "FireflyEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "FireflyEffect"
     lead: "光の点（ホタル）がゆらめきながら光跡を描くエフェクト。夏・幻想的な雰囲気に。"
 ---

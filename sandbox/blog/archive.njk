@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+navBg: "solid"
+pagination:
+  data: collections.blogArchiveMonths
+  size: 1
+  alias: yearMonth
+permalink: "/blog/archive/{{ yearMonth }}/"
+---
+{% set parts = yearMonth.split("/") %}
+{% set year = parts[0] %}
+{% set month = parts[1] %}
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>{{ year }}年</span>
+        <span class="breadcrumb__sep">›</span>
+        <span>{{ month }}月</span>
+      </div>
+      <h1 class="article-page__title">{{ year }}年{{ month }}月</h1>
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <ul class="blog-list">
+        {% for post in collections.blog %}
+          {% if post.data.date | dateYearMonth == yearMonth %}
+          <li class="blog-list__item">
+            <a href="{{ post.url }}" class="blog-list__link">
+              <span class="blog-list__title">{{ post.data.title }}</span>
+              <time class="blog-list__date" datetime="{{ post.data.date | dateIso }}">{{ post.data.date | dateFormat }}</time>
+            </a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <p class="blog-list__back"><a href="/blog/">← 新着記事一覧</a></p>
+    </div>
+  </div>
+</main>

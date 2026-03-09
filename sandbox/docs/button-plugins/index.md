@@ -4,7 +4,7 @@ title: "ボタンプラグイン"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "ボタンプラグイン"
     lead: "GSAP 3.x を使ったインタラクティブボタン3種です。使用ページのフロントマターに useGsap: true を設定してください。"
 ---

@@ -4,7 +4,7 @@ title: "LightningEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "LightningEffect"
     lead: "稲妻が走るエフェクト。エネルギッシュ・テック・ロック系のページに強烈なインパクトを与えます。"
 ---

@@ -4,7 +4,7 @@ title: "エフェクトプラグイン"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "エフェクトプラグイン"
     lead: "AK²Engine が提供するエフェクトプラグイン一覧。背景・カーソル・モーション・テキストの4グループに分類されます。"
 ---

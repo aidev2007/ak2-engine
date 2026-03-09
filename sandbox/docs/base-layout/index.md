@@ -4,7 +4,7 @@ title: "ベースレイアウト"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "ベースレイアウト"
     lead: "base.njk のテンプレートと、ページのフロントマターオプション一覧です。"
 ---

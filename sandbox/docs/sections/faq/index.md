@@ -4,7 +4,7 @@ title: "faq セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "faq セクション"
     lead: "<details>/<summary> を使ったアコーディオン形式の Q&A リスト。よくある質問の掲載に。"
 ---

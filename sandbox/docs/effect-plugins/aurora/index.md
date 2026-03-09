@@ -4,7 +4,7 @@ title: "AuroraEffect"
 navBg: "solid"
 sections:
   - type: article
-    category: "EFFECT PLUGINS / 背景エフェクト"
+    doc_group: "EFFECT PLUGINS / 背景エフェクト"
     title: "AuroraEffect"
     lead: "青〜紫〜緑の光が揺らめくオーロラエフェクト。幻想的・神秘的な演出に最適です。"
 ---

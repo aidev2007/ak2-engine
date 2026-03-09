@@ -4,7 +4,7 @@ title: "ブロックプラグイン"
 navBg: "solid"
 sections:
   - type: article
-    category: "AK²ENGINE DOCS"
+    doc_group: "AK²ENGINE DOCS"
     title: "ブロックプラグイン"
     lead: "カード・フォーム・CTA・FAQなどのコンテンツブロックプラグイン11種です。"
 ---

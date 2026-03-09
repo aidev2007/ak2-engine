@@ -4,7 +4,7 @@ title: "stat-grid セクション"
 navBg: "solid"
 sections:
   - type: article
-    category: "YAML SECTIONS"
+    doc_group: "YAML SECTIONS"
     title: "stat-grid セクション"
     lead: "ガラスカードのグリッド。統計数値・仕様一覧・機能リストをダーク背景で表示。"
 ---
