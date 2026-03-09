@@ -1,0 +1,29 @@
+/* ── block-blog-tagcloud ──────────────────────────────────── */
+.blog-tagcloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blog-tagcloud__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.85rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.blog-tagcloud__tag:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.blog-tagcloud__count {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}

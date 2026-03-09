@@ -1,0 +1,18 @@
+{# ── block-blog-tagcloud ─────────────────────────────────────
+   タグをバッジ形式で一覧表示するマクロ。
+   使い方:
+     {% from "block-blog-tagcloud/block-blog-tagcloud.njk" import blogTagcloud %}
+     {{ blogTagcloud(collections.blogTagData) }}
+   ──────────────────────────────────────────────────────────── #}
+{% macro blogTagcloud(tagData) %}
+{% if tagData and tagData | length > 0 %}
+<div class="blog-tagcloud">
+  {% for item in tagData %}
+  <a href="/blog/tag/{{ item.slug }}/" class="blog-tagcloud__tag">
+    {{ item.name }}
+    <span class="blog-tagcloud__count">{{ item.count }}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endif %}
+{%- endmacro %}

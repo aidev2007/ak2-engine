@@ -1,0 +1,29 @@
+{# ── block-blog-archive ──────────────────────────────────────
+   年月別アーカイブナビゲーションを表示するマクロ。
+   使い方:
+     {% from "block-blog-archive/block-blog-archive.njk" import blogArchive %}
+     {{ blogArchive(collections.blogArchiveData) }}
+   ──────────────────────────────────────────────────────────── #}
+{% macro blogArchive(archiveData) %}
+{% if archiveData and archiveData | length > 0 %}
+<div class="blog-archive">
+  <ul class="blog-archive__list">
+    {% for yearItem in archiveData %}
+    <li class="blog-archive__year-item">
+      <span class="blog-archive__year">{{ yearItem.year }}年 <span class="blog-archive__count">({{ yearItem.total }})</span></span>
+      <ul class="blog-archive__month-list">
+        {% for monthItem in yearItem.months %}
+        <li class="blog-archive__month-item">
+          <a href="/blog/archive/{{ monthItem.yearMonth }}/" class="blog-archive__month-link">
+            {{ monthItem.month | int }}月
+            <span class="blog-archive__count">({{ monthItem.count }})</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{%- endmacro %}

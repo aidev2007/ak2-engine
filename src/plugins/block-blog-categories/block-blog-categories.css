@@ -1,0 +1,37 @@
+/* ── block-blog-categories ────────────────────────────────── */
+.blog-categories__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-categories__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.blog-categories__item:last-child {
+  border-bottom: none;
+}
+
+.blog-categories__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.blog-categories__link:hover {
+  opacity: 0.6;
+}
+
+.blog-categories__name {
+  font-size: 0.9rem;
+}
+
+.blog-categories__count {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}

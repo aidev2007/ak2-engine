@@ -1,0 +1,22 @@
+{# ── block-blog-categories ───────────────────────────────────
+   カテゴリ一覧と記事件数を表示するマクロ。
+   使い方:
+     {% from "block-blog-categories/block-blog-categories.njk" import blogCategories %}
+     {{ blogCategories(collections.blogCategoryData) }}
+   ──────────────────────────────────────────────────────────── #}
+{% macro blogCategories(categoryData) %}
+{% if categoryData and categoryData | length > 0 %}
+<div class="blog-categories">
+  <ul class="blog-categories__list">
+    {% for item in categoryData %}
+    <li class="blog-categories__item">
+      <a href="/blog/category/{{ item.slug }}/" class="blog-categories__link">
+        <span class="blog-categories__name">{{ item.name }}</span>
+        <span class="blog-categories__count">({{ item.count }})</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{%- endmacro %}

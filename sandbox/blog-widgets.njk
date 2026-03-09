@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+title: "ブログウィジェット デモ"
+navBg: "solid"
+---
+{% from "block-blog-archive/block-blog-archive.njk" import blogArchive %}
+{% from "block-blog-categories/block-blog-categories.njk" import blogCategories %}
+{% from "block-blog-tagcloud/block-blog-tagcloud.njk" import blogTagcloud %}
+{% from "block-blog-calendar/block-blog-calendar.njk" import blogCalendar %}
+<main class="article-page">
+  <div class="article-page__hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">ホーム</a>
+        <span class="breadcrumb__sep">›</span>
+        <span>ブログウィジェット デモ</span>
+      </div>
+      <h1 class="article-page__title">ブログウィジェット デモ</h1>
+    </div>
+  </div>
+  <div class="article-page__body">
+    <div class="container">
+      <div class="widget-demo-grid">
+        <section class="widget-demo">
+          <h2 class="widget-demo__title">アーカイブ（block-blog-archive）</h2>
+          {{ blogArchive(collections.blogArchiveData) }}
+        </section>
+        <section class="widget-demo">
+          <h2 class="widget-demo__title">カテゴリ（block-blog-categories）</h2>
+          {{ blogCategories(collections.blogCategoryData) }}
+        </section>
+        <section class="widget-demo">
+          <h2 class="widget-demo__title">タグクラウド（block-blog-tagcloud）</h2>
+          {{ blogTagcloud(collections.blogTagData) }}
+        </section>
+        <section class="widget-demo">
+          <h2 class="widget-demo__title">カレンダー（block-blog-calendar）</h2>
+          {% set calData = "2026/03" | buildCalendar(collections.blog) %}
+          {{ blogCalendar(calData) }}
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

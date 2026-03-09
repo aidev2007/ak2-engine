@@ -1,0 +1,44 @@
+{# ── block-blog-calendar ─────────────────────────────────────
+   月間カレンダーを表示するマクロ。記事がある日はリンク付き。
+   使い方:
+     {% from "block-blog-calendar/block-blog-calendar.njk" import blogCalendar %}
+     {% set calData = "2026/03" | buildCalendar(collections.blog) %}
+     {{ blogCalendar(calData) }}
+   ──────────────────────────────────────────────────────────── #}
+{% macro blogCalendar(calData) %}
+{% if calData %}
+<div class="blog-calendar">
+  <div class="blog-calendar__header">{{ calData.title }}</div>
+  <table class="blog-calendar__table">
+    <thead>
+      <tr>
+        <th class="blog-calendar__th blog-calendar__th--sun">日</th>
+        <th class="blog-calendar__th">月</th>
+        <th class="blog-calendar__th">火</th>
+        <th class="blog-calendar__th">水</th>
+        <th class="blog-calendar__th">木</th>
+        <th class="blog-calendar__th">金</th>
+        <th class="blog-calendar__th blog-calendar__th--sat">土</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for week in calData.weeks %}
+      <tr>
+        {% for cell in week %}
+        <td class="blog-calendar__cell{{ ' blog-calendar__cell--sun' if loop.index == 1 }}{{ ' blog-calendar__cell--sat' if loop.index == 7 }}">
+          {% if cell %}
+          {% if cell.link %}
+          <a href="{{ cell.link }}" class="blog-calendar__day blog-calendar__day--link">{{ cell.day }}</a>
+          {% else %}
+          <span class="blog-calendar__day">{{ cell.day }}</span>
+          {% endif %}
+          {% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{%- endmacro %}

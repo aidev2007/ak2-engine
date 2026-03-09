@@ -154,6 +154,61 @@ module.exports = function (eleventyConfig) {
     return [...months].sort().reverse();
   });
 
+  eleventyConfig.addCollection("blogArchiveData", function (collectionApi) {
+    const posts = getBlogPosts(collectionApi).filter(item => item.data.date);
+    const yearMap = {};
+    for (const post of posts) {
+      const d = post.data.date;
+      const year = String(d.getFullYear());
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      if (!yearMap[year]) yearMap[year] = {};
+      yearMap[year][month] = (yearMap[year][month] || 0) + 1;
+    }
+    return Object.keys(yearMap).sort().reverse().map(year => {
+      const months = Object.keys(yearMap[year]).sort().reverse().map(month => ({
+        month,
+        yearMonth: `${year}/${month}`,
+        count: yearMap[year][month],
+      }));
+      return { year, total: months.reduce((s, m) => s + m.count, 0), months };
+    });
+  });
+
+  eleventyConfig.addCollection("blogCategoryData", function (collectionApi) {
+    const countMap = {};
+    for (const post of getBlogPosts(collectionApi)) {
+      const cats = post.data.postCategory;
+      if (!cats) continue;
+      const list = Array.isArray(cats) ? cats : [cats];
+      for (const c of list) {
+        const slug = categoriesData[c];
+        if (!slug) continue;
+        if (!countMap[slug]) countMap[slug] = { name: c, count: 0 };
+        countMap[slug].count++;
+      }
+    }
+    return Object.entries(countMap)
+      .map(([slug, { name, count }]) => ({ slug, name, count }))
+      .sort((a, b) => b.count - a.count);
+  });
+
+  eleventyConfig.addCollection("blogTagData", function (collectionApi) {
+    const countMap = {};
+    for (const post of getBlogPosts(collectionApi)) {
+      const tags = post.data.postTags;
+      if (!tags) continue;
+      for (const t of tags) {
+        const name = postTagNamesData[t];
+        if (!name) continue;
+        if (!countMap[t]) countMap[t] = { name, count: 0 };
+        countMap[t].count++;
+      }
+    }
+    return Object.entries(countMap)
+      .map(([slug, { name, count }]) => ({ slug, name, count }))
+      .sort((a, b) => b.count - a.count);
+  });
+
   // ── Blog: フィルター ──────────────────────────────────────────────────────
   eleventyConfig.addFilter("dateFormat", function (date) {
     if (!date) return "";
@@ -195,6 +250,36 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("tagName", function (slug) {
     return postTagNamesData[slug] || slug;
+  });
+
+  eleventyConfig.addFilter("buildCalendar", function (yearMonth, posts) {
+    const [yearStr, monthStr] = yearMonth.split("/");
+    const year = parseInt(yearStr, 10);
+    const month = parseInt(monthStr, 10);
+    const postDays = {};
+    if (Array.isArray(posts)) {
+      for (const post of posts) {
+        if (!post.data || !post.data.date) continue;
+        const d = new Date(post.data.date);
+        if (d.getFullYear() === year && d.getMonth() + 1 === month) {
+          const day = d.getDate();
+          if (!postDays[day]) postDays[day] = post.url;
+        }
+      }
+    }
+    const firstDay = new Date(year, month - 1, 1).getDay();
+    const lastDate = new Date(year, month, 0).getDate();
+    const weeks = [];
+    let week = Array(firstDay).fill(null);
+    for (let day = 1; day <= lastDate; day++) {
+      week.push({ day, link: postDays[day] || null });
+      if (week.length === 7) { weeks.push(week); week = []; }
+    }
+    if (week.length > 0) {
+      while (week.length < 7) week.push(null);
+      weeks.push(week);
+    }
+    return { year: yearStr, month: monthStr, title: `${year}年${month}月`, weeks };
   });
 
   // ── CSS/JS バンドル ──────────────────────────────────────────────────────────
