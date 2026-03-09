@@ -5,6 +5,10 @@ postCategory: "技術メモ"
 postTags:
   - css
   - ak2engine
+effects:
+  - WaveRippleEffect
+  - CherryBlossomEffect
+  - EmberEffect
 ---
 
 ## はじめに
