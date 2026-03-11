@@ -1,6 +1,6 @@
 {
   "name": "@ak2lab/engine",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "AK² Lab — Engine & Plugin System for Eleventy-based websites",
   "author": "AK² Lab",
   "license": "ISC",

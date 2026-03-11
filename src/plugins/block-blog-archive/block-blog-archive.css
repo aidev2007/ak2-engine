@@ -15,7 +15,7 @@
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0.25rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid var(--color-border-light);
   margin-bottom: 0.25rem;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .blog-archive__month-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--color-bg-hover);
 }
 
 .blog-archive__month-item:last-child {

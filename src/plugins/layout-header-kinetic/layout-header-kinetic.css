@@ -115,7 +115,7 @@
     display: block;
     width: 24px;
     height: 3px;
-    background: #0f172a;
+    background: var(--color-dark);
     border-radius: 2px;
     transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
                 opacity 0.2s ease;

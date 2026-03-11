@@ -27,7 +27,7 @@
 .faq-summary::-webkit-details-marker { display: none; }
 .faq-icon {
     transition: transform 0.3s ease;
-    color: #94a3b8;
+    color: var(--color-text-placeholder);
     font-style: normal;
     font-size: 1.2rem;
 }
@@ -37,6 +37,6 @@ details[open] .faq-icon { transform: rotate(180deg); color: var(--color-primary)
     color: var(--color-text);
     font-size: 0.95rem;
     line-height: 1.8;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--color-bg-subtle);
     padding-top: 1.5rem;
 }

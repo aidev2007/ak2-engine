@@ -30,13 +30,13 @@
 
 /* ダークテーマ */
 .ak2-kinetic-card--dark {
-  background-color: #14141c;
-  border-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--color-dark-bg);
+  border-color: var(--color-dark-border);
 }
-.ak2-kinetic-card--dark .ak2-kinetic-card__title { color: #f0f0f5; }
-.ak2-kinetic-card--dark .ak2-kinetic-card__body  { color: #777788; }
+.ak2-kinetic-card--dark .ak2-kinetic-card__title { color: var(--color-dark-text); }
+.ak2-kinetic-card--dark .ak2-kinetic-card__body  { color: var(--color-dark-sub); }
 .ak2-kinetic-card--dark .ak2-kinetic-card__link  { color: var(--color-primary); }
-.ak2-kinetic-card--dark .ak2-kinetic-card__content { background-color: #14141c; }
+.ak2-kinetic-card--dark .ak2-kinetic-card__content { background-color: var(--color-dark-bg); }
 
 /* ── グレア（光の反射）────────────────────────────────────── */
 
