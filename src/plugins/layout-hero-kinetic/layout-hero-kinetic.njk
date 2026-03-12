@@ -49,7 +49,7 @@
    count  : 表示するwave層の数（1〜4）。デフォルト4
    ※ 波の周期はCSSの min-width:1800px により画面幅に依存しない
    ------------------------------------------------------------ #}
-{% macro heroWave(c1="rgba(2,93,204,0.05)", c2="rgba(2,93,204,0.10)", c3="rgba(0,198,255,0.05)", c4="#f8fafc", count=4) %}
+{% macro heroWave(c1="rgba(2,93,204,0.05)", c2="rgba(2,93,204,0.10)", c3="rgba(0,198,255,0.05)", c4="var(--color-bg-light)", count=4) %}
 <div class="waves-container" aria-hidden="true">
   <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -60,7 +60,7 @@
       <use href="#gentle-wave" x="48" y="0" fill="{{ c1 }}"/>
       {% if count >= 2 %}<use href="#gentle-wave" x="48" y="3" fill="{{ c2 }}"/>{% endif %}
       {% if count >= 3 %}<use href="#gentle-wave" x="48" y="5" fill="{{ c3 }}"/>{% endif %}
-      {% if count >= 4 %}<use href="#gentle-wave" x="48" y="7" fill="{{ c4 }}"/>{% endif %}
+      {% if count >= 4 %}<use href="#gentle-wave" x="48" y="7" style="fill: {{ c4 }}"/>{% endif %}
     </g>
   </svg>
 </div>
