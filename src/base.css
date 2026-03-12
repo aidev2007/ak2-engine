@@ -577,14 +577,11 @@ p:last-child { margin-bottom: 0; }
 /* --- Parts Hero --- */
 .section--parts-hero {
     min-height: 70vh;
-    background: var(--color-dark);
-    background-image:
-        radial-gradient(circle at 20% 50%, rgba(2,93,204,0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0,198,255,0.1) 0%, transparent 40%);
+    background: var(--color-bg-light);
 }
 .section--parts-hero .section-header__subtitle { color: var(--color-secondary); }
-.section--parts-hero .page-hero__title { color: white; }
-.section--parts-hero .page-hero__lead { color: var(--color-text-placeholder); }
+.section--parts-hero .page-hero__title { color: var(--color-dark); }
+.section--parts-hero .page-hero__lead { color: var(--color-text-light); }
 
 /* TypeWriter */
 .typewriter-wrapper {
