@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "CloudEffect"
+title: "BgCloudEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "CloudEffect"
+    title: "BgCloudEffect"
     lead: "白い雲が緩やかに左右に流れるエフェクト。空・清潔感・爽やかさを表現します。"
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - CloudEffectEffect
+      - BgCloudEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - CloudEffect
+  - BgCloudEffect
 ---
 ```
 {% endraw %}

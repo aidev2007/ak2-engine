@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "ParticleEffect"
+title: "BgParticleEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "ParticleEffect"
+    title: "BgParticleEffect"
     lead: "Three.js を用いた3Dパーティクル群エフェクト。useThreeJS: true の設定が必要です。"
 ---
 
@@ -39,7 +39,7 @@ Three.js を使用した3Dパーティクルグリッドエフェクトです。
 layout: layouts/base.njk
 useThreeJS: true
 effects:
-  - ParticleEffect
+  - BgParticleEffect
 ---
 ```
 {% endraw %}
@@ -59,7 +59,7 @@ effects:
 sections:
   - type: hero
     effects:
-      - name: ParticleEffect
+      - name: BgParticleEffect
         mountId: my-canvas-container
 ```
 {% endraw %}

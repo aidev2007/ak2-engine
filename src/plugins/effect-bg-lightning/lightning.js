@@ -34,7 +34,7 @@
  * 使い方:
  *  AK2.register(new LightningEffect());
  */
-class LightningEffect {
+class BgLightningEffect {
 
   /** @type {number} */
   #w = 0;
@@ -253,4 +253,4 @@ class LightningEffect {
 }
 
 // AK²Engine に登録
-window.LightningEffect = LightningEffect;
+window.BgLightningEffect = BgLightningEffect;

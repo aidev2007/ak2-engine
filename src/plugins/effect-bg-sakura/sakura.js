@@ -20,7 +20,7 @@
  * 使い方:
  *  AK2.register(new SakuraEffect());
  */
-class SakuraEffect {
+class BgSakuraEffect {
 
   /** @type {number} */
   #w = 0;
@@ -137,4 +137,4 @@ class SakuraEffect {
 }
 
 // AK²Engine に登録
-window.SakuraEffect = SakuraEffect;
+window.BgSakuraEffect = BgSakuraEffect;

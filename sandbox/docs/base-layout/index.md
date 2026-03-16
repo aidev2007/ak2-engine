@@ -79,7 +79,7 @@ sections:
 
   <!-- Three.js パーティクル -->
   {% if useThreeJS %}
-  <script>new ParticleEffect();</script>
+  <script>new BgParticleEffect();</script>
   {% endif %}
 
   <!-- ロゴアニメーション -->

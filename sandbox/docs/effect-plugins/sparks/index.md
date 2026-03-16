@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "SparksEffect"
+title: "BgSparksEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "SparksEffect"
+    title: "BgSparksEffect"
     lead: "火花・スパークが定期的にはじけるエフェクト。工場・ものづくり・エネルギー系サイトに。"
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SparksEffectEffect
+      - BgSparksEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - SparksEffect
+  - BgSparksEffect
 ---
 ```
 {% endraw %}

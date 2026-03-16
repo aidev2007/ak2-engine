@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "RainEffect"
+title: "BgRainEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "RainEffect"
+    title: "BgRainEffect"
     lead: "縦に落ちる雨粒のラインを描くエフェクト。梅雨・夜の雨・水系サイトに。"
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - RainEffectEffect
+      - BgRainEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - RainEffect
+  - BgRainEffect
 ---
 ```
 {% endraw %}

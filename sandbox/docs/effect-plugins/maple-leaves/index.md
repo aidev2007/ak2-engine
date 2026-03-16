@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "MapleLeafEffect"
+title: "BgMapleLeafEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "MapleLeafEffect"
+    title: "BgMapleLeafEffect"
     lead: "もみじの葉が風に舞うエフェクト。紅葉・日本の秋を表現します。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-もみじ（カエデ）の形をした葉が揺れながら落下・漂うエフェクトです。`MomijiEffect` と似ていますが、`MapleLeafEffect` はやや大きめの葉で、黄橙系が基本色です。秋のキャンペーンや和風サイトに映えます。
+もみじ（カエデ）の形をした葉が揺れながら落下・漂うエフェクトです。`BgMomijiEffect` と似ていますが、`BgMapleLeafEffect` はやや大きめの葉で、黄橙系が基本色です。秋のキャンペーンや和風サイトに映えます。
 
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - MapleLeafEffect
+      - BgMapleLeafEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - MapleLeafEffect
+  - BgMapleLeafEffect
 ---
 ```
 {% endraw %}

@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "StatusUpEffect"
+title: "BgStatusUpEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "StatusUpEffect"
+    title: "BgStatusUpEffect"
     lead: "ゲームのステータスアップ演出のようなバーが上昇するエフェクト。ゲーミング・デジタル・RPG系に。"
 ---
 
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - StatusUpEffect
+      - BgStatusUpEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - StatusUpEffect
+  - BgStatusUpEffect
 ---
 ```
 {% endraw %}

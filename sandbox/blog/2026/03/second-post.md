@@ -6,9 +6,9 @@ postTags:
   - css
   - ak2engine
 effects:
-  - WaveRippleEffect
-  - CherryBlossomEffect
-  - EmberEffect
+  - BgWaveRippleEffect
+  - BgCherryBlossomEffect
+  - BgEmberEffect
 ---
 
 ## はじめに

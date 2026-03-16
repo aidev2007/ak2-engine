@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "GridEffect"
+title: "BgGridEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "GridEffect（lines）"
+    title: "BgGridEffect（lines）"
     lead: "細い格子線が動くグリッドパターンエフェクト。テクニカル・ミニマル・エンジニアリング系のデザインに。"
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - GridEffect
+      - BgGridEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - GridEffect
+  - BgGridEffect
 ---
 ```
 {% endraw %}

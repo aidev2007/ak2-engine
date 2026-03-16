@@ -33,7 +33,7 @@
  * 使い方:
  *  AK2.register(new EmberEffect());
  */
-class EmberEffect {
+class BgEmberEffect {
 
   /** @type {number} */
   #w = 0;
@@ -197,4 +197,4 @@ class EmberEffect {
 }
 
 // AK²Engine に登録
-window.EmberEffect = EmberEffect;
+window.BgEmberEffect = BgEmberEffect;

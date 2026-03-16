@@ -33,7 +33,7 @@
  * 使い方:
  *  AK2.register(new SteamEffect());
  */
-class SteamEffect {
+class BgSteamEffect {
 
   /** @type {number} */
   #w = 0;
@@ -187,4 +187,4 @@ class SteamEffect {
 }
 
 // AK²Engine に登録
-window.SteamEffect = SteamEffect;
+window.BgSteamEffect = BgSteamEffect;

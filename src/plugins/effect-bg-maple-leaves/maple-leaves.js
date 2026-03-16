@@ -145,7 +145,7 @@ class _MapleLeaf {
 
 // ── メインエフェクトクラス ────────────────────────────────
 
-class MapleLeafEffect {
+class BgMapleLeafEffect {
 
   /** @type {number} */
   #w = 0;
@@ -229,4 +229,4 @@ class MapleLeafEffect {
 }
 
 // AK²Engine に登録
-window.MapleLeafEffect = MapleLeafEffect;
+window.BgMapleLeafEffect = BgMapleLeafEffect;

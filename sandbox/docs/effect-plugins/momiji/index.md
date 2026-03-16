@@ -1,12 +1,12 @@
 ﻿---
 layout: layouts/base.njk
-title: "MomijiEffect"
+title: "BgMomijiEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "MomijiEffect"
-    lead: "赤みが強いもみじの葉が舞うエフェクト。MapleLeafEffectより深い赤橙色で、秋らしさを強調します。"
+    title: "BgMomijiEffect"
+    lead: "赤みが強いもみじの葉が舞うエフェクト。BgMapleLeafEffectより深い赤橙色で、秋らしさを強調します。"
 ---
 
 [← エフェクトプラグイン一覧](/docs/effect-plugins/)
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-`MapleLeafEffect` の赤みが強いバリエーションです。もみじの赤・橙・茶を中心とした色相で構成されており、より濃厚な紅葉の雰囲気を演出します。`--momiji-hue` で色相を調整できます。
+`BgMapleLeafEffect` の赤みが強いバリエーションです。もみじの赤・橙・茶を中心とした色相で構成されており、より濃厚な紅葉の雰囲気を演出します。`--momiji-hue` で色相を調整できます。
 
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - MomijiEffectEffect
+      - BgMomijiEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - MomijiEffect
+  - BgMomijiEffect
 ---
 ```
 {% endraw %}

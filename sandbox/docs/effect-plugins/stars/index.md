@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "StarFieldEffect"
+title: "BgStarFieldEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "StarFieldEffect"
+    title: "BgStarFieldEffect"
     lead: "星空を再現するエフェクト。夜・宇宙・ロマンティックなページに。"
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - StarFieldEffect
+      - BgStarFieldEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - StarFieldEffect
+  - BgStarFieldEffect
 ---
 ```
 {% endraw %}

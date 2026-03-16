@@ -26,7 +26,7 @@
  * 使い方:
  *  AK2.register(new SparksEffect());
  */
-class SparksEffect {
+class BgSparksEffect {
 
   /** @type {number} */
   #w = 0;
@@ -156,4 +156,4 @@ class SparksEffect {
 }
 
 // AK²Engine に登録
-window.SparksEffect = SparksEffect;
+window.BgSparksEffect = BgSparksEffect;

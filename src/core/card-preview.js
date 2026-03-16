@@ -16,7 +16,7 @@
  *     data-light-vars: ライト時のCSS変数（例: "--snow-hue:210,--snow-lightness:55"）
  *
  * 使い方:
- *   <canvas data-preview="SnowEffect" class="effect-preview-canvas"
+ *   <canvas data-preview="BgSnowEffect" class="effect-preview-canvas"
  *           data-dark-bg="#030e1a" data-light-bg="#f8fafc"
  *           data-light-vars="--snow-hue:210,--snow-lightness:55"></canvas>
  */

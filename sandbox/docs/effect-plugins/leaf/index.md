@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "LeafEffect"
+title: "BgLeafEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "LeafEffect"
+    title: "BgLeafEffect"
     lead: "緑の葉が揺れながらゆっくり漂うエフェクト。ナチュラル・エコ・農業系サイトに。"
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - LeafEffectEffect
+      - BgLeafEffectEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - LeafEffect
+  - BgLeafEffect
 ---
 ```
 {% endraw %}

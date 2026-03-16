@@ -28,7 +28,7 @@
  * 使い方:
  *  AK2.register(new RainEffect());
  */
-class RainEffect {
+class BgRainEffect {
 
   /** @type {number} */
   #w = 0;
@@ -156,4 +156,4 @@ class RainEffect {
 }
 
 // AK²Engine に登録
-window.RainEffect = RainEffect;
+window.BgRainEffect = BgRainEffect;

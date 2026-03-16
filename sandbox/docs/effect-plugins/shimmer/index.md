@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "ShimmerEffect"
+title: "BgShimmerEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "ShimmerEffect"
+    title: "BgShimmerEffect"
     lead: "キラキラした光の粒が点滅・移動するエフェクト。高級感・ジュエリー・ウェディング系に。"
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - ShimmerEffectEffect
+      - BgShimmerEffectEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - ShimmerEffect
+  - BgShimmerEffect
 ---
 ```
 {% endraw %}

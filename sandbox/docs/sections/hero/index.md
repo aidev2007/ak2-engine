@@ -91,8 +91,8 @@ sections:
     title: "Winter Campaign"
     lead: "冬季キャンペーン開催中"
     effects:
-      - SnowEffect
-      - FireflyEffect
+      - BgSnowEffect
+      - BgFireflyEffect
 ```
 {% endraw %}
 
@@ -105,7 +105,7 @@ sections:
     title: "タイトル"
     lead: "リード文"
     effects:
-      - name: SnowEffect
+      - name: BgSnowEffect
         count: 30
         alpha: 1.2
 ```

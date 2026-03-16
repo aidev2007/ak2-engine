@@ -29,7 +29,7 @@
  * 使い方:
  *  AK2.register(new SnowEffect());
  */
-class SnowEffect {
+class BgSnowEffect {
 
   /** @type {object} コンストラクタオプション（CSS変数より優先） */
   #options = {};
@@ -170,4 +170,4 @@ class SnowEffect {
 }
 
 // AK²Engine に登録
-window.SnowEffect = SnowEffect;
+window.BgSnowEffect = BgSnowEffect;

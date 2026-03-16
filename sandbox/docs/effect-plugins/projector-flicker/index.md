@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "ProjectorFlickerEffect"
+title: "BgProjectorFlickerEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "ProjectorFlickerEffect"
+    title: "BgProjectorFlickerEffect"
     lead: "古い映写機のフリッカーを模したエフェクト。レトロ・アナログ・ノスタルジックな演出に。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-古いフィルム映写機の光のちらつき（フリッカー）を再現したエフェクトです。不規則な明暗の点滅がレトロな雰囲気を醸し出します。`VintageFilmEffect` と組み合わせることで、より本格的な古映画の質感が得られます。
+古いフィルム映写機の光のちらつき（フリッカー）を再現したエフェクトです。不規則な明暗の点滅がレトロな雰囲気を醸し出します。`BgVintageFilmEffect` と組み合わせることで、より本格的な古映画の質感が得られます。
 
 ---
 
@@ -37,7 +37,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - ProjectorFlickerEffect
+      - BgProjectorFlickerEffect
 ```
 {% endraw %}
 
@@ -48,18 +48,18 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - ProjectorFlickerEffect
+  - BgProjectorFlickerEffect
 ---
 ```
 {% endraw %}
 
-### VintageFilmEffect との組み合わせ
+### BgVintageFilmEffect との組み合わせ
 
 {% raw %}
 ```yaml
 effects:
-  - ProjectorFlickerEffect
-  - VintageFilmEffect
+  - BgProjectorFlickerEffect
+  - BgVintageFilmEffect
 ```
 {% endraw %}
 

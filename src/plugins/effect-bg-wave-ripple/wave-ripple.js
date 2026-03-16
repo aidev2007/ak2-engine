@@ -28,7 +28,7 @@
  * 使い方:
  *  AK2.register(new WaveRippleEffect());
  */
-class WaveRippleEffect {
+class BgWaveRippleEffect {
 
   /** @type {number} */
   #w = 0;
@@ -158,4 +158,4 @@ class WaveRippleEffect {
 }
 
 // AK²Engine に登録
-window.WaveRippleEffect = WaveRippleEffect;
+window.BgWaveRippleEffect = BgWaveRippleEffect;

@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "WaveEffect"
+title: "BgWaveEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "WaveEffect"
+    title: "BgWaveEffect"
     lead: "なめらかな波形が複数レイヤーで揺れるエフェクト。海・音楽・リズム感のある演出に。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-3層の半透明な波形（サイン波）がそれぞれ異なる速度・位相で流れるエフェクトです。音楽・音声・イコライザー、または海の波をイメージした演出に適しています。`WaveRippleEffect` が水面の波紋なのに対し、`WaveEffect` は横方向に流れる波形です。
+3層の半透明な波形（サイン波）がそれぞれ異なる速度・位相で流れるエフェクトです。音楽・音声・イコライザー、または海の波をイメージした演出に適しています。`BgWaveRippleEffect` が水面の波紋なのに対し、`BgWaveEffect` は横方向に流れる波形です。
 
 ---
 
@@ -46,7 +46,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - WaveEffect
+      - BgWaveEffect
 ```
 {% endraw %}
 
@@ -57,7 +57,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - WaveEffect
+  - BgWaveEffect
 ---
 ```
 {% endraw %}

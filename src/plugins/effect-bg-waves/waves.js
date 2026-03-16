@@ -15,7 +15,7 @@
  * 使い方:
  *  AK2.register(new WaveEffect());
  */
-class WaveEffect {
+class BgWaveEffect {
 
   /** @type {number} */
   #w = 0;
@@ -110,4 +110,4 @@ class WaveEffect {
 }
 
 // AK²Engine に登録
-window.WaveEffect = WaveEffect;
+window.BgWaveEffect = BgWaveEffect;

@@ -4,7 +4,7 @@ title: Layout Test
 transparentHeader: true
 navBg: "solid"
 effects:
-  - GridConstruction
+  - BgGridConstruction
 sections:
   - type: content
   - type: stat-grid

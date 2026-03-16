@@ -22,7 +22,7 @@
  * 使い方:
  *  AK2.register(new LeafEffect());
  */
-class LeafEffect {
+class BgLeafEffect {
 
   /** @type {number} */
   #w = 0;
@@ -152,4 +152,4 @@ class LeafEffect {
 }
 
 // AK²Engine に登録
-window.LeafEffect = LeafEffect;
+window.BgLeafEffect = BgLeafEffect;

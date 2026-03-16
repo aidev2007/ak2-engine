@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "CherryBlossomEffect"
+title: "BgCherryBlossomEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "CherryBlossomEffect"
+    title: "BgCherryBlossomEffect"
     lead: "ピンクの花びらがひらひらと舞い落ちる桜エフェクト。春・和風のページにぴったりです。"
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "Spring Collection"
     effects:
-      - CherryBlossomEffect
+      - BgCherryBlossomEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - CherryBlossomEffect
+  - BgCherryBlossomEffect
 ---
 ```
 {% endraw %}

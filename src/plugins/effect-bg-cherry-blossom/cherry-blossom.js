@@ -28,7 +28,7 @@
  * 使い方:
  *  AK2.register(new CherryBlossomEffect());
  */
-class CherryBlossomEffect {
+class BgCherryBlossomEffect {
 
   /** @type {number} */
   #w = 0;
@@ -234,4 +234,4 @@ class CherryBlossomEffect {
 }
 
 // AK²Engine に登録
-window.CherryBlossomEffect = CherryBlossomEffect;
+window.BgCherryBlossomEffect = BgCherryBlossomEffect;

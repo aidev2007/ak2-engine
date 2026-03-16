@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "LightningEffect"
+title: "BgLightningEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "LightningEffect"
+    title: "BgLightningEffect"
     lead: "稲妻が走るエフェクト。エネルギッシュ・テック・ロック系のページに強烈なインパクトを与えます。"
 ---
 
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - LightningEffectEffect
+      - BgLightningEffectEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - LightningEffect
+  - BgLightningEffect
 ---
 ```
 {% endraw %}

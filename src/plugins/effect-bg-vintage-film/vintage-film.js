@@ -18,7 +18,7 @@
  * 使い方:
  *  AK2.register(new VintageFilmEffect());
  */
-class VintageFilmEffect {
+class BgVintageFilmEffect {
 
   /** @type {number} */
   #w = 0;
@@ -162,4 +162,4 @@ class VintageFilmEffect {
 }
 
 // AK²Engine に登録
-window.VintageFilmEffect = VintageFilmEffect;
+window.BgVintageFilmEffect = BgVintageFilmEffect;

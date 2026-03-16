@@ -67,6 +67,71 @@
 {%- endmacro %}
 
 
+{# ---- 放射状グロー光源 -------------------------------------------
+   glows : [{x, y, color, size, delay}]
+     x/y   : 位置（"50%" 等の % 指定）
+     color : グロー色（hsla / rgba 推奨）
+     size  : グロー直径（省略時 "600px"）
+     delay : アニメーション遅延（省略時なし）
+   ------------------------------------------------------------ #}
+{% macro bgGlow(glows) %}
+<div class="bg-glow-layer" aria-hidden="true">
+  {% for g in glows %}
+  <div class="bg-glow-item" style="
+    left:{{ g.x | default('50%') }};
+    top:{{ g.y | default('50%') }};
+    width:{{ g.size | default('600px') }};
+    height:{{ g.size | default('600px') }};
+    background:radial-gradient(circle,{{ g.color }},transparent 70%);
+    {% if g.delay %}animation-delay:{{ g.delay }};{% endif %}
+  "></div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+
+{# ---- ドットグリッド / ラインパターン ---------------------------
+   type  : "dots" | "lines" | "cross"（省略時 "dots"）
+   color : パターン色（省略時 rgba(2,93,204,0.1)）
+   gap   : パターン間隔 px（省略時 24）
+   size  : ドット半径 or ライン幅 px（省略時 2）
+   ------------------------------------------------------------ #}
+{% macro bgGrid(type="dots", color="rgba(2,93,204,0.1)", gap=24, size=2) %}
+{% if type == "lines" %}
+{% set bgImg = "repeating-linear-gradient(0deg," + color + " 0," + color + " " + size + "px,transparent " + size + "px,transparent " + gap + "px)" %}
+{% elif type == "cross" %}
+{% set bgImg = "repeating-linear-gradient(0deg," + color + " 0," + color + " " + size + "px,transparent " + size + "px,transparent " + gap + "px),repeating-linear-gradient(90deg," + color + " 0," + color + " " + size + "px,transparent " + size + "px,transparent " + gap + "px)" %}
+{% else %}
+{% set bgImg = "radial-gradient(" + size + "px circle at " + gap + "px " + gap + "px," + color + " 100%,transparent 100%)" %}
+{% endif %}
+<div class="bg-grid-layer" aria-hidden="true"
+  style="background-image:{{ bgImg }};background-size:{{ gap }}px {{ gap }}px;"></div>
+{%- endmacro %}
+
+
+{# ---- 斜めグラデーションバンド ---------------------------------
+   streaks : [{angle, c1, c2, width, pos, opacity, delay}]
+     angle   : 帯の角度（省略時 "135deg"）
+     c1      : 帯の中心色
+     c2      : 帯の端色（省略時 transparent）
+     width   : 帯の幅（省略時 "300px"）
+     pos     : 帯の中心位置（省略時 "50%"）
+     opacity : 透明度 0〜1（省略時 1）
+     delay   : アニメーション遅延（省略時なし）
+   ------------------------------------------------------------ #}
+{% macro bgStreak(streaks) %}
+<div class="bg-streak-layer" aria-hidden="true">
+  {% for s in streaks %}
+  <div class="bg-streak-item" style="
+    background:linear-gradient({{ s.angle | default('135deg') }},transparent,{{ s.c1 }},{{ s.c2 | default('transparent') }},transparent);
+    {% if s.opacity %}opacity:{{ s.opacity }};{% endif %}
+    {% if s.delay   %}animation-delay:{{ s.delay }};{% endif %}
+  "></div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+
 {# ---- コンテンツプレースホルダー --------------------------------
    title    : メインテキスト
    note     : サブテキスト（monospace）

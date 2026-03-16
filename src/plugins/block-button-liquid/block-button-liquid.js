@@ -24,11 +24,13 @@
  * @param {string}          [options.fontFamily]  フォントファミリー                (default: "'Outfit', sans-serif")
  * @param {boolean}         [options.float]       浮遊アニメーション                (default: true)
  * @param {boolean}         [options.shadow]      ドロップシャドウ                  (default: true)
+ * @param {string}          [options.href]        遷移先 URL（'#' でデモ）             (default: '#')
  * @param {number|'auto'}   [options.radius]      角丸 px（'auto' で高さから自動計算）(default: 'auto')
  * @returns {HTMLButtonElement}
  */
 function createLiquidButton(text, options) {
   options = options || {};
+  var href       = options.href       || '#';
   var color      = options.color      || '#5046e5';
   var textColor  = options.textColor  || '#ffffff';
   var fontFamily = options.fontFamily || "'Outfit', sans-serif";
@@ -272,6 +274,12 @@ function createLiquidButton(text, options) {
     });
   });
 
+  btn.addEventListener('click', function () {
+    if (href && href !== '#') {
+      setTimeout(function () { window.location.href = href; }, 300);
+    }
+  });
+
   return btn;
 }
 
@@ -286,6 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-liquid-btn]').forEach(function (host) {
     var text = host.dataset.text || '';
     var opts = {};
+    if (host.dataset.href)       opts.href       = host.dataset.href;
     if (host.dataset.color)      opts.color      = host.dataset.color;
     if (host.dataset.textColor)  opts.textColor  = host.dataset.textColor;
     if (host.dataset.fontFamily) opts.fontFamily = host.dataset.fontFamily;

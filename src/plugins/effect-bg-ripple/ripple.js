@@ -9,7 +9,7 @@
  *  - Math.pow によるイーズアウトで自然な物理挙動を演出
  *  - 複数の波紋が同時に存在できる（配列で管理）
  */
-class RippleEffect {
+class BgRippleEffect {
 
   /**
    * @typedef {{ x: number, y: number, r: number, maxR: number, alpha: number, color: string }} Ripple
@@ -73,4 +73,4 @@ class RippleEffect {
 }
 
 // AK²Engine に登録
-window.RippleEffect = RippleEffect;
+window.BgRippleEffect = BgRippleEffect;

@@ -29,7 +29,7 @@
  * 使い方:
  *  AK2.register(new MomijiEffect());
  */
-class MomijiEffect {
+class BgMomijiEffect {
 
   /** @type {number} */
   #w = 0;
@@ -143,7 +143,7 @@ class MomijiEffect {
    * @param {CanvasRenderingContext2D} ctx
    */
   draw(ctx) {
-    const path = MomijiEffect.#MAPLE_PATH;
+    const path = BgMomijiEffect.#MAPLE_PATH;
     const cx = 120;
     const cy = 130;
 
@@ -210,4 +210,4 @@ class MomijiEffect {
 }
 
 // AK²Engine に登録
-window.MomijiEffect = MomijiEffect;
+window.BgMomijiEffect = BgMomijiEffect;

@@ -28,7 +28,7 @@
  * 使い方:
  *  AK2.register(new ShimmerEffect());
  */
-class ShimmerEffect {
+class BgShimmerEffect {
 
   /** @type {number} */
   #w = 0;
@@ -168,4 +168,4 @@ class ShimmerEffect {
 }
 
 // AK²Engine に登録
-window.ShimmerEffect = ShimmerEffect;
+window.BgShimmerEffect = BgShimmerEffect;

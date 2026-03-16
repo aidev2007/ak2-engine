@@ -18,7 +18,7 @@
  * 使い方:
  *  AK2.register(new ProjectorFlickerEffect());
  */
-class ProjectorFlickerEffect {
+class BgProjectorFlickerEffect {
 
   /** @type {number} */
   #w = 0;
@@ -91,4 +91,4 @@ class ProjectorFlickerEffect {
 }
 
 // AK²Engine に登録
-window.ProjectorFlickerEffect = ProjectorFlickerEffect;
+window.BgProjectorFlickerEffect = BgProjectorFlickerEffect;

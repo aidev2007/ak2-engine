@@ -138,7 +138,7 @@ class Firefly {
 /* ----------------------------------------------------------------
    FireflyEffect（エンジン登録クラス）
 ---------------------------------------------------------------- */
-class FireflyEffect {
+class BgFireflyEffect {
   #canvas; #ctx;
   #width  = 0;
   #height = 0;
@@ -275,4 +275,4 @@ class FireflyEffect {
 }
 
 // AK²Engine に登録
-window.FireflyEffect = FireflyEffect;
+window.BgFireflyEffect = BgFireflyEffect;

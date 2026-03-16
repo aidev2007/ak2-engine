@@ -33,7 +33,7 @@
  * 使い方:
  *  AK2.register(new StarSpeedEffect());
  */
-class StarSpeedEffect {
+class BgStarSpeedEffect {
 
   /** @type {number} */
   #w = 0;
@@ -212,4 +212,4 @@ class StarSpeedEffect {
 }
 
 // AK²Engine に登録
-window.StarSpeedEffect = StarSpeedEffect;
+window.BgStarSpeedEffect = BgStarSpeedEffect;

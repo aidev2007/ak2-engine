@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "VintageFilmEffect"
+title: "BgVintageFilmEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "VintageFilmEffect"
+    title: "BgVintageFilmEffect"
     lead: "フィルムグレイン・スクラッチノイズを重ねるエフェクト。レトロ・映画的・ノスタルジックな演出に。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-画面全体にフィルムグレイン（粒子ノイズ）とスクラッチ傷を重ねるエフェクトです。まるで古いフィルム映画を観ているような質感を与えます。`ProjectorFlickerEffect` と組み合わせるとより本格的なレトロ映画の雰囲気になります。`--vintage-film-alpha` で効果の強さを調整できます。
+画面全体にフィルムグレイン（粒子ノイズ）とスクラッチ傷を重ねるエフェクトです。まるで古いフィルム映画を観ているような質感を与えます。`BgProjectorFlickerEffect` と組み合わせるとより本格的なレトロ映画の雰囲気になります。`--vintage-film-alpha` で効果の強さを調整できます。
 
 ---
 
@@ -37,7 +37,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - VintageFilmEffect
+      - BgVintageFilmEffect
 ```
 {% endraw %}
 
@@ -48,18 +48,18 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - VintageFilmEffect
+  - BgVintageFilmEffect
 ---
 ```
 {% endraw %}
 
-### ProjectorFlickerEffect との組み合わせ
+### BgProjectorFlickerEffect との組み合わせ
 
 {% raw %}
 ```yaml
 effects:
-  - VintageFilmEffect
-  - ProjectorFlickerEffect
+  - BgVintageFilmEffect
+  - BgProjectorFlickerEffect
 ```
 {% endraw %}
 

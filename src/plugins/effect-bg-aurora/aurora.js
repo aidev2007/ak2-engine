@@ -20,7 +20,7 @@
  * 使い方:
  *  AK2.register(new AuroraEffect());
  */
-class AuroraEffect {
+class BgAuroraEffect {
 
   /** @type {number} */
   #w = 0;
@@ -142,4 +142,4 @@ class AuroraEffect {
 }
 
 // AK²Engine に登録
-window.AuroraEffect = AuroraEffect;
+window.BgAuroraEffect = BgAuroraEffect;

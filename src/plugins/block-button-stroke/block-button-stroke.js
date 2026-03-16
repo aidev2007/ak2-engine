@@ -26,11 +26,13 @@
  * @param {boolean}         [options.shadow]      ドロップシャドウ                  (default: false)
  * @param {number}          [options.radius]      角丸 px                           (default: 3)
  * @param {number}          [options.strokeWidth] 線の太さ px                       (default: 1.2)
+ * @param {string}          [options.href]        遷移先 URL（'#' でデモ）          (default: '#')
  * @param {number}          [options.duration]    描画時間 秒                       (default: 0.55)
  * @returns {HTMLElement}
  */
 function createStrokeButton(text, options) {
   options = options || {};
+  var href        = options.href        || '#';
   var color       = options.color       || '#111111';
   var textColor   = options.textColor   || '#111111';
   var fontFamily  = options.fontFamily  || "'DM Sans', sans-serif";
@@ -197,6 +199,12 @@ function createStrokeButton(text, options) {
     gsap.to(labelEl, { duration: 0.25, opacity: 1, ease: 'power2.out' });
   });
 
+  wrap.addEventListener('click', function () {
+    if (href && href !== '#') {
+      setTimeout(function () { window.location.href = href; }, 300);
+    }
+  });
+
   return wrap;
 }
 
@@ -211,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-stroke-btn]').forEach(function (host) {
     var text = host.dataset.text || '';
     var opts = {};
+    if (host.dataset.href)        opts.href        = host.dataset.href;
     if (host.dataset.color)       opts.color       = host.dataset.color;
     if (host.dataset.textColor)   opts.textColor   = host.dataset.textColor;
     if (host.dataset.fontFamily)  opts.fontFamily  = host.dataset.fontFamily;

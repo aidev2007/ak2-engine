@@ -2,14 +2,14 @@
 layout: layouts/base.njk
 title: Effects Test
 effects:
-  - AuroraEffect
+  - BgAuroraEffect
 navBg: "solid"
 sections:
   - type: hero
     subtitle: "01 / Effects"
     title: "Background Effects"
     lead: "27種のキャンバスエフェクトをテストします。AK²Engine に登録されたエフェクトはページ全体の背景として動作します。"
-    note: "現在このページは effects: [AuroraEffect] が有効です。front-matter を変更して別のエフェクトをテストしてください。"
+    note: "現在このページは effects: [BgAuroraEffect] が有効です。front-matter を変更して別のエフェクトをテストしてください。"
     extraClass: "section--parts-hero"
   - type: content
 ---
@@ -106,11 +106,11 @@ sections:
     <div class="sb-canvas-grid">
       <div>
         <p class="sb-canvas-label">data-section-effect（全幅）</p>
-        <canvas data-section-effect="SnowEffect" class="sb-preview-canvas"></canvas>
+        <canvas data-section-effect="BgSnowEffect" class="sb-preview-canvas"></canvas>
       </div>
       <div>
         <p class="sb-canvas-label">data-preview（カードプレビュー）</p>
-        <canvas data-preview="AuroraEffect" class="sb-preview-canvas"></canvas>
+        <canvas data-preview="BgAuroraEffect" class="sb-preview-canvas"></canvas>
       </div>
     </div>
   </div>

@@ -169,15 +169,60 @@ p:last-child { margin-bottom: 0; }
     100% { transform: translate(0, 0) rotate(360deg); }
 }
 
+/* --- Background Glow (放射状グロー光源) --- */
+.bg-glow-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: var(--z-shapes);
+    pointer-events: none;
+}
+.bg-glow-item {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: glow-pulse 6s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+    50%       { opacity: 1.0; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* --- Background Grid (ドット / ライン / クロスパターン) --- */
+.bg-grid-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: var(--z-shapes);
+    pointer-events: none;
+}
+
+/* --- Background Streak (斜めグラデーションバンド) --- */
+.bg-streak-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: var(--z-shapes);
+    pointer-events: none;
+}
+.bg-streak-item {
+    position: absolute;
+    inset: -20% -10%;
+    animation: streak-shift 20s ease-in-out infinite alternate;
+}
+@keyframes streak-shift {
+    0%   { transform: translateX(-8%); }
+    100% { transform: translateX(8%); }
+}
+
 /* --- Cards (基本グリッド・グラス) --- */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
-}
-@media (min-width: 1024px) {
-    .card-grid { grid-template-columns: repeat(4, 1fr); }
 }
 .glass-card {
     background: var(--glass-bg);

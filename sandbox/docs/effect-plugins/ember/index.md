@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "EmberEffect"
+title: "BgEmberEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "EmberEffect"
+    title: "BgEmberEffect"
     lead: "炎の火の粉（エンバー）が上方向に漂うエフェクト。情熱・夏祭り・工業系の演出に。"
 ---
 
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - EmberEffectEffect
+      - BgEmberEffectEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - EmberEffect
+  - BgEmberEffect
 ---
 ```
 {% endraw %}

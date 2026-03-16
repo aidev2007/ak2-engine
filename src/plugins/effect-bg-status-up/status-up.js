@@ -35,7 +35,7 @@
  * 使い方:
  *  AK2.register(new StatusUpEffect());
  */
-class StatusUpEffect {
+class BgStatusUpEffect {
 
   /** @type {number} */
   #w = 0;
@@ -211,4 +211,4 @@ class StatusUpEffect {
 }
 
 // AK²Engine に登録
-window.StatusUpEffect = StatusUpEffect;
+window.BgStatusUpEffect = BgStatusUpEffect;

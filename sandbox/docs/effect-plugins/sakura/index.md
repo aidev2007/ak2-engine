@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "SakuraEffect"
+title: "BgSakuraEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "SakuraEffect"
+    title: "BgSakuraEffect"
     lead: "桜の花びらがひらひらと舞うフルバリエーションエフェクト。春の演出に最適です。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-`CherryBlossomEffect` と類似した桜の花びらエフェクトですが、`SakuraEffect` はより多くのバリエーション（大きさ・形状・動きのランダム性）を持つフルバリエーション版です。より自然でリッチな桜の舞いを表現します。
+`BgCherryBlossomEffect` と類似した桜の花びらエフェクトですが、`BgSakuraEffect` はより多くのバリエーション（大きさ・形状・動きのランダム性）を持つフルバリエーション版です。より自然でリッチな桜の舞いを表現します。
 
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "Spring"
     effects:
-      - SakuraEffectEffect
+      - BgSakuraEffectEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - SakuraEffect
+  - BgSakuraEffect
 ---
 ```
 {% endraw %}

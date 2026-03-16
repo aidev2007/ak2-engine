@@ -105,7 +105,7 @@ sections:
     title: "サイト名"
     lead: "サイトの説明文。"
     effects:
-      - SnowEffect
+      - BgSnowEffect
 
   - type: feature-grid
     heading: "MENU"

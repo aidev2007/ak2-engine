@@ -52,8 +52,8 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SnowEffect
-      - FireflyEffect
+      - BgSnowEffect
+      - BgFireflyEffect
 ```
 {% endraw %}
 
@@ -65,12 +65,12 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - name: SnowEffect
+      - name: BgSnowEffect
         count: 20
         alpha: 1.5
         hue: 210
         lightness: 70
-      - name: FireflyEffect
+      - name: BgFireflyEffect
         interactive: false
 ```
 {% endraw %}
@@ -81,7 +81,7 @@ sections:
 
 #### ページ全体への適用
 
-front-matter の `effects:` に指定します。`base.njk` が `AK2.register(new SnowEffect())` を自動呼び出します。
+front-matter の `effects:` に指定します。`base.njk` が `AK2.register(new BgSnowEffect())` を自動呼び出します。
 
 {% raw %}
 ```yaml
@@ -89,8 +89,8 @@ front-matter の `effects:` に指定します。`base.njk` が `AK2.register(ne
 layout: layouts/base.njk
 title: My Page
 effects:
-  - SnowEffect
-  - AuroraEffect
+  - BgSnowEffect
+  - BgAuroraEffect
 ---
 ```
 {% endraw %}
@@ -120,35 +120,35 @@ effects:
 
 | エフェクト名 | 説明 |
 |---|---|
-| [`AuroraEffect`](/docs/effect-plugins/aurora/) | 青〜紫〜緑の光が揺らめくオーロラ。幻想的・神秘的な演出 |
-| [`CherryBlossomEffect`](/docs/effect-plugins/cherry-blossom/) | ピンクの花びらが舞い落ちる。春・和風サイト |
-| [`CloudEffect`](/docs/effect-plugins/cloud/) | 白い雲が緩やかに流れる。空・清潔感・爽やかさ |
-| [`EmberEffect`](/docs/effect-plugins/ember/) | 炎の火の粉が上方向に漂う。情熱・夏祭り |
-| [`FireflyEffect`](/docs/effect-plugins/firefly/) | 光の点（ホタル）が光跡を描く。夏・幻想的 |
-| [`GridConstruction`](/docs/effect-plugins/grid-construction/) | ページ開幕時にグリッド線が展開するローディング演出★ |
-| [`LeafEffect`](/docs/effect-plugins/leaf/) | 緑の葉が揺れながら漂う。ナチュラル・エコ系 |
-| [`LeafFallEffect`](/docs/effect-plugins/leaf-fall/) | 葉が落下する秋のシーン |
-| [`LightningEffect`](/docs/effect-plugins/lightning/) | 稲妻が走る。エネルギッシュ・テック・ロック系 |
-| [`GridEffect`](/docs/effect-plugins/lines/) | 細い線が動くグリッドパターン。テクニカル・ミニマル |
-| [`MapleLeafEffect`](/docs/effect-plugins/maple-leaves/) | もみじの葉が舞う。紅葉・日本の秋 |
-| [`MomijiEffect`](/docs/effect-plugins/momiji/) | もみじ（赤みが強いバリエーション） |
-| [`ParticleEffect`](/docs/effect-plugins/particles/) | Three.js による3Dパーティクル群（`useThreeJS: true` 必須） |
-| [`ProjectorFlickerEffect`](/docs/effect-plugins/projector-flicker/) | 古い映写機のフリッカー。レトロ・アナログ感 |
-| [`RainEffect`](/docs/effect-plugins/rain/) | 縦に落ちる雨のライン。梅雨・夜の雨 |
-| [`RippleEffect`](/docs/effect-plugins/ripple/) | クリックで水面に波紋が広がる。水・清涼感 |
-| [`SakuraEffect`](/docs/effect-plugins/sakura/) | 桜の花びらが舞う（フルバリエーション）。春 |
-| [`ShimmerEffect`](/docs/effect-plugins/shimmer/) | キラキラした光の粒。高級感・ジュエリー |
-| [`SnowEffect`](/docs/effect-plugins/snow/) | 白い雪がゆっくり降る。冬・クリスマス |
-| [`SparksEffect`](/docs/effect-plugins/sparks/) | 火花・スパークがはじける。工場・ものづくり |
-| [`StarFieldEffect`](/docs/effect-plugins/stars/) | 星空。夜・宇宙・ロマンティック |
-| [`StarSpeedEffect`](/docs/effect-plugins/star-speed/) | 星が高速で流れるワープ演出。SF・スピード感 |
-| [`StatusUpEffect`](/docs/effect-plugins/status-up/) | ゲームのステータスアップ表示。ゲーミング・デジタル |
-| [`SteamEffect`](/docs/effect-plugins/steam/) | 湯気が立ち上る。温泉・カフェ・温かみ |
-| [`VintageFilmEffect`](/docs/effect-plugins/vintage-film/) | フィルムグレイン・スクラッチノイズ。レトロ・映画的 |
-| [`WaveRippleEffect`](/docs/effect-plugins/wave-ripple/) | ウェーブと波紋の水面表現。海・プール |
-| [`WaveEffect`](/docs/effect-plugins/waves/) | なめらかな波形。海・音楽・リズム感 |
+| [`BgAuroraEffect`](/docs/effect-plugins/aurora/) | 青〜紫〜緑の光が揺らめくオーロラ。幻想的・神秘的な演出 |
+| [`BgCherryBlossomEffect`](/docs/effect-plugins/cherry-blossom/) | ピンクの花びらが舞い落ちる。春・和風サイト |
+| [`BgCloudEffect`](/docs/effect-plugins/cloud/) | 白い雲が緩やかに流れる。空・清潔感・爽やかさ |
+| [`BgEmberEffect`](/docs/effect-plugins/ember/) | 炎の火の粉が上方向に漂う。情熱・夏祭り |
+| [`BgFireflyEffect`](/docs/effect-plugins/firefly/) | 光の点（ホタル）が光跡を描く。夏・幻想的 |
+| [`BgGridConstruction`](/docs/effect-plugins/grid-construction/) | ページ開幕時にグリッド線が展開するローディング演出★ |
+| [`BgLeafEffect`](/docs/effect-plugins/leaf/) | 緑の葉が揺れながら漂う。ナチュラル・エコ系 |
+| [`BgLeafFallEffect`](/docs/effect-plugins/leaf-fall/) | 葉が落下する秋のシーン |
+| [`BgLightningEffect`](/docs/effect-plugins/lightning/) | 稲妻が走る。エネルギッシュ・テック・ロック系 |
+| [`BgGridEffect`](/docs/effect-plugins/lines/) | 細い線が動くグリッドパターン。テクニカル・ミニマル |
+| [`BgMapleLeafEffect`](/docs/effect-plugins/maple-leaves/) | もみじの葉が舞う。紅葉・日本の秋 |
+| [`BgMomijiEffect`](/docs/effect-plugins/momiji/) | もみじ（赤みが強いバリエーション） |
+| [`BgParticleEffect`](/docs/effect-plugins/particles/) | Three.js による3Dパーティクル群（`useThreeJS: true` 必須） |
+| [`BgProjectorFlickerEffect`](/docs/effect-plugins/projector-flicker/) | 古い映写機のフリッカー。レトロ・アナログ感 |
+| [`BgRainEffect`](/docs/effect-plugins/rain/) | 縦に落ちる雨のライン。梅雨・夜の雨 |
+| [`BgRippleEffect`](/docs/effect-plugins/ripple/) | クリックで水面に波紋が広がる。水・清涼感 |
+| [`BgSakuraEffect`](/docs/effect-plugins/sakura/) | 桜の花びらが舞う（フルバリエーション）。春 |
+| [`BgShimmerEffect`](/docs/effect-plugins/shimmer/) | キラキラした光の粒。高級感・ジュエリー |
+| [`BgSnowEffect`](/docs/effect-plugins/snow/) | 白い雪がゆっくり降る。冬・クリスマス |
+| [`BgSparksEffect`](/docs/effect-plugins/sparks/) | 火花・スパークがはじける。工場・ものづくり |
+| [`BgStarFieldEffect`](/docs/effect-plugins/stars/) | 星空。夜・宇宙・ロマンティック |
+| [`BgStarSpeedEffect`](/docs/effect-plugins/star-speed/) | 星が高速で流れるワープ演出。SF・スピード感 |
+| [`BgStatusUpEffect`](/docs/effect-plugins/status-up/) | ゲームのステータスアップ表示。ゲーミング・デジタル |
+| [`BgSteamEffect`](/docs/effect-plugins/steam/) | 湯気が立ち上る。温泉・カフェ・温かみ |
+| [`BgVintageFilmEffect`](/docs/effect-plugins/vintage-film/) | フィルムグレイン・スクラッチノイズ。レトロ・映画的 |
+| [`BgWaveRippleEffect`](/docs/effect-plugins/wave-ripple/) | ウェーブと波紋の水面表現。海・プール |
+| [`BgWaveEffect`](/docs/effect-plugins/waves/) | なめらかな波形。海・音楽・リズム感 |
 
-> ★ `GridConstruction` は完了時に `ak2:grid-ready` カスタムイベントを発行します。`useLogoAnimation: true` はこのイベントをリッスンして SVG ストロークアニメーションを開始します。
+> ★ `BgGridConstruction` は完了時に `ak2:grid-ready` カスタムイベントを発行します。`useLogoAnimation: true` はこのイベントをリッスンして SVG ストロークアニメーションを開始します。
 
 ---
 

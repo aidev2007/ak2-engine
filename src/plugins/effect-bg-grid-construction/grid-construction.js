@@ -13,7 +13,7 @@
  * イベント:
  *  - 'ak2:grid-ready' を document に dispatch（フェーズ1完了時）
  */
-class GridConstruction {
+class BgGridConstruction {
 
   /** @type {number} */
   #w = 0;
@@ -160,4 +160,4 @@ class GridConstruction {
 }
 
 // AK²Engine に登録
-window.GridConstruction = GridConstruction;
+window.BgGridConstruction = BgGridConstruction;

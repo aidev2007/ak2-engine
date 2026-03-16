@@ -62,12 +62,12 @@ H2 以上の見出しから TOC が自動生成されます（`toc` フィルタ
 ```yaml
 ---
 layout: layouts/base.njk
-title: "SnowEffect"
+title: "BgSnowEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS"
-    title: "SnowEffect"
+    title: "BgSnowEffect"
     lead: "白い雪が降り積もるエフェクト。冬・クリスマス系サイトに。"
 ---
 

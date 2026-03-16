@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "StarSpeedEffect"
+title: "BgStarSpeedEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "StarSpeedEffect"
+    title: "BgStarSpeedEffect"
     lead: "星が中心から外側に高速で流れるワープ演出エフェクト。SF・スピード感・テクノロジー系に。"
 ---
 
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - StarSpeedEffect
+      - BgStarSpeedEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - StarSpeedEffect
+  - BgStarSpeedEffect
 ---
 ```
 {% endraw %}

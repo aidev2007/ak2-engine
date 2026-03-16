@@ -21,7 +21,7 @@
  * 使い方:
  *  AK2.register(new StarFieldEffect());
  */
-class StarFieldEffect {
+class BgStarFieldEffect {
 
   /** @type {Array<{x,y,vx,vy,r}>} */
   #stars = [];
@@ -130,4 +130,4 @@ class StarFieldEffect {
 }
 
 // AK²Engine に登録
-window.StarFieldEffect = StarFieldEffect;
+window.BgStarFieldEffect = BgStarFieldEffect;

@@ -80,25 +80,25 @@ sections:
 {% raw %}
 ```json
 {
-  "aurora":            "AuroraEffect",
-  "snow":              "SnowEffect",
-  "sakura":            "SakuraEffect",
-  "firefly":           "FireflyEffect",
-  "grid-construction": "GridConstruction",
-  "lines":             "GridEffect",
-  "sparks":            "SparksEffect",
-  "rain":              "RainEffect",
-  "ripple":            "RippleEffect",
-  "shimmer":           "ShimmerEffect",
-  "stars":             "StarFieldEffect",
-  "star-speed":        "StarSpeedEffect",
-  "wave-ripple":       "WaveRippleEffect",
-  "waves":             "WaveEffect"
+  "aurora":            "BgAuroraEffect",
+  "snow":              "BgSnowEffect",
+  "sakura":            "BgSakuraEffect",
+  "firefly":           "BgFireflyEffect",
+  "grid-construction": "BgGridConstruction",
+  "lines":             "BgGridEffect",
+  "sparks":            "BgSparksEffect",
+  "rain":              "BgRainEffect",
+  "ripple":            "BgRippleEffect",
+  "shimmer":           "BgShimmerEffect",
+  "stars":             "BgStarFieldEffect",
+  "star-speed":        "BgStarSpeedEffect",
+  "wave-ripple":       "BgWaveRippleEffect",
+  "waves":             "BgWaveEffect"
 }
 ```
 {% endraw %}
 
-> **注意:** ページ全体エフェクト（`effects: [key]`）ではこのマッピングを使います。セクション個別エフェクト（`sections[].effects[]`）では JSクラス名を直接記述します（例: `SnowEffect`）。詳しくは [エフェクトプラグイン](/docs/effect-plugins/) を参照してください。
+> **注意:** ページ全体エフェクト（`effects: [key]`）ではこのマッピングを使います。セクション個別エフェクト（`sections[].effects[]`）では JSクラス名を直接記述します（例: `BgSnowEffect`）。詳しくは [エフェクトプラグイン](/docs/effect-plugins/) を参照してください。
 
 ---
 

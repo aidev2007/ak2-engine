@@ -10,7 +10,7 @@ sections:
     note: "v0.1.3 対応ドキュメントです。"
     extraClass: "section--parts-hero"
     effects:
-      - name: SnowEffect
+      - name: BgSnowEffect
         count: 20
         alpha: 0.8
 

@@ -26,11 +26,13 @@
  * @param {number}          [options.bounceY]     跳ね上がり量 px（負で上方向）              (default: -4)
  * @param {boolean}         [options.float]       浮遊アニメーション                         (default: false)
  * @param {boolean}         [options.shadow]      ドロップシャドウ                           (default: false)
+ * @param {string}          [options.href]        遷移先 URL（'#' でデモ）                    (default: '#')
  * @param {number|'auto'}   [options.radius]      角丸 px（'auto' で高さから自動計算）       (default: 'auto')
  * @returns {HTMLElement}
  */
 function createStaggerButton(text, options) {
   options = options || {};
+  var href       = options.href       || '#';
   var color      = options.color      || '#111111';
   var textColor  = options.textColor  || '#ffffff';
   var fontFamily = options.fontFamily || "'Syne', sans-serif";
@@ -266,6 +268,12 @@ function createStaggerButton(text, options) {
     fireShimmer(true);
   });
 
+  wrap.addEventListener('click', function () {
+    if (href && href !== '#') {
+      setTimeout(function () { window.location.href = href; }, 300);
+    }
+  });
+
   return wrap;
 }
 
@@ -280,6 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-stagger-btn]').forEach(function (host) {
     var text = host.dataset.text || '';
     var opts = {};
+    if (host.dataset.href)       opts.href       = host.dataset.href;
     if (host.dataset.color)      opts.color      = host.dataset.color;
     if (host.dataset.textColor)  opts.textColor  = host.dataset.textColor;
     if (host.dataset.fontFamily) opts.fontFamily = host.dataset.fontFamily;

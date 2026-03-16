@@ -25,10 +25,15 @@
  *    デフォルト: 210（青白い雲）
  *    推奨例:  0（夕焼け雲）, 30（オレンジ色の雲）, 280（紫の雲）
  *
+ *  --cloud-lightness
+ *    雲の明度ベース 0〜100
+ *    デフォルト: 90（暗背景向け明るい雲）
+ *    白背景推奨: 55〜70（グレー系の雲）
+ *
  * 使い方:
  *  AK2.register(new CloudEffect());
  */
-class CloudEffect {
+class BgCloudEffect {
 
   /** @type {number} */
   #w = 0;
@@ -63,6 +68,13 @@ class CloudEffect {
    */
   #hue = 210;
 
+  /**
+   * 明度ベース — CSS 変数 --cloud-lightness で上書き可
+   * デフォルト: 90（暗背景向け）| 白背景推奨: 55〜70
+   * @type {number}
+   */
+  #lightness = 90;
+
   // ── AK²Engine インターフェイス ─────────────────
 
   init(canvas, _ctx) {
@@ -74,9 +86,11 @@ class CloudEffect {
     const n   = parseInt(style.getPropertyValue('--cloud-count'));
     const a   = parseFloat(style.getPropertyValue('--cloud-alpha'));
     const hue = parseFloat(style.getPropertyValue('--cloud-hue'));
+    const lit = parseFloat(style.getPropertyValue('--cloud-lightness'));
     if (n > 0)     this.#count      = n;
     if (!isNaN(a)) this.#alphaScale = a;
     if (!isNaN(hue)) this.#hue      = hue;
+    if (!isNaN(lit)) this.#lightness = lit;
 
     this.#clouds = Array.from({ length: this.#count }, () => this.#createCloud(true));
   }
@@ -116,11 +130,12 @@ class CloudEffect {
       // ここを正しく設定しないと「上部だけ輪郭がはっきりする」バグが発生する
       const arcCY = c.y / c.aspect;
       const g = ctx.createRadialGradient(c.x, arcCY, 0, c.x, arcCY, c.rx);
-      g.addColorStop(0,    `hsla(${this.#hue}, 20%, 96%, ${alpha})`);
-      g.addColorStop(0.30, `hsla(${this.#hue}, 16%, 90%, ${alpha * 0.75})`);
-      g.addColorStop(0.60, `hsla(${this.#hue}, 10%, 83%, ${alpha * 0.38})`);
-      g.addColorStop(0.85, `hsla(${this.#hue},  6%, 78%, ${alpha * 0.10})`);
-      g.addColorStop(1,    `hsla(${this.#hue},  4%, 75%, 0)`);
+      const L = this.#lightness;
+      g.addColorStop(0,    `hsla(${this.#hue}, 20%, ${L + 6}%, ${alpha})`);
+      g.addColorStop(0.30, `hsla(${this.#hue}, 16%, ${L}%, ${alpha * 0.75})`);
+      g.addColorStop(0.60, `hsla(${this.#hue}, 10%, ${L - 7}%, ${alpha * 0.38})`);
+      g.addColorStop(0.85, `hsla(${this.#hue},  6%, ${L - 12}%, ${alpha * 0.10})`);
+      g.addColorStop(1,    `hsla(${this.#hue},  4%, ${L - 15}%, 0)`);
 
       // 横長楕円（雲らしいアスペクト比）
       ctx.save();
@@ -155,4 +170,4 @@ class CloudEffect {
 }
 
 // AK²Engine に登録
-window.CloudEffect = CloudEffect;
+window.BgCloudEffect = BgCloudEffect;

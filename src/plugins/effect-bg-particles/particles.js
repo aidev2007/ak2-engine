@@ -10,7 +10,7 @@
  * ※ Three.js は base.njk で読み込み済み（useThreeJS: true 時）
  * ※ AK²Engine（2D Canvas）とは独立した Three.js の WebGL ループを持つ
  */
-class ParticleEffect {
+class BgParticleEffect {
 
   /** @type {THREE.Scene|null} */
   #scene = null;
@@ -37,11 +37,23 @@ class ParticleEffect {
   #amountY = 60;
 
   /**
-   * @param {string} mountId - マウント先 div の id
+   * @param {object|string} options - mountId 文字列、または { mountId } オブジェクト
    */
-  constructor(mountId = 'hero-particles') {
-    document.addEventListener('DOMContentLoaded', () => this.#init(mountId));
+  constructor(options = {}) {
+    const mountId = (typeof options === 'string') ? options
+                  : (options.mountId || 'hero-particles');
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.#init(mountId));
+    } else {
+      this.#init(mountId);
+    }
   }
+
+  // SectionEffectRunner 互換スタブ（Three.js 独自ループのため不使用）
+  init() {}
+  update() {}
+  draw() {}
+  onResize() {}
 
   // ── 初期化 ────────────────────────────────────────
 
@@ -150,4 +162,4 @@ class ParticleEffect {
 }
 
 // 自動起動
-window.ParticleEffect = ParticleEffect;
+window.BgParticleEffect = BgParticleEffect;

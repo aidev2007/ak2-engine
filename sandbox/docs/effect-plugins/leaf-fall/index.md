@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "LeafFallEffect"
+title: "BgLeafFallEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "LeafFallEffect"
+    title: "BgLeafFallEffect"
     lead: "葉が落下する秋のシーンを演出するエフェクト。色相で様々な葉の色を表現できます。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-葉が画面上部から落下しながら回転するエフェクトです。`LeafEffect` が浮遊・漂うのに対し、`LeafFallEffect` は重力に従って落下する表現です。色相の調整で緑・黄・橙など様々な季節感を演出できます。
+葉が画面上部から落下しながら回転するエフェクトです。`BgLeafEffect` が浮遊・漂うのに対し、`BgLeafFallEffect` は重力に従って落下する表現です。色相の調整で緑・黄・橙など様々な季節感を演出できます。
 
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - LeafFallEffect
+      - BgLeafFallEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - LeafFallEffect
+  - BgLeafFallEffect
 ---
 ```
 {% endraw %}

@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "SteamEffect"
+title: "BgSteamEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "SteamEffect"
+    title: "BgSteamEffect"
     lead: "湯気が立ち上るエフェクト。温泉・カフェ・ラーメン・温かみのある演出に。"
 ---
 
@@ -40,7 +40,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SteamEffectEffect
+      - BgSteamEffectEffect
 ```
 {% endraw %}
 
@@ -51,7 +51,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - SteamEffect
+  - BgSteamEffect
 ---
 ```
 {% endraw %}

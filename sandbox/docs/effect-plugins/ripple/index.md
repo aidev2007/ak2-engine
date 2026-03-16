@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "RippleEffect"
+title: "BgRippleEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "RippleEffect"
+    title: "BgRippleEffect"
     lead: "クリックした場所から水面に波紋が広がるインタラクティブエフェクト。水・清涼感・温泉系サイトに。"
 ---
 
@@ -45,7 +45,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - RippleEffectEffect
+      - BgRippleEffectEffect
 ```
 {% endraw %}
 
@@ -56,7 +56,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - RippleEffect
+  - BgRippleEffect
 ---
 ```
 {% endraw %}

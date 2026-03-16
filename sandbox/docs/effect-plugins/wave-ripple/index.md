@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "WaveRippleEffect"
+title: "BgWaveRippleEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "WaveRippleEffect"
+    title: "BgWaveRippleEffect"
     lead: "波形と波紋を組み合わせた水面表現エフェクト。海・プール・アクアティック系サイトに。"
 ---
 
@@ -15,7 +15,7 @@ sections:
 
 ## 概要
 
-波紋が広がりながら波打つ水面を表現するエフェクトです。`RippleEffect`（クリック連動の波紋）とは異なり、こちらは自律的に波紋が発生し続けます。海・プール・温浴施設・ウォータースポーツ系のページに穏やかなアニメーション背景として機能します。
+波紋が広がりながら波打つ水面を表現するエフェクトです。`BgRippleEffect`（クリック連動の波紋）とは異なり、こちらは自律的に波紋が発生し続けます。海・プール・温浴施設・ウォータースポーツ系のページに穏やかなアニメーション背景として機能します。
 
 ---
 
@@ -39,7 +39,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - WaveRippleEffect
+      - BgWaveRippleEffect
 ```
 {% endraw %}
 
@@ -50,7 +50,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - WaveRippleEffect
+  - BgWaveRippleEffect
 ---
 ```
 {% endraw %}

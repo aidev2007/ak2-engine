@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "FireflyEffect"
+title: "BgFireflyEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "FireflyEffect"
+    title: "BgFireflyEffect"
     lead: "光の点（ホタル）がゆらめきながら光跡を描くエフェクト。夏・幻想的な雰囲気に。"
 ---
 
@@ -51,7 +51,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - FireflyEffectEffect
+      - BgFireflyEffectEffect
 ```
 {% endraw %}
 
@@ -63,7 +63,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - name: FireflyEffect
+      - name: BgFireflyEffect
         interactive: false
 ```
 {% endraw %}
@@ -75,7 +75,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - FireflyEffect
+  - BgFireflyEffect
 ---
 ```
 {% endraw %}

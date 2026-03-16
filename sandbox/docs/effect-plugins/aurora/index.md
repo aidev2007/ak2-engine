@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "AuroraEffect"
+title: "BgAuroraEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "AuroraEffect"
+    title: "BgAuroraEffect"
     lead: "青〜紫〜緑の光が揺らめくオーロラエフェクト。幻想的・神秘的な演出に最適です。"
 ---
 
@@ -38,7 +38,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - AuroraEffectEffect
+      - BgAuroraEffectEffect
 ```
 {% endraw %}
 
@@ -49,7 +49,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - AuroraEffect
+  - BgAuroraEffect
 ---
 ```
 {% endraw %}

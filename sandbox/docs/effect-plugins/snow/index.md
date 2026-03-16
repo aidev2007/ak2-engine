@@ -1,11 +1,11 @@
 ﻿---
 layout: layouts/base.njk
-title: "SnowEffect"
+title: "BgSnowEffect"
 navBg: "solid"
 sections:
   - type: article
     doc_group: "EFFECT PLUGINS / 背景エフェクト"
-    title: "SnowEffect"
+    title: "BgSnowEffect"
     lead: "白い雪がゆっくり降り積もるエフェクト。冬・クリスマス・北欧系サイトに。"
 ---
 
@@ -51,7 +51,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SnowEffectEffect
+      - BgSnowEffectEffect
 ```
 {% endraw %}
 
@@ -63,7 +63,7 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - name: SnowEffect
+      - name: BgSnowEffect
         count: 30
         alpha: 1.2
         hue: 210
@@ -78,7 +78,7 @@ sections:
 ---
 layout: layouts/base.njk
 effects:
-  - SnowEffect
+  - BgSnowEffect
 ---
 ```
 {% endraw %}

@@ -22,7 +22,7 @@
  * 使い方:
  *  AK2.register(new GridEffect());
  */
-class GridEffect {
+class BgGridEffect {
 
   /** @type {number} */
   #w = 0;
@@ -114,4 +114,4 @@ class GridEffect {
 }
 
 // AK²Engine に登録
-window.GridEffect = GridEffect;
+window.BgGridEffect = BgGridEffect;

@@ -195,8 +195,8 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - SnowEffect
-      - FireflyEffect
+      - BgSnowEffect
+      - BgFireflyEffect
 ```
 {% endraw %}
 
@@ -208,17 +208,17 @@ sections:
   - type: hero
     title: "タイトル"
     effects:
-      - name: SnowEffect
+      - name: BgSnowEffect
         count: 20        # 粒子数（デフォルト60）
         alpha: 1.5       # 明るさ係数（デフォルト1.0）
-      - name: FireflyEffect
+      - name: BgFireflyEffect
         interactive: false  # マウス反応なし
 ```
 {% endraw %}
 
 ### エフェクトの重ねがけ
 
-複数エフェクトを重ねる場合、`mix-blend-mode: screen` により記述順に関わらず両方が正しく表示されます。SnowEffect → FireflyEffect でも FireflyEffect → SnowEffect でも同じ結果になります。
+複数エフェクトを重ねる場合、`mix-blend-mode: screen` により記述順に関わらず両方が正しく表示されます。BgSnowEffect → BgFireflyEffect でも BgFireflyEffect → BgSnowEffect でも同じ結果になります。
 
 ---
 
