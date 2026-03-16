@@ -342,6 +342,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setServerOptions({ port: 8080 });
 
+  // ── ビルド前に _site を削除（削除済みページが残らないように）────────────────
+  eleventyConfig.on("eleventy.before", ({ dir }) => {
+    if (fs.existsSync(dir.output)) {
+      fs.rmSync(dir.output, { recursive: true, force: true });
+    }
+  });
+
   return {
     templateFormats: ["njk", "html", "md"],
     htmlTemplateEngine: "njk",
