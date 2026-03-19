@@ -282,8 +282,11 @@ module.exports = function (eleventyConfig) {
     return { year: yearStr, month: monthStr, title: `${year}年${month}月`, weeks };
   });
 
-  // ── CSS/JS バンドル ──────────────────────────────────────────────────────────
-  eleventyConfig.on("eleventy.before", async () => {
+  // ── CSS/JS バンドル（ビルド前に _site 削除 → バンドル生成）──────────────────
+  eleventyConfig.on("eleventy.before", async ({ dir }) => {
+    if (fs.existsSync(dir.output)) {
+      fs.rmSync(dir.output, { recursive: true, force: true });
+    }
 
     // CSS: src/base.css + src/core/*.css + src/plugins/**/*.css
     const baseCss = fs.existsSync("src/base.css")
@@ -341,13 +344,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.setServerOptions({ port: 8080 });
-
-  // ── ビルド前に _site を削除（削除済みページが残らないように）────────────────
-  eleventyConfig.on("eleventy.before", ({ dir }) => {
-    if (fs.existsSync(dir.output)) {
-      fs.rmSync(dir.output, { recursive: true, force: true });
-    }
-  });
 
   return {
     templateFormats: ["njk", "html", "md"],
