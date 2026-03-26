@@ -1,18 +1,28 @@
-{# card-grid-basic.njk — カードグリッド（スターターキット）
-   リンク付きカードのグリッドレイアウト。
+{# card-grid-basic — カードグリッド
+   ─────────────────────────────────────
+   YAML パラメータ:
+     heading     - セクション英語ラベル（省略でヘッダー非表示）
+     subheading  - セクション日本語見出し
+     linkText    - カードのリンクテキスト（default: "詳しく見る →"）
+     style       - CSS変数の上書き
+     items[]     - カードデータ配列
+       item.num        - 番号ラベル（例: "01"）
+       item.title      - カードタイトル
+       item.desc       - カード説明文
+       item.href       - リンク先 URL
+       item.extraClass - 追加CSSクラス
 
-   パラメータ:
-     section.heading    : セクション英語ラベル（省略時はヘッダーなし）
-     section.subheading : セクション日本語見出し
-     section.linkText   : カードのリンクテキスト（デフォルト: "詳しく見る →"）
-     section.items[]    : カードデータ配列
-       item.num         : 番号ラベル（例: "01"）
-       item.title       : カードタイトル
-       item.desc        : カード説明文
-       item.href        : リンク先 URL
-       item.extraClass  : 追加 CSS クラス（省略可）
-#}
-<section class="card-grid-basic">
+   CSS 調整変数:
+     --card-grid-basic-padding     : セクション余白（default: 5rem 0）
+     --card-grid-basic-bg          : 背景色（default: white）
+     --card-grid-basic-title-size  : 見出しサイズ（default: 1.8rem）
+     --card-grid-basic-label-color : ラベル・番号色（default: #00C6FF）
+     --card-grid-basic-card-bg     : カード背景色（default: white）
+     --card-grid-basic-card-radius : カード角丸（default: 16px）
+     --card-grid-basic-card-min    : カード最小幅（default: 280px）
+     --card-grid-basic-gap         : グリッド間隔（default: 1.5rem）
+   ───────────────────────────────────── #}
+<section class="card-grid-basic{% if section.extraClass %} {{ section.extraClass }}{% endif %}" style="{{ section.style }}">
   <div class="container">
     {% if section.heading %}
     <div class="card-grid-basic__header">

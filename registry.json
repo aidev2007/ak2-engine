@@ -2,127 +2,191 @@
   "version": 1,
   "repo": "https://raw.githubusercontent.com/aidev2007/ak2-recipes/main",
   "sections": {
-    "hero-basic": {
-      "description": "ヒーローセクション。ファーストビュー用。",
-      "files": ["hero-basic.njk", "hero-basic.css"]
+    "card-grid-basic": {
+      "description": "カードグリッド。機能紹介やカタログ。",
+      "files": [
+        "card-grid-basic.njk",
+        "card-grid-basic.css"
+      ]
     },
     "cta-basic": {
       "description": "コールトゥアクション。ページ末尾の誘導。",
-      "files": ["cta-basic.njk", "cta-basic.css"]
+      "files": [
+        "cta-basic.njk",
+        "cta-basic.css"
+      ]
     },
     "faq-basic": {
       "description": "FAQ アコーディオン。よくある質問。",
-      "files": ["faq-basic.njk", "faq-basic.css"]
+      "files": [
+        "faq-basic.njk",
+        "faq-basic.css"
+      ]
     },
-    "card-grid-basic": {
-      "description": "カードグリッド。機能紹介やカタログ。",
-      "files": ["card-grid-basic.njk", "card-grid-basic.css"]
+    "hero-basic": {
+      "description": "ヒーローセクション。ファーストビュー用。",
+      "files": [
+        "hero-basic.njk",
+        "hero-basic.css"
+      ]
     }
   },
   "effects": {
     "BgEffectAurora": {
       "description": "オーロラエフェクト",
-      "files": ["bg-effect-aurora.js"]
+      "files": [
+        "bg-effect-aurora.js"
+      ]
     },
     "BgEffectCherryBlossom": {
       "description": "桜吹雪エフェクト",
-      "files": ["bg-effect-cherry-blossom.js"]
+      "files": [
+        "bg-effect-cherry-blossom.js"
+      ]
     },
     "BgEffectCloud": {
       "description": "雲エフェクト",
-      "files": ["bg-effect-cloud.js"]
+      "files": [
+        "bg-effect-cloud.js"
+      ]
     },
     "BgEffectEmber": {
       "description": "残り火エフェクト",
-      "files": ["bg-effect-ember.js"]
+      "files": [
+        "bg-effect-ember.js"
+      ]
     },
     "BgEffectFirefly": {
       "description": "蛍エフェクト",
-      "files": ["bg-effect-firefly.js"]
+      "files": [
+        "bg-effect-firefly.js"
+      ]
     },
     "BgEffectGrid": {
       "description": "グリッドラインエフェクト",
-      "files": ["bg-effect-grid.js"]
+      "files": [
+        "bg-effect-grid.js"
+      ]
     },
     "BgEffectLeaf": {
       "description": "葉っぱエフェクト",
-      "files": ["bg-effect-leaf.js"]
+      "files": [
+        "bg-effect-leaf.js"
+      ]
     },
     "BgEffectLeafFall": {
       "description": "落ち葉エフェクト",
-      "files": ["bg-effect-leaf-fall.js"]
+      "files": [
+        "bg-effect-leaf-fall.js"
+      ]
     },
     "BgEffectLightning": {
       "description": "稲妻エフェクト",
-      "files": ["bg-effect-lightning.js"]
+      "files": [
+        "bg-effect-lightning.js"
+      ]
     },
     "BgEffectMapleLeaf": {
       "description": "紅葉エフェクト",
-      "files": ["bg-effect-maple-leaf.js"]
+      "files": [
+        "bg-effect-maple-leaf.js"
+      ]
     },
     "BgEffectMomiji": {
       "description": "もみじエフェクト",
-      "files": ["bg-effect-momiji.js"]
+      "files": [
+        "bg-effect-momiji.js"
+      ]
     },
     "BgEffectParticle": {
       "description": "パーティクルエフェクト",
-      "files": ["bg-effect-particle.js"]
+      "files": [
+        "bg-effect-particle.js"
+      ]
     },
     "BgEffectProjectorFlicker": {
       "description": "プロジェクターフリッカーエフェクト",
-      "files": ["bg-effect-projector-flicker.js"]
+      "files": [
+        "bg-effect-projector-flicker.js"
+      ]
     },
     "BgEffectRain": {
       "description": "雨エフェクト",
-      "files": ["bg-effect-rain.js"]
+      "files": [
+        "bg-effect-rain.js"
+      ]
     },
     "BgEffectRipple": {
       "description": "波紋エフェクト",
-      "files": ["bg-effect-ripple.js"]
+      "files": [
+        "bg-effect-ripple.js"
+      ]
     },
     "BgEffectSakura": {
       "description": "桜エフェクト",
-      "files": ["bg-effect-sakura.js"]
+      "files": [
+        "bg-effect-sakura.js"
+      ]
     },
     "BgEffectShimmer": {
       "description": "きらめきエフェクト",
-      "files": ["bg-effect-shimmer.js"]
+      "files": [
+        "bg-effect-shimmer.js"
+      ]
     },
     "BgEffectSnow": {
       "description": "雪エフェクト",
-      "files": ["bg-effect-snow.js"]
+      "files": [
+        "bg-effect-snow.js"
+      ]
     },
     "BgEffectSparks": {
       "description": "火花エフェクト",
-      "files": ["bg-effect-sparks.js"]
+      "files": [
+        "bg-effect-sparks.js"
+      ]
     },
     "BgEffectStarField": {
       "description": "星空エフェクト",
-      "files": ["bg-effect-star-field.js"]
+      "files": [
+        "bg-effect-star-field.js"
+      ]
     },
     "BgEffectStarSpeed": {
       "description": "スタースピードエフェクト",
-      "files": ["bg-effect-star-speed.js"]
+      "files": [
+        "bg-effect-star-speed.js"
+      ]
     },
     "BgEffectStatusUp": {
       "description": "ステータスアップエフェクト",
-      "files": ["bg-effect-status-up.js"]
+      "files": [
+        "bg-effect-status-up.js"
+      ]
     },
     "BgEffectSteam": {
       "description": "蒸気エフェクト",
-      "files": ["bg-effect-steam.js"]
+      "files": [
+        "bg-effect-steam.js"
+      ]
     },
     "BgEffectVintageFilm": {
       "description": "ヴィンテージフィルムエフェクト",
-      "files": ["bg-effect-vintage-film.js"]
+      "files": [
+        "bg-effect-vintage-film.js"
+      ]
     },
     "BgEffectWave": {
       "description": "波エフェクト",
-      "files": ["bg-effect-wave.js"]
+      "files": [
+        "bg-effect-wave.js"
+      ]
     },
     "BgEffectWaveRipple": {
       "description": "波紋ウェーブエフェクト",
-      "files": ["bg-effect-wave-ripple.js"]
+      "files": [
+        "bg-effect-wave-ripple.js"
+      ]
     }
   }
 }

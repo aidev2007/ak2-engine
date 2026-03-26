@@ -1,9 +1,18 @@
-/* hero-basic — ヒーローセクション */
+/* hero-basic — ヒーローセクション
+   ── 調整ポイント ── */
 .hero-basic {
-  padding: 8rem 0 6rem;
-  background: var(--color-bg-dark, #0f172a);
-  color: white;
-  min-height: 60vh;
+  --hero-basic-padding: 8rem 0 6rem;
+  --hero-basic-bg: var(--color-bg-dark, #0f172a);
+  --hero-basic-color: white;
+  --hero-basic-min-height: 60vh;
+  --hero-basic-title-size: clamp(2rem, 5vw, 3.5rem);
+  --hero-basic-subtitle-color: var(--color-secondary, #00C6FF);
+  --hero-basic-lead-opacity: 0.85;
+
+  padding: var(--hero-basic-padding);
+  background: var(--hero-basic-bg);
+  color: var(--hero-basic-color);
+  min-height: var(--hero-basic-min-height);
   display: flex;
   align-items: center;
 }
@@ -18,11 +27,11 @@
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-secondary, #00C6FF);
+  color: var(--hero-basic-subtitle-color);
   margin-bottom: 1rem;
 }
 .hero-basic__title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: var(--hero-basic-title-size);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -30,7 +39,7 @@
 .hero-basic__lead {
   font-size: 1.1rem;
   line-height: 1.8;
-  opacity: 0.85;
+  opacity: var(--hero-basic-lead-opacity);
   margin-bottom: 2rem;
 }
 .hero-basic__note {

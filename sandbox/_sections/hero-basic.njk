@@ -1,14 +1,23 @@
-{# hero-basic.njk — ヒーローセクション（スターターキット）
-   ページのファーストビュー。背景エフェクトとの合成に対応。
+{# hero-basic — ヒーローセクション
+   ─────────────────────────────────────
+   YAML パラメータ:
+     subtitle    - 英語小見出し
+     title       - 大見出し（必須）
+     lead        - リード文（HTML可）
+     note        - info アイコン付きメモ
+     extraClass  - 追加CSSクラス
+     style       - CSS変数の上書き（例: "--hero-basic-bg: #1a1a2e"）
+     effects[]   - 背景エフェクト配列
 
-   パラメータ:
-     section.subtitle   : 英語小見出し
-     section.title      : 大見出し（必須）
-     section.lead       : リード文（HTML 使用可）
-     section.note       : info アイコン付きメモ（省略可）
-     section.extraClass : <section> への追加 CSS クラス（省略可）
-     section.effects[]  : 背景エフェクト配列
-#}
+   CSS 調整変数:
+     --hero-basic-padding        : セクション余白（default: 8rem 0 6rem）
+     --hero-basic-bg             : 背景色（default: #0f172a）
+     --hero-basic-color          : テキスト色（default: white）
+     --hero-basic-min-height     : 最小高さ（default: 60vh）
+     --hero-basic-title-size     : 見出しサイズ（default: clamp(2rem, 5vw, 3.5rem)）
+     --hero-basic-subtitle-color : 小見出し色（default: #00C6FF）
+     --hero-basic-lead-opacity   : リード文の透過度（default: 0.85）
+   ───────────────────────────────────── #}
 <section class="hero-basic{% if section.extraClass %} {{ section.extraClass }}{% endif %}"
   style="position:relative; overflow:hidden;">
 

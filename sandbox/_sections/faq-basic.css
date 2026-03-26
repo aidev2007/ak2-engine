@@ -1,7 +1,15 @@
-/* faq-basic — FAQ アコーディオン */
+/* faq-basic — FAQ アコーディオン
+   ── 調整ポイント ── */
 .faq-basic {
-  padding: 5rem 0;
-  background: var(--color-bg-secondary, #f8fafc);
+  --faq-basic-padding: 5rem 0;
+  --faq-basic-bg: var(--color-bg-secondary, #f8fafc);
+  --faq-basic-title-size: 1.8rem;
+  --faq-basic-label-color: var(--color-secondary, #00C6FF);
+  --faq-basic-item-bg: white;
+  --faq-basic-item-radius: 12px;
+
+  padding: var(--faq-basic-padding);
+  background: var(--faq-basic-bg);
 }
 .faq-basic__header {
   text-align: center;
@@ -13,11 +21,11 @@
   font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-secondary, #00C6FF);
+  color: var(--faq-basic-label-color);
   margin-bottom: 0.5rem;
 }
 .faq-basic__title {
-  font-size: 1.8rem;
+  font-size: var(--faq-basic-title-size);
   font-weight: 700;
   color: var(--color-dark, #1e293b);
 }
@@ -26,8 +34,8 @@
   margin: 0 auto;
 }
 .faq-basic__item {
-  background: white;
-  border-radius: 12px;
+  background: var(--faq-basic-item-bg);
+  border-radius: var(--faq-basic-item-radius);
   margin-bottom: 1.2rem;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.03);

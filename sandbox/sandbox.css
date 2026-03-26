@@ -606,3 +606,41 @@
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-border-light);
 }
+
+/* ── CSS変数カスタマイズデモ ─────────────────────────────── */
+
+/* hero-basic のカスタマイズ例: 暖色系に変更 */
+.hero-custom-demo {
+  --hero-basic-bg: linear-gradient(135deg, #1a1a2e, #16213e);
+  --hero-basic-subtitle-color: #f59e0b;
+  --hero-basic-title-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+/* cta-basic のカスタマイズ例: ボタン色変更 */
+.cta-custom-demo {
+  --cta-basic-btn-bg: #d97706;
+  --cta-basic-btn-radius: 999px;
+}
+
+/* faq-basic のカスタマイズ例: 丸み・色変更 */
+.faq-custom-demo {
+  --faq-basic-bg: #fef3c7;
+  --faq-basic-label-color: #d97706;
+  --faq-basic-item-bg: #fffbeb;
+  --faq-basic-item-radius: 20px;
+}
+
+/* card-grid-basic のカスタマイズ例: ダーク風 */
+.grid-custom-demo {
+  --card-grid-basic-bg: #0f172a;
+  --card-grid-basic-title-size: 2rem;
+  --card-grid-basic-label-color: #f59e0b;
+  --card-grid-basic-card-bg: #1e293b;
+  --card-grid-basic-card-radius: 8px;
+  --card-grid-basic-gap: 2rem;
+}
+.grid-custom-demo .card-grid-basic__title { color: white; }
+.grid-custom-demo .card-grid-basic__card { border-color: rgba(255,255,255,0.1); }
+.grid-custom-demo .card-grid-basic__card-title { color: white; }
+.grid-custom-demo .card-grid-basic__desc { color: #94a3b8; }
+.grid-custom-demo .card-grid-basic__link { color: #f59e0b; }

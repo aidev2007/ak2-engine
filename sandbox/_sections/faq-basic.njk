@@ -1,14 +1,22 @@
-{# faq-basic.njk — FAQ アコーディオン（スターターキット）
-   details/summary ベースのアコーディオン形式 Q&A。
+{# faq-basic — FAQ アコーディオン
+   ─────────────────────────────────────
+   YAML パラメータ:
+     heading     - セクション英語ラベル（省略でヘッダー非表示）
+     subheading  - セクション日本語見出し
+     style       - CSS変数の上書き
+     items[]     - Q&A データ配列
+       item.q    - 質問テキスト
+       item.a    - 回答テキスト（HTML可）
 
-   パラメータ:
-     section.heading    : セクション英語ラベル（省略時はヘッダーなし）
-     section.subheading : セクション日本語見出し
-     section.items[]    : Q&A データ配列
-       item.q : 質問テキスト
-       item.a : 回答テキスト（HTML 使用可）
-#}
-<section class="faq-basic">
+   CSS 調整変数:
+     --faq-basic-padding     : セクション余白（default: 5rem 0）
+     --faq-basic-bg          : 背景色（default: #f8fafc）
+     --faq-basic-title-size  : 見出しサイズ（default: 1.8rem）
+     --faq-basic-label-color : ラベル色（default: #00C6FF）
+     --faq-basic-item-bg     : カード背景色（default: white）
+     --faq-basic-item-radius : カード角丸（default: 12px）
+   ───────────────────────────────────── #}
+<section class="faq-basic{% if section.extraClass %} {{ section.extraClass }}{% endif %}" style="{{ section.style }}">
   <div class="container">
     {% if section.heading %}
     <div class="faq-basic__header">
