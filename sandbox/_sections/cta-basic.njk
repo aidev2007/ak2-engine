@@ -1,0 +1,23 @@
+{# cta-basic.njk — CTA セクション（スターターキット）
+   コールトゥアクション。タイトル・テキスト・ボタンを中央揃えで表示。
+
+   パラメータ:
+     section.title    : 見出し（必須）
+     section.text     : 説明テキスト（HTML 使用可）
+     section.linkUrl  : ボタンのリンク先
+     section.linkText : ボタンのラベル
+     section.gradient : 背景グラデーション（省略時: デフォルトグラデーション）
+#}
+<section class="cta-basic" style="background:{{ section.gradient | default('linear-gradient(135deg,#eff6ff,#f0f9ff)') }}">
+  <div class="container">
+    <div class="cta-basic__inner fade-in-section">
+      <h2 class="cta-basic__title">{{ section.title }}</h2>
+      {% if section.text %}
+      <p class="cta-basic__text">{{ section.text | safe }}</p>
+      {% endif %}
+      {% if section.linkUrl and section.linkText %}
+      <a href="{{ section.linkUrl }}" class="cta-basic__btn">{{ section.linkText }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

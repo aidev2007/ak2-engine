@@ -54,10 +54,17 @@ const JS_CORE_FIRST = [
 
 module.exports = function (eleventyConfig) {
 
-  // ── Nunjucks: sandbox/_includes + src/plugins + src/includes を検索パスに追加 ──
+  // ── _sections/ と _effects/ はテンプレート素材のため、ページとして処理しない ──
+  eleventyConfig.ignores.add("sandbox/_sections/**");
+  eleventyConfig.ignores.add("sandbox/_effects/**");
+
+  // ── Nunjucks: テンプレート検索パス（優先順位順）──
+  // 1. sandbox/_sections  — プロジェクト側レシピ（最優先）
+  // 2. sandbox/_includes  — プロジェクト側レイアウト
+  // 3. src/includes       — エンジン内蔵 includes
   const nunjucksEnv = new Nunjucks.Environment([
+    new Nunjucks.FileSystemLoader("sandbox/_sections"),
     new Nunjucks.FileSystemLoader("sandbox/_includes"),
-    new Nunjucks.FileSystemLoader("src/plugins"),
     new Nunjucks.FileSystemLoader("src/includes"),
   ], {
     throwOnUndefined: false,
@@ -288,27 +295,29 @@ module.exports = function (eleventyConfig) {
       fs.rmSync(dir.output, { recursive: true, force: true });
     }
 
-    // CSS: src/base.css + src/core/*.css + src/plugins/**/*.css
+    // CSS: src/base.css + src/core/*.css + src/includes/**/*.css + sandbox/_sections/**/*.css
     const baseCss = fs.existsSync("src/base.css")
       ? fs.readFileSync("src/base.css", "utf8")
       : "";
     const coreCssFiles = getAllCssFiles("src/core").sort();
-    const pluginCssFiles = getAllCssFiles("src/plugins").sort();
-    const allCssFiles = [...coreCssFiles, ...pluginCssFiles];
+    const includesCssFiles = getAllCssFiles("src/includes").sort();
+    const sectionCssFiles = getAllCssFiles("sandbox/_sections").sort();
+    const allCssFiles = [...coreCssFiles, ...includesCssFiles, ...sectionCssFiles];
     const pluginCss = allCssFiles
-      .map(f => `/* ${path.relative("src", f).replace(/\\/g, "/")} */\n` + fs.readFileSync(f, "utf8"))
+      .map(f => `/* ${path.relative(".", f).replace(/\\/g, "/")} */\n` + fs.readFileSync(f, "utf8"))
       .join("\n");
     const sandboxCss = fs.existsSync("sandbox/sandbox.css")
       ? "\n/* sandbox/sandbox.css */\n" + fs.readFileSync("sandbox/sandbox.css", "utf8")
       : "";
     fs.mkdirSync("sandbox/_site/css", { recursive: true });
     fs.writeFileSync("sandbox/_site/css/style.css", baseCss + "\n" + pluginCss + sandboxCss);
-    console.log(`[CSS] sandbox/_site/css/style.css (${allCssFiles.length} plugin files)`);
+    console.log(`[CSS] sandbox/_site/css/style.css (${allCssFiles.length} files, incl. ${sectionCssFiles.length} from _sections)`);
 
-    // JS: core-engine.js 先頭 + src/core/*.js + src/plugins/**/*.js
+    // JS: core-engine.js 先頭 + src/core/*.js + src/includes/**/*.js + sandbox/_effects/**/*.js
     const coreJsFiles = getAllJsFiles("src/core");
-    const pluginJsFiles = getAllJsFiles("src/plugins");
-    const allJsFiles = [...coreJsFiles, ...pluginJsFiles];
+    const includesJsFiles = getAllJsFiles("src/includes");
+    const effectJsFiles = getAllJsFiles("sandbox/_effects");
+    const allJsFiles = [...coreJsFiles, ...includesJsFiles, ...effectJsFiles];
     const coreFirstResolved = JS_CORE_FIRST.map(f => path.resolve(f));
     const rest = allJsFiles
       .filter(f => !coreFirstResolved.includes(path.resolve(f)))
@@ -318,11 +327,11 @@ module.exports = function (eleventyConfig) {
       ...rest,
     ];
     const bundleJs = orderedJs
-      .map(f => `/* ${path.relative("src", f).replace(/\\/g, "/")} */\n` + fs.readFileSync(f, "utf8"))
+      .map(f => `/* ${path.relative(".", f).replace(/\\/g, "/")} */\n` + fs.readFileSync(f, "utf8"))
       .join("\n");
     fs.mkdirSync("sandbox/_site/js", { recursive: true });
     fs.writeFileSync("sandbox/_site/js/site.js", bundleJs);
-    console.log(`[JS]  sandbox/_site/js/site.js (${orderedJs.length} files)`);
+    console.log(`[JS]  sandbox/_site/js/site.js (${orderedJs.length} files, incl. ${effectJsFiles.length} from _effects)`);
   });
 
   // ── Transform: 連続空行を削除 ─────────────────────────────────────────────

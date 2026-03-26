@@ -30,10 +30,10 @@
 
   {% if sections %}
     {% for section in sections %}
-      {% if section.type == "content" %}
+      {% if section.template == "content" %}
         {{ content | safe }}
-      {% else %}
-        {% include "sections/" + section.type + ".njk" ignore missing %}
+      {% elif section.template %}
+        {% include section.template + ".njk" ignore missing %}
       {% endif %}
     {% endfor %}
   {% else %}
@@ -56,7 +56,7 @@
   {% endif %}
 
   {% if useThreeJS %}
-  <script>new BgParticleEffect();</script>
+  <script>new BgEffectParticle();</script>
   {% endif %}
 
   {% if useLogoAnimation %}

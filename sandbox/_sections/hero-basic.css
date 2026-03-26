@@ -1,0 +1,43 @@
+/* hero-basic — ヒーローセクション */
+.hero-basic {
+  padding: 8rem 0 6rem;
+  background: var(--color-bg-dark, #0f172a);
+  color: white;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+.hero-basic__inner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-basic__subtitle {
+  display: inline-block;
+  font-family: var(--font-english, "Lato", sans-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-secondary, #00C6FF);
+  margin-bottom: 1rem;
+}
+.hero-basic__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.hero-basic__lead {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+.hero-basic__note {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}

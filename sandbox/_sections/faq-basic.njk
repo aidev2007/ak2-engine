@@ -1,0 +1,31 @@
+{# faq-basic.njk — FAQ アコーディオン（スターターキット）
+   details/summary ベースのアコーディオン形式 Q&A。
+
+   パラメータ:
+     section.heading    : セクション英語ラベル（省略時はヘッダーなし）
+     section.subheading : セクション日本語見出し
+     section.items[]    : Q&A データ配列
+       item.q : 質問テキスト
+       item.a : 回答テキスト（HTML 使用可）
+#}
+<section class="faq-basic">
+  <div class="container">
+    {% if section.heading %}
+    <div class="faq-basic__header">
+      <span class="faq-basic__label">{{ section.heading }}</span>
+      <h2 class="faq-basic__title">{{ section.subheading }}</h2>
+    </div>
+    {% endif %}
+    <div class="faq-basic__list">
+      {% for item in section.items %}
+      <details class="faq-basic__item">
+        <summary class="faq-basic__question">
+          {{ item.q }}
+          <span class="faq-basic__icon" aria-hidden="true">&#9660;</span>
+        </summary>
+        <div class="faq-basic__answer">{{ item.a | safe }}</div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
